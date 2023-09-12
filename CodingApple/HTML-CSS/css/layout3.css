@@ -1,6 +1,9 @@
+/* position과 좌표 레이아웃 만들기 */
+
 .main-background {
   width: 100%;
   height: 500px;
+  position: relative;
   background-image: url(../image/pond.jpg);
   /* 배경 여러개 겹치기 가능 뒤에 ,url() 또 쓰면 됨 */
   background-size: cover;
@@ -18,4 +21,35 @@
   color: white;
   font-size: 40px;
   margin-top: 200px;
+  text-align: center;
+}
+
+.main-content {
+  color: #e2e2e2;
+  padding: 0 80px;
+  text-align: center;
+}
+
+.main-button {
+  width: 100px;
+  height: 50px;
+  position: absolute;
+  bottom: 50px;
+  right: 100px;
+  border-radius: 10px;
+  border: 1px solid #e2e2e2;
+  background: transparent;
+  color: white;
+  backdrop-filter: blur(10px);
+  /* position: relative - 내 원래 위치를 기준으로 이동하세요 */
+  /* position 부여하면 1. 좌표이동이 가능 2. 공중에 뜸 */
+  /* position: static - 좌표 이동 x
+    position: fixed - 현재 화면이 기준으로 고정되는 요소가 필요하면 ㄱㄱ */
+  /* position: absolute 내 부모 태그 중에 position: relative 가진 부모 기준 */
+
+  /* position: absolute 준 요소를 가운데 정렬하려면 */
+  /* left: 0;
+  right: 0;
+  margin: auto;
+  width: 150px; */
 }

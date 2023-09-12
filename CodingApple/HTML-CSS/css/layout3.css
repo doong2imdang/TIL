@@ -89,3 +89,13 @@ body {
 .box-container h4 {
   font-size: 25px;
 }
+
+/* form & input */
+
+/* input[속성명 = 속성값]으로 선택 가능 */
+input[type="text"] {
+  padding: 10px;
+  font-size: 20px;
+  border: 2px solid red;
+  border-radius: 5px;
+}

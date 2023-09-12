@@ -69,3 +69,59 @@
   /* clear: both; */
   /* float: none; */
 }
+
+.profile-container {
+  width: 900px;
+  margin: 0 auto;
+}
+
+.left {
+  width: 80%;
+  float: left;
+}
+
+.profile-img {
+  width: 50px;
+  float: left;
+  margin-right: 10px;
+}
+
+.profile {
+  margin-left: 0;
+}
+
+.name {
+  font-size: 16px;
+  margin: 0;
+  min-width: 200px;
+}
+
+.time {
+  font-size: 10px;
+  color: grey;
+}
+
+.detail-img {
+  width: 20%;
+  float: right;
+}
+
+.post {
+  margin: 20px 0;
+  clear: both;
+}
+
+.post-img {
+  width: 100%;
+  padding-left: 10px;
+}
+
+.post-title {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.post-content {
+  color: grey;
+  font-size: 15px;
+}

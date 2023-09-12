@@ -20,7 +20,7 @@
 .main-title {
   color: white;
   font-size: 40px;
-  margin-top: 200px;
+  margin-top: 150px;
   text-align: center;
 }
 
@@ -34,10 +34,10 @@
   width: 100px;
   height: 50px;
   position: absolute;
-  bottom: 50px;
+  bottom: 100px;
   right: 100px;
   border-radius: 10px;
-  border: 1px solid #e2e2e2;
+  border: 1px solid white;
   background: transparent;
   color: white;
   backdrop-filter: blur(10px);
@@ -52,4 +52,40 @@
   right: 0;
   margin: auto;
   width: 150px; */
+
+  /* 높을 수록 앞에 옵니다. */
+  z-index: 5;
+}
+
+.box-container {
+  /* 현재 창의 width는 곧 <body>의 width (반응형 레이아웃)*/
+  width: 80%;
+
+  /* 최대 폭 지정 */
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #e2e2e2;
+  text-align: center;
+  padding: 50px 30px;
+  position: relative;
+  top: -50px;
+
+  /* 이러면 width가 padding, border도 포함함  content-box(기존적용된 속성) */
+  box-sizing: border-box;
+}
+
+/* 먼저 설정해놓고 코드 작성하면 편안함 */
+div {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+}
+/*  여기까지 */
+
+.box-container h4 {
+  font-size: 25px;
 }

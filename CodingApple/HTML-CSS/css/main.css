@@ -35,6 +35,8 @@
   box-shadow: 4px 4px 2px black;
 }
 
+/* 레이아웃 만들기 1: 호환성 좋은 flaot  */
+/* 레이아웃 만들기 2: 귀찮은 inline-block */
 .container {
   width: 800px;
 }
@@ -70,6 +72,7 @@
   /* float: none; */
 }
 
+/* 레이아웃 만들기 숙제: BLog 글목록 만들기 */
 .profile-container {
   width: 900px;
   margin: 0 auto;
@@ -124,4 +127,31 @@
 .post-content {
   color: grey;
   font-size: 15px;
+}
+
+/* 셀렉터를 이용해 css 코드 양 줄이기 */
+/* selector 문법 > ~안에 있는 직계자식
+   selector 문법 공백 ~안에 있는 모든 자식 
+   
+   .navbar > li {
+  display: inline-block;
+  }*/
+.navbar {
+  width: 900px;
+  margin: 20px auto;
+}
+
+.navbar li {
+  display: inline-block;
+  width: calc(100% / 5);
+  text-align: center;
+  background: #eee;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.navbar a {
+  font-size: 16px;
+  color: black;
+  text-decoration: none;
 }

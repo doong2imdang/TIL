@@ -1,0 +1,15 @@
+td,
+th {
+  border: 1px solid black;
+}
+
+table {
+  /* <table>은 기본적으로 틈이 존재, 없애려면 border-collapse: collapse 설정 */
+  border-collapse: collapse;
+}
+
+/* 셀 안의 요소 상하정렬 vertical-align: top/middle/bottom */
+
+/* vertical align
+  (용도1) inline/inline-block 요소간의 세로정렬할때 vertical-align 씁니다.
+*/

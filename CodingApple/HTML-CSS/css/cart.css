@@ -84,5 +84,51 @@ th {
   background-color: #123761;
   font-size: 16px;
   padding: 20px 30px;
+  border: none;
   border-radius: 5px;
+  cursor: pointer;
+}
+
+/* 마우스 올릴 때 스타일은 :hover(pseudo-class) */
+.footer button:hover {
+  background-color: chocolate;
+}
+
+/* 커서 찍혀있을 떄 스타일은 :focus(pseudo-class) */
+.footer button:focus {
+  background-color: grey;
+}
+
+/* 클릭 중 스타일은 :active */
+.footer button:active {
+  background-color: brown;
+  border: 2px solid black;
+}
+
+/*
+:hover -> :focus -> :active 순서로 작성해야 원하는 결과를 얻을 수 있음(호빠)로 외워!! 
+pseudo-class엔 거의 모든 스타일 넣기 가능
+*/
+
+.input-test {
+  font-size: 20px;
+}
+
+.input-test:focus {
+  border: 2px solid red;
+  outline: none;
+}
+
+.custom-link {
+  text-decoration: none;
+}
+
+/* 방문전 링크 스타일링은 :link */
+.custom-link:link {
+  color: aqua;
+}
+
+/* 방문후 링크 스타일링은 :visited */
+.custom-link:visited {
+  color: black;
 }

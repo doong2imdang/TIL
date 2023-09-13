@@ -132,3 +132,33 @@ pseudo-class엔 거의 모든 스타일 넣기 가능
 .custom-link:visited {
   color: black;
 }
+
+/* 만들어두면 편한 Utility class
+(스타일 한두개만 들어있는 class) */
+.f-small {
+  font-size: 12px;
+}
+
+.f-mid {
+  font-size: 16px;
+}
+
+.f-lg {
+  font-size: 20px;
+}
+
+/* Object Oriented CSS 라고 부르는 작성 관습 */
+.main-btn {
+  padding: 15px;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.bg-red {
+  background: red;
+}
+
+.bg-blue {
+  background: blue;
+}

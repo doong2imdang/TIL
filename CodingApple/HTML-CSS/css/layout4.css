@@ -1,0 +1,99 @@
+body {
+  margin: 0;
+  padding: 20px 0;
+  background: #767676;
+}
+
+input,
+textarea,
+div {
+  box-sizing: border-box;
+}
+
+.contact-form {
+  background-color: white;
+  padding: 30px 50px;
+  width: 500px;
+  margin: 0 auto;
+  border: 1px solid #e2e2e2;
+  border-radius: 5px;
+}
+
+.w-100 {
+  width: 100%;
+  padding: 10px;
+  position: relative;
+}
+
+.title {
+  font-size: 35px;
+  font-weight: 570;
+  margin: 0 0 30px 0;
+  padding: 0;
+}
+
+input[type="email"] {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-top: 7px;
+  border: 1px solid grey;
+  border-radius: 5px;
+}
+
+input::placeholder {
+  color: #c4c4c4;
+}
+
+.label-firstname,
+.label-lastname {
+  display: block;
+}
+
+.inp-firstname,
+.inp-lastname {
+  border: 1px solid grey;
+  border-radius: 5px;
+  width: 100%;
+  padding: 10px;
+  margin-top: 7px;
+}
+
+.label-message {
+  display: block;
+}
+
+.firstname-container,
+.lastname-container {
+  float: left;
+  padding: 10px;
+  width: 50%;
+}
+
+.textarea-message {
+  width: 100%;
+  height: 200px;
+  resize: none;
+  border: 1px solid grey;
+  border-radius: 5px;
+  margin-top: 7px;
+  padding: 10px;
+}
+
+input[type="checkbox"] {
+  accent-color: grey;
+}
+
+.btn-send {
+  background-color: #febd1a;
+  border: none;
+  color: white;
+  padding: 8px 30px;
+  border-radius: 5px;
+  position: absolute;
+  bottom: 5px;
+  right: 10px;
+  cursor: pointer;
+  /* display: block;
+  margin-left: auto; */
+}

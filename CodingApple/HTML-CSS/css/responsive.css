@@ -1,0 +1,53 @@
+body,
+strong,
+p,
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+.navbar {
+  width: 80%;
+  max-width: 1000px;
+  display: flex;
+  padding: 50px;
+  height: 100px;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.navbar-list {
+  text-align: center;
+  width: 25%;
+}
+
+.navbar-list p {
+  margin: 10px 0;
+}
+
+@media screen and (max-width: 1200px) {
+  .navbar {
+    flex-wrap: wrap;
+  }
+
+  .navbar-list {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .navbar {
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  .navbar-list {
+    width: 100%;
+  }
+}

@@ -1,0 +1,21 @@
+/* 
+display: flex 부모에 주면 됩니다 
+*/
+
+.flex-container {
+  display: flex;
+  height: 500px;
+  flex-direction: row;
+  justify-content: center;
+  /* width크면 밑으로 보내고 싶을때 */
+  /* flex-wrap: wrap; */
+  align-items: center;
+}
+
+.flex-item {
+  /* 실제로 100%아님 */
+  width: 100px;
+  height: 100px;
+  background-color: grey;
+  margin: 5px;
+}

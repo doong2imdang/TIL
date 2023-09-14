@@ -160,3 +160,55 @@ input[type="text"] {
   font-size: 25px;
   margin-left: 15px;
 }
+
+/* 반응형 레이아웃 만들기 */
+.test {
+  width: 50vw;
+  height: 50vh;
+  background: grey;
+}
+
+/* 
+단위 더 알아보기
+vw(브라우저 폭에 비례)
+vh(브라우저 높이에 비례)
+rem(기본 폰트사이즈에 비례) 기본은 16px;로 설정이 되어있음
+em(내 폰트사이즈의 X배)
+*/
+
+/* media query 문법 쓰면 됩니다. 큰 사이즈 -> 작은 사이즈 순으로 작성 */
+/* (참고) breakpoint 기준 px값은 다른 사람 따라하는걸 권장 
+1200px ---- 여기부터 태블릿 디자인
+992px
+768px ---- 여기부터 모바일 디자인
+576px 
+단위들 많이 사용함 (3개정도만 사용하기)
+*/
+
+/* 현재 브라우저 폭이 1200px 이하일 경우 */
+@media screen and (max-width: 1200px) {
+  .main-title {
+    font-size: 30px;
+    /* 이걸 적용해주세요 */
+  }
+
+  .header h1 {
+    font-size: 25px;
+  }
+
+  .header a {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .main-title {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .main-title {
+    font-size: 16px;
+  }
+}

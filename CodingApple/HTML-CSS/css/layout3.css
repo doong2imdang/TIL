@@ -1,3 +1,37 @@
+@font-face {
+  font-family: "작명~~~";
+  src: url(../font/NotoSansKR-VariableFont_wght.ttf);
+}
+
+/* 
+용량 줄이려면 .woff 쓰셈 
+폰트파일 호스팅해주는 Google Fonts
+*/
+
+/* 
+폰트 부드럽게 처리하려면 회전시켜보셈
+*/
+p,
+h4,
+h3,
+h2,
+h1,
+span {
+  transform: rotate(0.03deg);
+}
+
+/* HTML CSS 웹폰트 넣는 법과 안티앨리어싱 */
+div,
+input,
+textarea {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0px;
+  font-family: "작명~~~";
+}
+
 /* position과 좌표 레이아웃 만들기 */
 
 .main-background {
@@ -55,6 +89,7 @@
 
   /* 높을 수록 앞에 옵니다. */
   z-index: 5;
+  cursor: pointer;
 }
 
 .box-container {

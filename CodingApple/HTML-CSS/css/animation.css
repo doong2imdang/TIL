@@ -48,3 +48,26 @@ one-way 애니메이션 만드는 step
 .overlay:hover {
   opacity: 1;
 }
+
+/* 밑에서 위로 올라오는 애니메이션 만들기 */
+
+.overlay-wrap {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.overlay-black {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  margin-top: 100%;
+  font-size: 30px;
+  color: white;
+}
+
+.overlay-wrap:hover .overlay-black {
+  margin-top: 50%;
+  transition: all 1s;
+}

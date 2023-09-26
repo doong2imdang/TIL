@@ -214,6 +214,37 @@ Q.Bootstrap 사용시 덮어쓰기는?
 A.class추가하는게 흔함. 덮어쓰기는 잘안함
 */
 
+/* 약간쓸데없는 Pseudo-element */
+.pseudo::first-letter {
+  color: cornflowerblue;
+  font-size: 30px;
+  /* 
+  그나마 자주 사용하는 pseudo-element
+  ::after(내부 맨 뒤에 뭔가 추가할때)
+  ::before(내부 맨 앞에 뭔가 추가할때)
+  */
+}
+
+.pseudo::before {
+  content: "안녕";
+  color: cornflowerblue;
+  font-size: 20px;
+}
+/* 
+:pseudo-class(다른 상태일때)
+::pseudo-element(내부의 일부분만 스타일줄때)
+숨겨져있는 요소 스타일줄 때도 :: 사용함
+*/
+.input-file::file-selector-button {
+  background: skyblue;
+  border: none;
+  padding: 20px;
+}
+
+.input-file::file-selector-button:hover {
+  background: blue;
+}
+
 /* 반응형 레이아웃 만들기 */
 .test {
   width: 50vw;

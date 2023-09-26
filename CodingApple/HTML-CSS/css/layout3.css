@@ -3,6 +3,17 @@
   src: url(../font/NotoSansKR-VariableFont_wght.ttf);
 }
 
+.a11y-hidden {
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+}
+
 /* 
 용량 줄이려면 .woff 쓰셈 
 폰트파일 호스팅해주는 Google Fonts
@@ -235,14 +246,48 @@ A.class추가하는게 흔함. 덮어쓰기는 잘안함
 ::pseudo-element(내부의 일부분만 스타일줄때)
 숨겨져있는 요소 스타일줄 때도 :: 사용함
 */
-.input-file::file-selector-button {
+
+/* 딥다크한 어둠의 공간 Shadow DOM */
+/* 
+<input type="file"> 이것만 쓰면 자동으로 숨겨진 버튼, <span> 생성됨
+*/
+/* .input-file::file-selector-button {
+  background: skyblue;
+  border: none;
+  padding: 20px;
+} */
+/* === 같은 결과임 */
+input[type="file"]::-webkit-file-upload-button {
   background: skyblue;
   border: none;
   padding: 20px;
 }
+/* 
+-webkit : 크롬, 사파리, Edge에서만 적용되는 스타일 
+-ms: Explore에서만 적용
+-moz : Firefox에서만 적용
+*/
 
-.input-file::file-selector-button:hover {
+input-file::file-selector-button:hover {
   background: blue;
+}
+
+input::-webkit-input-placeholder {
+  color: red;
+}
+
+input[type="range"] {
+  appearance: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  /* appearance: none
+  (브라우저 기본 CSS 안보이게)
+  */
+  background: red;
+  width: 50px;
+  height: 50px;
 }
 
 /* 반응형 레이아웃 만들기 */

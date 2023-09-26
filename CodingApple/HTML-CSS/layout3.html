@@ -70,6 +70,12 @@
         placeholder = "배경글자"
         name = "인풋이름"(서버개발시 필요) -->
     </form>
-    <input type="file" class="input-file" />
+    <!-- 버튼에 배경색을 주고싶으면 style=""이렇게는 안되고 class를 줘서 pseudo-element를 써야함 -->
+    <!-- 실제로는 파일업로드 버튼을 이런식으로 만드는게 흔합니다. -->
+    <label for="">안녕</label>
+    <input type="file" class="input-file a11y-hidden" />
+    <input type="text" placeholder="안녕하세요" />
+    <input type="range" />
+    <progress value="0.5"></progress>
   </body>
 </html>

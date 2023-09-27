@@ -1,3 +1,8 @@
+// 다른파일에 있는 내용 가져오고 싶을 땐 @use '파일경로';
+// CSS 기본문법에도 @import 있습니다.
+// 컴파일 하기 싫은 파일은 _파일명.scss로 작명하쇼
+@use "reset";
+
 // 1. 어려운 단어 기억해야할 땐 변수문법 씁니다.
 // ($: 변수를 만들겠습니다. 변수는 데이터를 잠깐 보관하는 통임)
 // 변수만들려면 $변수명: 저장해서쓸값;
@@ -41,7 +46,7 @@ $기본사이즈: 16px;
   }
 }
 
-// @extend 문법
+// @extend 문법: class 복사할 때 씁니다.
 // 빨강, 파랑, 초록 버튼이 필요하다.
 // 중복을 없애려면 뼈와 살을 분리하면 좋댔음
 
@@ -112,4 +117,49 @@ $기본사이즈: 16px;
 .div-blue {
   @extend %div;
   background-color: blue;
+}
+
+// @mixin 문법: 긴 코드를 짧은 단어로 축약할 때 씀
+// @mixin문법의 $파라미터 : 긴 코드를 간벽적으로 만들때 씀
+
+// h2 {
+//   font-size: 30px;
+//   letter-spacing: -1px;
+// }
+
+// h3 {
+//   font-size: 20px;
+//   letter-spacing: -1px;
+// }
+
+// h4 {
+//   font-size: 10px;
+//   letter-spacing: -1px;
+// }
+
+// 안에 있는 긴 코드를 이 글자(폰트스타일)로 축약해주셈
+// 글자 중간에 $변수나 $파라미터 넣을 땐 #{$변수명}
+@mixin 폰트스타일($구멍, $구멍2, $구멍3) {
+  font-size: $구멍;
+  letter-spacing: $구멍2;
+  #{ $구멍3 }: 2px;
+}
+
+// 그럼 이자리에 아까 축약했던 코드가 복붙됩니다.
+// @include 폰트스타일();
+
+// 다른파일의 $변수를 쓰려면 파일명.$변수
+// 다른 파일의 @mixin 쓰려면 @include파일명.mixin이름
+
+h2 {
+  @include 폰트스타일(30px, -1px, padding);
+  color: reset.$배경컬러;
+}
+
+h3 {
+  @include 폰트스타일(20px, 2px, padding);
+}
+
+h4 {
+  @include 폰트스타일(10p, 1px, padding);
 }

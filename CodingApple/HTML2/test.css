@@ -1,16 +1,56 @@
-/* 실은 CSS 기본 문법에도 변수 이런거 있음 */
-/* 실은 CSS 기본 문법에도 사칙연산 기능 있음 */
-:root {
-  --main-color: red;
-}
-
 .background {
-  background-color: var(--main-color);
-  font-size: calc(40% - 20px);
+  background-color: #2a4cb2;
+  font-size: 14px;
 }
 
 .box {
   color: #eeeeee;
   font-size: 18px;
-} /*# sourceMappingURL=test.css.map */
+}
 
+.main-bg {
+  width: 100px;
+}
+.main-bg h4 {
+  font-size: 16px;
+}
+
+.main-bg button {
+  color: red;
+}
+
+.btn-blue, .btn-red, .btn-green {
+  width: 100px;
+  height: 100px;
+  padding: 20px;
+}
+
+.btn-green {
+  color: green;
+}
+
+.btn-red {
+  color: red;
+}
+
+.btn-blue {
+  color: blue;
+}
+
+.div-blue, .div-red, .div-green {
+  width: 200px;
+  height: 200px;
+  padding: 20px;
+}
+
+.div-green {
+  background-color: green;
+}
+
+.div-red {
+  background-color: red;
+}
+
+.div-blue {
+  background-color: blue;
+}/*# sourceMappingURL=test.css.map */

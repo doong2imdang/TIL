@@ -16,3 +16,100 @@ $기본사이즈: 16px;
   color: $서브컬러;
   font-size: ($기본사이즈 + 2px);
 }
+
+// nesting 문법(관련있는 class들 묶을 때 좋음)
+// nesting은 두개 이상 중첩 ㄴㄴ
+
+// .main-bg h4 {
+//   font-size: 16px;
+// }
+
+// .main-bg button {
+//   color: red;
+// }
+
+.main-bg {
+  width: 100px;
+  h4 {
+    font-size: 16px;
+  }
+}
+
+.main-bg {
+  button {
+    color: red;
+  }
+}
+
+// @extend 문법
+// 빨강, 파랑, 초록 버튼이 필요하다.
+// 중복을 없애려면 뼈와 살을 분리하면 좋댔음
+
+// .btn-green {
+//   width: 100px;
+//   height: 100px;
+//   padding: 20px;
+//   color: green;
+// }
+
+// .btn-red {
+//   width: 100px;
+//   height: 100px;
+//   padding: 20px;
+//   color: red;
+// }
+
+// .btn-blue {
+//   width: 100px;
+//   height: 100px;
+//   padding: 20px;
+//   color: blue;
+// }
+
+// %임시클래스명(특징: 단독으로 컴파일되지 않음 .클래스명 으로 해도 되긴함)
+// class 전체를 복사해주는 @extend 문법
+// 중복된 스타일들이 많으면
+// 1. 클래스로 묶어두고
+// 2. @extend로 필요할 때 복사하셈
+%btn {
+  width: 100px;
+  height: 100px;
+  padding: 20px;
+}
+
+.btn-green {
+  @extend %btn;
+  color: green;
+}
+
+.btn-red {
+  @extend %btn;
+  color: red;
+}
+
+.btn-blue {
+  @extend %btn;
+  color: blue;
+}
+
+// 오늘의 간단숙제: 초록 빨강 파랑 div들 디자인해오셈
+%div {
+  width: 200px;
+  height: 200px;
+  padding: 20px;
+}
+
+.div-green {
+  @extend %div;
+  background-color: green;
+}
+
+.div-red {
+  @extend %div;
+  background-color: red;
+}
+
+.div-blue {
+  @extend %div;
+  background-color: blue;
+}

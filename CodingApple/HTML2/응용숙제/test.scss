@@ -1,0 +1,77 @@
+// nesting 이용한 리스트 만들기
+.sh-list {
+  li {
+    list-style: none;
+    padding: 15px;
+    border: 1px solid #eee;
+
+    &:hover {
+      background: cornflowerblue;
+      color: white;
+    }
+  }
+  .active {
+    background: skyblue;
+    color: white;
+  }
+}
+
+// extend or mixin 이용해 alert 박스 여러개 만들기
+.alert-box-green {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #eee;
+  background: green;
+  color: white;
+}
+
+.alert-box-yellow {
+  @extend .alert-box-green;
+  background: orange;
+}
+
+.alert-box-blue {
+  @extend .alert-box-green;
+  background: blue;
+}
+
+// extend or mixin 이용해 row, col 만들기
+div {
+  box-sizing: border-box;
+}
+
+@mixin column($구멍) {
+  float: left;
+  width: $구멍;
+  padding: 15px;
+}
+
+.row {
+  .col-6 {
+    @include column(50%);
+  }
+}
+
+.row {
+  .col-4 {
+    @include column(33.3%);
+  }
+}
+
+.row {
+  .col-3 {
+    @include column(25%);
+  }
+}
+
+.row {
+  .col-2 {
+    @include column(16.6%);
+  }
+}
+
+.row {
+  .col-1 {
+    @include column(10%);
+  }
+}

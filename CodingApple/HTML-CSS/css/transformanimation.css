@@ -1,0 +1,71 @@
+/* 
+transform
+- 회전하고 싶을때 transform:rotate(10deg);
+- 좌표이동하고 싶을때 transform:translateX(10px); => 애니메이션 줄 경우 margin 이런거보다 부드러움
+- 크기변화 주고 싶을때 
+*/
+
+.ani-text {
+  text-align: center;
+}
+
+.ani-text:hover {
+  animation-name: 왔다갔다;
+  animation-duration: 1s;
+  /* 
+  anmation-delay: 딜레이양
+  animaition-iteration-count: 반복횟수
+  animation-timing-function: 베지어
+  */
+}
+
+/* 복잡한 애니메이션 정의는 @keyframes */
+/* 
+왔다갔다 하는 애니메이션(transition은 불가능 a->b 이런것만 가능) 
+
+n% ? 애니메이션이 n% 진행시 적용할 스타일
+
+@keyframes 넣고싶으면 
+animation-name/ animation-duration
+*/
+@keyframes 왔다갔다 {
+  0% {
+    transform: translateX(0px);
+  }
+
+  50% {
+    transform: translateX(-100px);
+  }
+
+  75% {
+    transform: translateX(100px);
+  }
+
+  100% {
+    transform: translateX(0px);
+  }
+}
+/* 
+브라우저가 그림그리는 순서
+1. Render Tree 만들기(CSS 정리한 참고자료임 그냥)
+2. Layout 잡기(네모네모 박스부터 그림: width, height, margin, padding 등 처리)
+3. Paint 하기(색칠함: background-color 같은거 처리)
+4. Composite 처리(transform, opacity있으면 처리)
+
+Q. width, margin 갑자기 변경하면? 2,3,4 다시 해야함
+
+Q. color 갑자기 변경하면? 3,4 다시 해야함
+
+Q. transform 갑자기 변경하면? 4번만 다시 처리하면 되니 부담이 덜함
+
+=> 그래서 margin보다 transform이 변경시 처리빠름
+특히 자바스크립트가 너무 많은 사이트는 애니메이션 항상 transform 줘야 빨리빨리 동작함
+
+Composite 단계에 있는 transform 같은 것들은 다른 쓰레드(공간)에서 처리해줌(빠른이유2)
+
+웹브라우저는 쓰레드 1개만 사용
+ - 자바스크립트 실행
+ - HTML CSS 처리 전부한 곳에서 함
+
+% will change: 3D animation 사기치기 사용하면 성능개선 가능 % 
+*/

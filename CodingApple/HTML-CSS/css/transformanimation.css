@@ -69,3 +69,116 @@ Composite 단계에 있는 transform 같은 것들은 다른 쓰레드(공간)�
 
 % will change: 3D animation 사기치기 사용하면 성능개선 가능 % 
 */
+
+/* 숙제1 */
+.ani-button {
+  background: skyblue;
+  border: none;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 5px;
+  display: block;
+  margin: 30px auto;
+  font-size: 20px;
+}
+
+.ani-button:hover {
+  animation-name: 흔들흔들;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes 흔들흔들 {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(-10deg);
+  }
+
+  50% {
+    transform: rotate(10deg);
+  }
+
+  75% {
+    transform: rotate(-10deg);
+  }
+
+  100% {
+    transfrom: rotate(0deg);
+  }
+}
+
+/* 숙제2 */
+.ani-x {
+  margin: 150px auto;
+  text-align: center;
+  font-size: 70px;
+  width: 84px;
+  cursor: pointer;
+}
+
+.ani-x:hover {
+  animation-name: 돌아돌아;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes 돌아돌아 {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(-25deg);
+  }
+
+  100% {
+    transform: rotate(45deg) scale(1.5) translateX(5px);
+  }
+}
+
+/* 숙제3 */
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.ani-navbar {
+  width: 200px;
+  background: black;
+  color: white;
+  height: 100%;
+  padding: 25px;
+  position: fixed;
+  z-index: 5;
+  text-align: right;
+  transform: translateX(-150px);
+  transition: all 1s;
+}
+
+.ani-navbar:hover {
+  transform: translateX(0px);
+  text-align: center;
+}
+
+.ani-navbar:hover p {
+  animation-name: 슬라이드;
+  animation-duration: 1s;
+}
+
+@keyframes 슬라이드 {
+  0% {
+    transform: translateX(-150px);
+  }
+
+  50% {
+    transform: translateX(20px) skewX(-30deg);
+  }
+
+  100% {
+    transform: translateX(0px);
+  }
+}

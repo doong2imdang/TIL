@@ -15,11 +15,15 @@
     -->
 
     <div class="alert-box" id="alert">
-      알림창임<button type="button" class="btn-close" onClick="closeBox()">
+      알림창임<button
+        type="button"
+        class="btn-close"
+        onClick="alertBox('none')"
+      >
         X
       </button>
     </div>
-    <button type="button" onClick="openBox()">버튼</button>
+    <button type="button" onClick="alertBox('block')">버튼</button>
     <!-- <button onClick="자바스크립트~~~">버튼</button> -->
     <script>
       // 긴 코드 짧은단어로 축약하는 법 -> function 문법 쓰면 됩니다.
@@ -31,6 +35,21 @@
       // 코드 짧게 축약해서 쓰고싶을때 function 꺼내서 쓰면 됩니다. => 긴 코드 재사용이 잦을 때도 편리
       // function 용도 2개 더 있음(이후에)
 
+      function alertBox(구멍) {
+        document.getElementById("alert").style.display = 구멍;
+      }
+      // 지금은 함수 1개로 2종료 코드 실행 가능
+
+      /// function에 구멍뚫기 ///
+
+      // openBox('안녕'); 구멍(파라미터)에 '안녕' 넣어서 openBox 안의 코드 실행해주셈
+      // 결국 document.getElementById('alert').style.display = '안녕' 이 되는 거임
+
+      // openBox('바보'); 구멍(파라미터)에 '바보' 넣어서 openBox 안의 코드 실행해주셈
+      // 결국 document.getElementById('alert').style.display = '바보' 이 되는 거임
+
+      // '문자'는 따옴표 안에
+
       function openBox() {
         document.getElementById("alert").style.display = "block";
       }
@@ -38,6 +57,27 @@
       function closeBox() {
         document.getElementById("alert").style.display = "none";
       }
+
+      // 파라미터 예시2
+      // 파라미터 작명은 아무렇게나 가능
+      // 파라미터 여러개 가능
+
+      function plus() {
+        2 + 1;
+      }
+
+      function plus2() {
+        2 + 2;
+      }
+
+      function plus2() {
+        2 + 3;
+      }
+
+      function addition(구멍1, 구멍2) {
+        구멍1 + 구멍2;
+      }
+      addition(1, 2);
     </script>
 
     <!-- 자주 겪는 에러 -->

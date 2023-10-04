@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 
+    JS
+    -HTML 조작가능 
+    -서버와 통신 가능
+    -클릭, 타이핑 감지
+    -비동기 처리
+    -자료다루기 등
+    -->
+
+    <h1 id="hello">안녕하세요</h1>
+    <h1 id="hi">JS 초보에요</h1>
+
+    <script>
+      // html 페이지 로드할때 실행됨
+      // html문서 / ~의 / id가 hello인 html요소를 가져와라 / 그거의 내부 html / 찾아서 내용을 안녕으로 바꿔줘
+      // 등호: 오른쪽을 왼쪽에 넣으라는 뜻
+      // document.getElementById("hello").innerHTML <= "안녕"; 이런 의미
+      document.getElementById("hello").innerHTML = "안녕";
+      document.getElementById("hi").innerHTML = "JS 고수에요";
+
+      // 숙제. 폰트사이즈 16px 만들기
+      document.getElementById("hello").style.fontSize = "16px";
+
+      //         1. 바꿀 html요소 id  2.무엇을  3.어떻게
+      // document.getElementById('??').?? = '??';
+      // ?? 부분 3개만 잘 채우면 상상하는 모든 것 변경가능
+
+      // Q. 글자를 빨간색으로 변경?
+      // document.getElementById('hello').style.color = 'red';
+
+      // Q. <img>의 src 변경?
+      // document.getElementById('hello').src = '~~~';
+    </script>
+  </body>
+</html>

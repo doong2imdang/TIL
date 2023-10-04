@@ -1,0 +1,10 @@
+.alert-box {
+  background-color: skyblue;
+  padding: 20px;
+  color: white;
+  border-radius: 5px;
+
+  /* 버튼을 누르면 보여주고 싶음? 평소에 숨겨야할듯 */
+  display: none;
+  /* 보여주고싶으면 display: block */
+}

@@ -15,20 +15,37 @@
     -->
 
     <div class="alert-box" id="alert">
-      알림창임<button
-        type="button"
-        class="btn-close"
-        onClick="document.getElementById('alert').style.display='none'"
-      >
+      알림창임<button type="button" class="btn-close" onClick="closeBox()">
         X
       </button>
     </div>
-    <button
-      type="button"
-      onClick="document.getElementById('alert').style.display = 'block';"
-    >
-      버튼
-    </button>
+    <button type="button" onClick="openBox()">버튼</button>
     <!-- <button onClick="자바스크립트~~~">버튼</button> -->
+    <script>
+      // 긴 코드 짧은단어로 축약하는 법 -> function 문법 쓰면 됩니다.
+
+      /// 자바스크립트 function 문법
+
+      // <button onClick="작명()"></button>
+      // function 작명() {}
+      // 코드 짧게 축약해서 쓰고싶을때 function 꺼내서 쓰면 됩니다. => 긴 코드 재사용이 잦을 때도 편리
+      // function 용도 2개 더 있음(이후에)
+
+      function openBox() {
+        document.getElementById("alert").style.display = "block";
+      }
+
+      function closeBox() {
+        document.getElementById("alert").style.display = "none";
+      }
+    </script>
+
+    <!-- 자주 겪는 에러 -->
+    <!-- 
+      1. 조작할 html의 하단에 코드짜야 잘됩니다. 
+      2. 셀렉터 오타 주의
+      (어쩌구 of null : 대부분 셀렉터 오타)
+      3. 그냥 기본문법 오타(console창 디버깅해보기)
+    -->
   </body>
 </html>

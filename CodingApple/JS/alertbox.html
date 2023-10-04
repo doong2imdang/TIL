@@ -14,7 +14,15 @@
     2. 필요할때 보여달라고 코드 짬(자바스크립트로)
     -->
 
-    <div class="alert-box" id="alert">알림창임</div>
+    <div class="alert-box" id="alert">
+      알림창임<button
+        type="button"
+        class="btn-close"
+        onClick="document.getElementById('alert').style.display='none'"
+      >
+        X
+      </button>
+    </div>
     <button
       type="button"
       onClick="document.getElementById('alert').style.display = 'block';"

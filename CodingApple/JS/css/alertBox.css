@@ -8,3 +8,13 @@
   display: none;
   /* 보여주고싶으면 display: block */
 }
+
+.btn-close {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  right: 20px;
+  cursor: pointer;
+}

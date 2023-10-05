@@ -15,10 +15,8 @@
     -->
 
     <div class="alert-box" id="alert">
-      <p id="content">알림창임</p>
-      <button type="button" class="btn-close" onClick="alertBox('none')">
-        X
-      </button>
+      <p class="title" id="content">알림창임</p>
+      <button id="close" type="button" class="btn-close">X</button>
     </div>
     <button type="button" onClick="alertBox('block', '아이디 입력하세요')">
       버튼1
@@ -44,7 +42,10 @@
 
       function alertBox(구멍1, 구멍2) {
         document.getElementById("alert").style.display = 구멍1;
-        document.getElementById("content").innerHTML = 구멍2;
+        // document.getElementById("content").innerHTML = 구멍2;
+
+        // class로 셀렉터를 사용할땐 인덱싱[0] 해주는게 좋다.
+        document.getElementsByClassName("title")[0].innerHTML = 구멍2;
       }
 
       // 지금은 함수 1개로 2종료 코드 실행 가능
@@ -66,6 +67,18 @@
       function closeBox() {
         document.getElementById("alert").style.display = "none";
       }
+
+      /// addEventListener() ///
+      // event 감지하고 싶으면 addEventListener('event명(keydown, scroll, mouseover)', function() { 실행할 코드 })
+      // 여기서 function(){} 은 콜백함수(파라미터 자리에 들어가는 함수)임
+      // 이거쓰면 onClick 필요없음
+      //         얘를               클릭하면
+      document
+        .getElementById("close")
+        .addEventListener("mouseover", function () {
+          // 여기있는 코드 실행해줌
+          document.getElementById("alert").style.display = "none";
+        });
 
       // 파라미터 예시2
       // 파라미터 작명은 아무렇게나 가능

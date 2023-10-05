@@ -1,0 +1,11 @@
+/* 
+버튼을 누르면 보여달라고 JS 짬(class 탈부착으로도 구현가능)
+*/
+.list-group {
+  display: none;
+}
+
+.show {
+  display: block;
+  /* css파일은 하단에 적을수록 우선적용됨 */
+}

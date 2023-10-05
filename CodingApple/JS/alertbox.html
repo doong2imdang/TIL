@@ -15,17 +15,24 @@
     -->
 
     <div class="alert-box" id="alert">
-      알림창임<button
-        type="button"
-        class="btn-close"
-        onClick="alertBox('none')"
-      >
+      <p id="content">알림창임</p>
+      <button type="button" class="btn-close" onClick="alertBox('none')">
         X
       </button>
     </div>
-    <button type="button" onClick="alertBox('block')">버튼</button>
+    <button type="button" onClick="alertBox('block', '아이디 입력하세요')">
+      버튼1
+    </button>
+    <button type="button" onClick="alertBox('block', '비번 입력하세요')">
+      버튼2
+    </button>
     <!-- <button onClick="자바스크립트~~~">버튼</button> -->
+
     <script>
+      // 숙제
+      // 1. 미리 html로 알림창 여러개 만들어두면? 알림창 100개 필요하면 피곤
+      // 2.알림창 띄우는데 제목만 바꿔서 띄움
+
       // 긴 코드 짧은단어로 축약하는 법 -> function 문법 쓰면 됩니다.
 
       /// 자바스크립트 function 문법
@@ -35,9 +42,11 @@
       // 코드 짧게 축약해서 쓰고싶을때 function 꺼내서 쓰면 됩니다. => 긴 코드 재사용이 잦을 때도 편리
       // function 용도 2개 더 있음(이후에)
 
-      function alertBox(구멍) {
-        document.getElementById("alert").style.display = 구멍;
+      function alertBox(구멍1, 구멍2) {
+        document.getElementById("alert").style.display = 구멍1;
+        document.getElementById("content").innerHTML = 구멍2;
       }
+
       // 지금은 함수 1개로 2종료 코드 실행 가능
 
       /// function에 구멍뚫기 ///

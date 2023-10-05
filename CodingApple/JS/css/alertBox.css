@@ -9,12 +9,17 @@
   /* 보여주고싶으면 display: block */
 }
 
+.alert-box {
+  position: relative;
+}
+
 .btn-close {
   background: transparent;
   border: none;
   color: white;
   font-size: 20px;
   position: absolute;
+  top: 35px;
   right: 20px;
   cursor: pointer;
 }

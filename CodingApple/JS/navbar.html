@@ -13,6 +13,12 @@
     <link rel="stylesheet" href="./css/navbar.css" />
   </head>
   <body>
+    <div class="black-bg">
+      <div class="white-bg">
+        <h4>로그인하세요</h4>
+        <button class="btn btn-danger" id="close">닫기</button>
+      </div>
+    </div>
     <nav class="navbar navbar-light bg-light">
       <div class="container-fluid">
         <span class="navbar-brand">Navbar</span>
@@ -29,6 +35,8 @@
       <li class="list-group-item">A fourth item</li>
       <li class="list-group-item">And a fifth one</li>
     </ul>
+
+    <button class="btn-login">로그인</button>
 
     <p class="hello">안녕</p>
     <p class="hello">안녕</p>
@@ -101,6 +109,15 @@
         $(".hello").slideUp();
         // 간단한 UI용 애니메이션 편리 제공
         // hide() / fadeOut() / slideUp()
+      });
+
+      // 숙제1. 로그인 버튼을 누르면 모달창이 떠야하고 닫기 버튼을 누르면 모달창이 닫혀야함
+      $(".btn-login").on("click", function () {
+        $(".black-bg").show();
+      });
+
+      $("#close").on("click", function () {
+        $(".black-bg").hide();
       });
     </script>
   </body>

@@ -17,8 +17,13 @@
   background: rgba(0, 0, 0, 0.5);
   z-index: 5;
   padding: 30px;
-  display: none;
+  /*1.시작스타일*/ /*애니메이션줄때display:;
+  none대응*/ /*시작스타일에transition추가*/
+  visibility: hidden;
+  opacity: 0;
+  transition: all 1s;
 }
+
 .white-bg {
   background: white;
   border-radius: 5px;
@@ -26,5 +31,8 @@
 }
 
 .show-modal {
-  display: block;
+  /* 2. 최종스타일 */
+  /* (display: block 과 비슷) */
+  visibility: visible;
+  opacity: 1;
 }

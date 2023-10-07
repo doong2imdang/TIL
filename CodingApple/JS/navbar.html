@@ -112,8 +112,12 @@
       });
 
       // 숙제1. 로그인 버튼을 누르면 모달창이 떠야하고 닫기 버튼을 누르면 모달창이 닫혀야함
+
+      // $(".btn-login").on("click", function () {
+      //   $(".black-bg").show();
+      // });
       $(".btn-login").on("click", function () {
-        $(".black-bg").show();
+        $(".black-bg").addClass("show-modal");
       });
 
       $("#close").on("click", function () {

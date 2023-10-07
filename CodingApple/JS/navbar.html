@@ -30,6 +30,11 @@
       <li class="list-group-item">And a fifth one</li>
     </ul>
 
+    <p class="hello">안녕</p>
+    <p class="hello">안녕</p>
+    <p class="hello">안녕</p>
+    <button id="test-btn">버튼</button>
+
     <script>
       /// 셀렉터들 ///
       // getElementById(), getElementsByClassName(), querySelector(), querySelectorAll();
@@ -54,5 +59,49 @@
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"
     ></script>
+
+    <!-- 
+      /// jQuery ///
+      jQuery는 라이브러리일뿐 -> 함수명만 짧아짐
+      https://releases.jquery.com/
+      (주의) $('셀렉터')로 찾으면 jQuery함수만 붙일수 있음
+      (주의) querySelector('셀렉터')로 찾으면 자바스크립트 함수(메소드:.innerHTML과 같은)만 붙일 수 있음
+      
+      jQuery cdn 검색해서 3.x버전 <script> 태그 복붙(설치한 곳 하단에서 jQuery 문법 사용 가능) : 거의 모든 자바스크립트 라이브러리는 <body> 끝나기전에 넣는거 권장 -->
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      // <p> 내부 글자를 '바보'로 변경하려면?
+      // document.querySelector(".hello").innerHTML = "바보";
+      $(".hello").html("바보");
+
+      // <p> 내부 글자 스타일 변경은?
+      // document.querySelector(".hello").style.fontSize = "20px";
+      $(".hello").css("color", "red");
+
+      // class 탈부착하는 코드도 짧아짐
+      // 제거는 .removeClass()
+      // 토글은 .toggleClass()
+      $(".hello").addClass("hi");
+
+      // <p> 3개를 전부 '바보'로 바꾸려면?
+      // document.querySelectorAll(".hello")[0].innerHTML = "바보";
+      // document.querySelectorAll(".hello")[1].innerHTML = "바보";
+      // document.querySelectorAll(".hello")[2].innerHTML = "바보";
+      $(".hello").html("바보");
+      //라고만 해도 다 한번에 바뀜(querySelectorAll과 같음)
+
+      // 이벤트리스너도 짧아짐
+      // document.querySelector('#test-btn').addEventListener('click', function() {})
+      $("#test-btn").on("click", function () {
+        $(".hello").slideUp();
+        // 간단한 UI용 애니메이션 편리 제공
+        // hide() / fadeOut() / slideUp()
+      });
+    </script>
   </body>
 </html>

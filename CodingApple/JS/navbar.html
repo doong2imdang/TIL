@@ -19,13 +19,13 @@
 
         <form action="success.html">
           <div class="my-3">
-            <input type="text" class="form-control" />
+            <input type="email" class="form-control" id="email" />
           </div>
           <div class="my-3">
-            <input type="password" class="form-control" />
+            <input type="password" class="form-control" id="pw" />
           </div>
-          <button type="submit" class="btn btn-primary">전송</button>
-          <button type="button" id="login" class="btn btn-danger">닫기</button>
+          <button type="submit" class="btn btn-primary" id="send">전송</button>
+          <button type="button" class="btn btn-danger" id="close">닫기</button>
         </form>
       </div>
     </div>
@@ -40,15 +40,46 @@
       //   위 조건이 참이 아닐때 실행핳 코드
       //}
 
-      let msgEle = document.querySelector(".form-control");
+      // 유저가 <input>에 입력한 값임
+      // document.getElementById().value;
 
-      document
-        .querySelector(".btn-primary")
-        .addEventListener("click", function () {
-          if (msgEle.value.length === 0) {
-            alert("값을 입력하세요");
-          }
-        });
+      document.querySelector("form").addEventListener("submit", function (e) {
+        let emailMsg = document.getElementById("email");
+
+        let pwMsg = document.getElementById("pw");
+
+        if (emailMsg.value.length === 0 || pwMsg.value.length === 0) {
+          // 폼 전송 막으려면 e.preventDefault()
+          e.preventDefault();
+          alert("이메일과 비밀번호를 입력하세요");
+        } else if (emailMsg.value.length === 0) {
+          e.preventDefault();
+          alert("이메일을 입력하세요");
+        } else if (pwMsg.value.length === 0) {
+          e.preventDefault();
+          alert("비밀번호를 입력하세요");
+        }
+
+        console.log(emailMsg.value);
+        console.log(pwMsg.value);
+      });
+
+      // 태그명으로 찾기
+      // $('form').on('submit', function() {
+
+      // })
+
+      // $('#send').on('click', function() {
+
+      // })
+
+      /// else if 문법 ///
+      // - 조건식을 연달아 쓰고 싶으면
+      // - 몇번이고 사용가능
+
+      // if 두개 써도 else if와 똑같은 듯?
+      // 앞의 조건식이 참이면 else문 뒤는 아예 실행이 안됩니다.
+      // if문 두개는 앞의 조건식과 상관없이 둘째 if문도 실행됨
     </script>
 
     <!-- one-way UI 애니메이션 만드는법 -->

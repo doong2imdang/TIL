@@ -35,7 +35,16 @@
         // 변수 = 변수 + 1
         count += 1;
         console.log(count);
+
+        if(count % 2 == 1) {
+        document.querySelector('.badge').innerHTML = 'Light ♻';
+      } else {
+        document.querySelector('.badge').innerHTML = 'Dark ♻';
+      }
       })
+
+      // 나눈 후 나머지 구해주는 연산자 %
+      
 
       /// 변수문법(자료 잠깐 저장하는)  
       //var 변수명 = 넣을자료;

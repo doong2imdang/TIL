@@ -36,3 +36,9 @@
   visibility: visible;
   opacity: 1;
 }
+
+/* 9. 폼 만들며 배워보는 if else */
+.main-bg {
+  padding: 100px 20px;
+  background: lightgrey;
+}

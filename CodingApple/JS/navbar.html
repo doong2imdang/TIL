@@ -17,9 +17,9 @@
       <div class="white-bg">
         <h4>로그인하세요</h4>
 
-        <form action="success.html">
+        <form action="success.html" id="login-form">
           <div class="my-3">
-            <input type="email" class="form-control" id="email" />
+            <input type="text" class="form-control" id="email" />
           </div>
           <div class="my-3">
             <input type="password" class="form-control" id="pw" />
@@ -34,6 +34,15 @@
       // 전송버튼을 누를때 첫째 <input>에 입력된게 없으면 alert 띄우기
 
       // 조건문 쓰는 법
+      // 실은 if문안에 true/ false(다른 말로 boolean) 넣어야 잘 작동함
+      // 다름을 비교하고 싶으면 !=
+      // 엄격한 비교는 ===(타입까지 같아야함) / 느슨한 비교는 ==
+
+      // true로 인식(truthy)하는 자료들(0 제외 숫자/ '문자' / [] / {})
+      // false로 인식(falsy)하는 자료들(0 / '' / null / undefined / NaN)
+
+      // 조건 2개 이상을 동시에 비교하고 싶다면 &&(and) 그리고 ||(or) 연산자
+
       // if (조건){
       //   실행할 코드~~
       // } else {
@@ -43,26 +52,38 @@
       // 유저가 <input>에 입력한 값임
       // document.getElementById().value;
 
-      document.querySelector("form").addEventListener("submit", function (e) {
-        let emailMsg = document.getElementById("email");
+      // <input>에서 일어나는 input 이벤트(여기 유저가 입력한 값이 변할때 실행됨)
+      //document.getElementById("email").addEventListener("change", function () {
+      // input/ change 로 써도 가능
+      // 다만 다른점으로는 input이벤트는 <input>에 입력한 값이 바뀔때마다 발생하지만 <change>이벤트는 <input>에 입력한 값이 바뀌고 포커스를 잃을 때 발생합니다.
+      //  console.log("안녕");
+      //});
 
-        let pwMsg = document.getElementById("pw");
+      document
+        .getElementById("login-form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
 
-        if (emailMsg.value.length === 0 || pwMsg.value.length === 0) {
-          // 폼 전송 막으려면 e.preventDefault()
-          e.preventDefault();
-          alert("이메일과 비밀번호를 입력하세요");
-        } else if (emailMsg.value.length === 0) {
-          e.preventDefault();
-          alert("이메일을 입력하세요");
-        } else if (pwMsg.value.length === 0) {
-          e.preventDefault();
-          alert("비밀번호를 입력하세요");
-        }
+          // 이메일과 패스워드 입력란의 값을 가져옴
+          let email = document.getElementById("email").value;
+          let password = document.getElementById("pw").value;
 
-        console.log(emailMsg.value);
-        console.log(pwMsg.value);
-      });
+          // 이메일과 패스워드 둘 다 비어 있는 경우
+          if (email === "" && password === "") {
+            alert("아이디와 비밀번호를 입력하세요.");
+          } else if (email === "") {
+            alert("아이디를 입력하세요.");
+          } else if (password === "") {
+            alert("비밀번호를 입력하세요.");
+          } else if (password.length < 6) {
+            alert("비밀번호를 6자 이상 입력하세요");
+          } else {
+            // 폼을 서버로 제출하거나 다른 작업을 수행할 수 있음
+            // 여기에 필요한 로직 추가
+            // 이 예제에서는 간단히 알림을 표시
+            alert("폼이 제출되었습니다.");
+          }
+        });
 
       // 태그명으로 찾기
       // $('form').on('submit', function() {

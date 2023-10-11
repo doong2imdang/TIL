@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>darkmode</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+      .dark {
+        background: black;
+        color: white;
+      }
+    </style>
   </head>
   </head>
   <body>
@@ -20,6 +26,9 @@
     </nav>
 
     <script>
+      // Bootstrap UI 들은 스타일 바꾸려면 class명 수정해야함
+      
+
       // badge 클릭 횟수가 1(홀수번)회 클릭시 내부 글자를 light로 변경
       // badge 클릭 횟수가 2(짝수번)회 클릭시 내부 글자를 dark로 변경
       // badge 3회 클릭시 내부 글자를 light로 변경
@@ -27,6 +36,7 @@
 
       // badge 클릭횟수를 기록해보자
       var count = 0;
+      const navbar = document.querySelector('.navbar');
 
       document.querySelector('.badge').addEventListener('click', function() {
         // 변수에 +1 하는 법
@@ -36,15 +46,29 @@
         count += 1;
         console.log(count);
 
+        // 나눈 후 나머지 구해주는 연산자 %
         if(count % 2 == 1) {
         document.querySelector('.badge').innerHTML = 'Light ♻';
-      } else {
+        document.body.classList.remove('dark');
+        navbar.classList.remove('bg-dark');
+        navbar.classList.add('bg-light');
+        } else {
         document.querySelector('.badge').innerHTML = 'Dark ♻';
+        document.body.classList.add('dark');
+        navbar.classList.remove('bg-light');
+        navbar.classList.add('bg-dark');
       }
       })
 
-      // 나눈 후 나머지 구해주는 연산자 %
-      
+      // jQuery
+      // $('.badge').on('click', function() {
+      //   count += 1;
+      //   if(count % 2 == 1) {
+      //     $('.badge').html('Light ♻')
+      //   } else {
+      //     $('.badge').html('Dark ♻')
+      //   }
+      // })
 
       /// 변수문법(자료 잠깐 저장하는)  
       //var 변수명 = 넣을자료;
@@ -57,6 +81,51 @@
       var 이름 = 'kim';
       console.log(이름);
 
+
+    </script>
+
+    <script>
+
+    // 변수 심화학(변수의 선언, 할당, 범위)
+
+    var 누구; // 선언(변수만들겠습니다. )
+    var 누구 = 'han'; // 할당(변수에 자료 넣기) 
+
+    var 누구;
+    누구 = 'han'; // 선언따로 할당따로도 가능
+    누구 = 'park'; // 재할당
+
+    // 함수안에서 변수만들면 사용가능 범위는 함수 내부
+    // but 함수 바깥에서 만든 변수는 함수안에서 사용가능
+    function 함수() {
+      var 누구 = 'lee';
+      console.log(누구);
+    }
+    console.log(누구); // 이건 안됨
+
+    // var let const 차이
+    // let 은 재선언 X / 재할당 0 / 변수 까먹고 또 만들 수 있음 -> let 쓰면 방지가능할듯
+    // const 재선언 X / 재할당 X  => const는 등호로 변수변경하면 에러내줌
+
+    //   var              let         const 
+    // 재선언 O        재선언 X      재선언 X
+    // 재할당 O        재할당 O      재할당 X
+    // 범위 function    범위 {}       범위 {}
+    var 주소 = 'ansan';
+    let 주소 = 'ansan';
+    let 주소 = 'suwon'; // 이렇게 재선언 X
+    const 주소 = 'ansan';
+    주소 = 'suwon'; // 이렇게 재할당 X
+
+    function 함수() {
+      var 이름;
+      // var는 function 밖에서 사용할 수 없다. let/const도 그러하지만 한 술 더떠서 {}(모든 중괄호)가 범위이다.
+    }
+
+    if(true) {
+      let 이름;
+    }
+    이름; // 없다고 나옴
 
     </script>
 

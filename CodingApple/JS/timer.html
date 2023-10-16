@@ -13,7 +13,10 @@
     />
   </head>
   <body>
-    <div class="alert alert-danger">5초 이내 구매시 사은품 증정!</div>
+    <div class="alert alert-danger">
+      <span id="count">5</span>
+      초 이내 구매시 사은품 증정!
+    </div>
 
     <script>
       // Q. 5초 후 <div>를 안보이게 => X초 후 코드실행하려면 => setTimeout(function() { 실행할코드 }, ms)
@@ -44,6 +47,20 @@
     <script>
       /// 숙제1. 1초마다 5라는 문자를 1씩 감소
       /// 숙제2. 0이 되면 <div> 안보이게
+      document.addEventListener("DOMContentLoaded", function () {
+        let count = parseInt(document.getElementById("count").textContent);
+        const div = document.querySelector(".alert-danger");
+
+        const countdown = setInterval(function () {
+          count--;
+          document.getElementById("count").textContent = count;
+
+          if (count === 0) {
+            clearInterval(countdown);
+            div.style.display = "none";
+          }
+        }, 1000);
+      });
     </script>
 
     <script>

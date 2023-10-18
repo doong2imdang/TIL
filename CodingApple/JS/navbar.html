@@ -77,6 +77,8 @@
             alert("비밀번호를 입력하세요.");
           } else if (password.length < 6) {
             alert("비밀번호를 6자 이상 입력하세요");
+          } else if (/[A-Z].test(password)/) {
+            alert("비밀번호에 대문자가 있습니다.");
           } else {
             // 폼을 서버로 제출하거나 다른 작업을 수행할 수 있음
             // 여기에 필요한 로직 추가

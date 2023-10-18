@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carousel</title>
+    <link rel="stylesheet" href="./css/carousel.css" />
+  </head>
+  <body>
+    <div style="overflow: hidden">
+      <div class="slide-container">
+        <div class="slide-box">
+          <img src="./image/meadows-8313453_1280.jpg" />
+        </div>
+        <div class="slide-box">
+          <img src="./image/red-admiral-8314443_1280.jpg" />
+        </div>
+        <div class="slide-box">
+          <img src="./image/superb-fairywren-8311943_1280.jpg" />
+        </div>
+      </div>
+    </div>
+    <button class="slide-1">1</button>
+    <button class="slide-2">2</button>
+    <button class="slide-3">3</button>
+    <button>이전</button>
+    <button>다음</button>
+
+    <script>
+      // 3. 버튼2 누르면 최종화면으로 변하게 해주세요
+      document.querySelector(".slide-2").addEventListener("click", function () {
+        // transform: translateX(-100vw); 해주세요
+        document.querySelector(".slide-container").style.transform =
+          "translateX(-100vw)";
+      });
+
+      // jQuery로 작성한 방법
+      // $(".slide-2").on("click", function () {
+      //   $(".slide-container").css("transform", "translateX(-100vw)");
+      // });
+
+      // 숙제. 버튼1, 버튼3 기능 만들어오십시오
+      // 예습. 다음, 이전 버튼 기능 만들기
+    </script>
+  </body>
+</html>

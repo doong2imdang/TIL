@@ -1,0 +1,29 @@
+/* 
+one-way 애니메이션 들어있는 UI 만들기
+1. 시작화면 만들기
+2. 최종화면 만들기
+3. 원할때 최종화면으로 변하게 JS
+4. transition: all 1s; 추가
+*/
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+/* 1. 시작화면 만들기 */
+.slide-container {
+  width: 300vw;
+
+  /*2.버튼2누른후최종화면만들기*/
+  transition: all 1s;
+}
+
+.slide-box {
+  width: 100vw;
+  float: left;
+}
+
+.slide-box img {
+  width: 100%;
+}

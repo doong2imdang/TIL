@@ -60,35 +60,56 @@
 
       /// 다음 ///
       // 다음 버튼 누르면, 지금 보이는 사진이 1이면 2번 사진 보여주세요. 지금 보이는 사진이 2면 3번 사진 보여주세요.
+      // let nowPicture = 1;
+      // document.querySelector(".next").addEventListener("click", function () {
+      //   if (nowPicture === 1) {
+      //     document.querySelector(".slide-container").style.transform =
+      //       "translateX(-100vw)";
+      //     nowPicture += 1;
+      //   } else if (nowPicture === 2) {
+      //     document.querySelector(".slide-container").style.transform =
+      //       "translateX(-200vw)";
+      //     nowPicture += 1;
+      //   }
+      // });
+
+      /// 이전 ///
+      // document
+      //   .querySelector(".previous")
+      //   .addEventListener("click", function () {
+      //     if (nowPicture === 3) {
+      //       document.querySelector(".slide-container").style.transform =
+      //         "translateX(-100vw)";
+      //       nowPicture -= 1;
+      //     } else if (nowPicture === 2) {
+      //       document.querySelector(".slide-container").style.transform =
+      //         "translateX(0vw)";
+      //       nowPicture -= 1;
+      //     }
+      //   });
+
+      // 응용. 사진이 갑자기 4개되어도 잘되는 확장성 좋은 다음버튼 만들기
       let nowPicture = 1;
+      const slideContainer = document.querySelector(".slide-container");
+      const totalPictures = document.querySelectorAll(".slide-box").length;
+
       document.querySelector(".next").addEventListener("click", function () {
-        if (nowPicture === 1) {
-          document.querySelector(".slide-container").style.transform =
-            "translateX(-100vw)";
-          nowPicture += 1;
-        } else if (nowPicture === 2) {
-          document.querySelector(".slide-container").style.transform =
-            "translateX(-200vw)";
+        if (nowPicture < totalPictures) {
+          const newPosition = nowPicture * -100 + "vw";
+          slideContainer.style.transform = `translateX(${newPosition})`;
           nowPicture += 1;
         }
       });
 
-      /// 이전 ///
       document
         .querySelector(".previous")
         .addEventListener("click", function () {
-          if (nowPicture === 3) {
-            document.querySelector(".slide-container").style.transform =
-              "translateX(-100vw)";
+          if (nowPicture > 1) {
             nowPicture -= 1;
-          } else if (nowPicture === 2) {
-            document.querySelector(".slide-container").style.transform =
-              "translateX(0vw)";
-            nowPicture -= 1;
+            const newPosition = (nowPicture - 1) * -100 + "vw";
+            slideContainer.style.transform = `translateX(${newPosition})`;
           }
         });
-
-      // 응용. 사진이 갑자기 4개되어도 잘되는 확장성 좋은 다음버튼 만들기
     </script>
   </body>
 </html>

@@ -24,8 +24,8 @@
     <button onclick="btnClick('0vw')" class="slide-1">1</button>
     <button class="slide-2">2</button>
     <button onclick="btnClick('-200vw')" class="slide-3">3</button>
-    <button>이전</button>
-    <button>다음</button>
+    <button class="previous">이전</button>
+    <button class="next">다음</button>
 
     <script>
       // 3. 버튼2 누르면 최종화면으로 변하게 해주세요
@@ -57,6 +57,38 @@
         ).style.transform = `translateX(${translation})`;
       }
       // 예습. 다음, 이전 버튼 기능 만들기
+
+      /// 다음 ///
+      // 다음 버튼 누르면, 지금 보이는 사진이 1이면 2번 사진 보여주세요. 지금 보이는 사진이 2면 3번 사진 보여주세요.
+      let nowPicture = 1;
+      document.querySelector(".next").addEventListener("click", function () {
+        if (nowPicture === 1) {
+          document.querySelector(".slide-container").style.transform =
+            "translateX(-100vw)";
+          nowPicture += 1;
+        } else if (nowPicture === 2) {
+          document.querySelector(".slide-container").style.transform =
+            "translateX(-200vw)";
+          nowPicture += 1;
+        }
+      });
+
+      /// 이전 ///
+      document
+        .querySelector(".previous")
+        .addEventListener("click", function () {
+          if (nowPicture === 3) {
+            document.querySelector(".slide-container").style.transform =
+              "translateX(-100vw)";
+            nowPicture -= 1;
+          } else if (nowPicture === 2) {
+            document.querySelector(".slide-container").style.transform =
+              "translateX(0vw)";
+            nowPicture -= 1;
+          }
+        });
+
+      // 응용. 사진이 갑자기 4개되어도 잘되는 확장성 좋은 다음버튼 만들기
     </script>
   </body>
 </html>

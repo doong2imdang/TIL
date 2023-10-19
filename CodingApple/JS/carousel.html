@@ -21,9 +21,9 @@
         </div>
       </div>
     </div>
-    <button class="slide-1">1</button>
+    <button onclick="btnClick('0vw')" class="slide-1">1</button>
     <button class="slide-2">2</button>
-    <button class="slide-3">3</button>
+    <button onclick="btnClick('-200vw')" class="slide-3">3</button>
     <button>이전</button>
     <button>다음</button>
 
@@ -41,15 +41,21 @@
       // });
 
       // 숙제. 버튼1, 버튼3 기능 만들어오십시오
-      document.querySelector(".slide-1").addEventListener("click", function () {
-        document.querySelector(".slide-container").style.transform =
-          "translateX(0vw)";
-      });
+      // document.querySelector(".slide-1").addEventListener("click", function () {
+      //   document.querySelector(".slide-container").style.transform =
+      //     "translateX(0vw)";
+      // });
 
-      document.querySelector(".slide-3").addEventListener("click", function () {
-        document.querySelector(".slide-container").style.transform =
-          "translateX(-200vw)";
-      });
+      // document.querySelector(".slide-3").addEventListener("click", function () {
+      //   document.querySelector(".slide-container").style.transform =
+      //     "translateX(-200vw)";
+      // });
+
+      function btnClick(translation) {
+        document.querySelector(
+          ".slide-container"
+        ).style.transform = `translateX(${translation})`;
+      }
       // 예습. 다음, 이전 버튼 기능 만들기
     </script>
   </body>

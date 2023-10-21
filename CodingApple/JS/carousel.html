@@ -111,5 +111,57 @@
           }
         });
     </script>
+
+    <script>
+      /// 6. 함수의 return 문법 & 소수점 다르기 ///
+
+      // function 문법
+      // 1. 긴 코드 축약해서 쓸 수 있음
+      // 2. 파라미터 추가 기능
+      // 3. return
+      function 함수(a) {
+        1 + a;
+      }
+      함수(4);
+
+      function 함수() {
+        // 함수 쓰고 그 자리에 뭔가 뱉고 싶으면 return
+        return 123; // return 오른쪽에는 아무거나 가능
+        console.log(1); // return 밑 부분은 함수 종류 기능도 가지고 있음 => 출력되지않음
+      }
+
+      var 변수 = 함수();
+      console.log(변수);
+      함수(); // 123 남음
+
+      // return의 용도가 모임(예시)
+      // 문자 -> 문자 변환기
+      // 숫자 -> true / false 변환기 아무렇게나 제작 가능
+      console.log(60000 * 0.1);
+
+      // 가격 넣으면 부가세 남겨주는 계산기 만들기
+      // function vat(a) {
+      //   return a * 0.1;
+      // }
+
+      console.log(vat(50000));
+
+      // 소수점 있는 숫자 연산시 주의점(이유: 2진법으로 변환해서)
+      // 1. 소수점을 전부 10 곱해서 연산하고 10으로 나누든가
+      // 2. 라이브러리 쓰든가
+      // 3. 연산결과를 반올림하든가 : 숫자.toFixed(몇자리); => 문자로 변환됨
+      1.1 + 0.3;
+
+      console.log(vat(55555));
+
+      function vat(a) {
+        var num = (a * 1.1).toFixed(2); // toFixed() 는 문자로 변환됨
+        return parseInt(num) + 1; // 숫자로 변환 => pareseFloat() / parseInt()
+      }
+
+      // 자바스크립트 + 연산자 특징
+      // '문자' + 123 => '문자123'
+      // '문자' + '문자'  => '문자문자'
+    </script>
   </body>
 </html>

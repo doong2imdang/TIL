@@ -1,3 +1,9 @@
+/* 7. 스크롤이벤트로 만드는 재밌는 기능들 */
+:root {
+  scroll-behavior: auto;
+  /* 이거 넣으면 원상복구: 부트스트랩설치로 인해 scrollTo(x, y)를 이용해 강제로 원하는 위치로 이동시킬때 스무스하게 이동하는 것이 아닌 순간이동하도록 하는 방법 */
+}
+
 /* 
 버튼을 누르면 보여달라고 JS 짬(class 탈부착으로도 구현가능)
 */
@@ -41,4 +47,15 @@
 .main-bg {
   padding: 100px 20px;
   background: lightgrey;
+}
+
+/* 7. 스크롤 이벤트로 만드는 재밌는 기능들 */
+.navbar {
+  position: fixed;
+  width: 100%;
+  z-index: 5;
+}
+
+.navbar-brand {
+  font-size: 30px;
 }

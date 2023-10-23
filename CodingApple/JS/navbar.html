@@ -151,6 +151,15 @@
     <p class="hello">안녕</p>
     <button id="test-btn">버튼</button>
 
+    <!-- overflow-y: scroll(내용물 넘치면 스크롤바 생성해줌) -->
+    <div class="lorem" style="width: 200px; height: 100px; overflow-y: scroll">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam nemo ex
+      cumque quaerat expedita aperiam eaque laudantium voluptate distinctio
+      libero, nam, repudiandae maxime facere alias modi quia, at ad unde.
+    </div>
+
+    <div style="height: 1000px"></div>
+
     <script>
       /// 셀렉터들 ///
       // getElementById(), getElementsByClassName(), querySelector(), querySelectorAll();
@@ -255,6 +264,45 @@
       // 정규식으로 이메일형식 검사는? (''.'은 특별한 정규식 문법임 그래서 앞에 '\'있어야함)
       // /\S@\S\.\S/.test('aaa@bbb.ccc') => false(\S가 한문자만 뜻해서)
       // /\S+@\S+\.\S+/.test('aaa@bbb.ccc') => true('+'는 왼쪽 문자 반복검색)
+    </script>
+
+    <script>
+      /// scroll 이벤트 리스너 ///
+
+      // 강제로 원하는 위치로 스크롤하기(window.scrollTo(x, y)) => 원래는 반짝하면서 순간이동하는데 Bootstrap설치시 스크롤을 스무스하게 처리해주기도 함 => 스무스하게 동작하는거 막으려면 :root이용한 css 확인해보기(scroll-behavior: auto)
+      // 현재 위치로부터 강제로 스크롤하기(window.scrollBy(x, y)) => 버튼누르면 몇px 밑으로 움직이게 해주세요 이런거 가능
+
+      // 얘가 스크롤 될때마다
+      window.addEventListener("scroll", function () {
+        // 여기코드 실행해줌
+        console.log(window.scrollY); // 유저가 얼마나 스크롤바를 내렸나(window.scrollY(= window.pageYOffset) / window.scrollX(가로로))
+      });
+
+      // jQuery 버전
+      // $(window).on("scroll", function () {
+      //   // 현재 스크롤바 위치 출력
+      //   $(window).scrollTop();
+
+      //   // 현재 스크롤바 이동(괄호안만 채우면 쉽게 이동시킬 수 있다)
+      //   $(window).scrollTop(100);
+      // });
+
+      // 숙제 1. 스크롤바 100px 이상 내리면 로고 폰트사이즈 줄이기
+
+      // 응용. 다시 스크롤바가 원위치로 돌아오면 폰트사이즈 커지기
+
+      // 숙제2. 박스(회원약관)의 스크롤바 끝까지 내리면 alert()('다읽었군여') 띄우기(힌트. div의 스크롤바 내린 양 + 눈에보이는 div 박스의 원래 높이 === div의 실제높이)
+      document.querySelector(".lorem").addEventListener("scroll", function () {
+        // <div> 스크롤바 내린 높이는 => 셀렉터.scrollTop
+        // <div> 박스의 실제 높이 구하는 => 셀렉터.scrollHeight
+        // but, 스크롤을 다 내려도 스크롤양과 실제높이는 같아질 수 없다
+        // 눈에 보이는 <div>박스의 높이 구하는 => 셀렉터.clientHeight
+        // 약간의 오차가 생김(소수점)
+        var 스크롤양 = document.querySelector(".lorem").scrollTop;
+        var 실제높이 = document.querySelector(".lorem").scrollHeight;
+        var 높이 = document.querySelector(".lorem").clientHeight;
+        console.log(스크롤양, 실제높이, 높이);
+      });
     </script>
   </body>
 </html>

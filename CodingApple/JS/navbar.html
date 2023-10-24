@@ -288,6 +288,11 @@
       // });
 
       // 숙제 1. 스크롤바 100px 이상 내리면 로고 폰트사이즈 줄이기
+      window.addEventListener("scroll", function () {
+        if (window.scrollY >= 100) {
+          document.querySelector(".navbar-brand").style.fontSize = "20px";
+        }
+      });
 
       // 응용. 다시 스크롤바가 원위치로 돌아오면 폰트사이즈 커지기
 

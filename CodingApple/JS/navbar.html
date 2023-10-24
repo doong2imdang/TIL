@@ -312,6 +312,10 @@
         var 실제높이 = document.querySelector(".lorem").scrollHeight;
         var 높이 = document.querySelector(".lorem").clientHeight;
         console.log(스크롤양, 실제높이, 높이);
+
+        if (스크롤양 + 높이 == 실제높이) {
+          alert("다 읽었습니다");
+        }
       });
     </script>
   </body>

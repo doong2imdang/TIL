@@ -295,6 +295,11 @@
       });
 
       // 응용. 다시 스크롤바가 원위치로 돌아오면 폰트사이즈 커지기
+      window.addEventListener("scroll", function () {
+        if (window.scrollY < 100) {
+          document.querySelector(".navbar-brand").style.fontSize = "30px";
+        }
+      });
 
       // 숙제2. 박스(회원약관)의 스크롤바 끝까지 내리면 alert()('다읽었군여') 띄우기(힌트. div의 스크롤바 내린 양 + 눈에보이는 div 박스의 원래 높이 === div의 실제높이)
       document.querySelector(".lorem").addEventListener("scroll", function () {

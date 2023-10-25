@@ -128,6 +128,9 @@
         <button class="navbar-toggler" type="button">
           <span class="navbar-toggler-icon"></span>
         </button>
+        <div class="scroll-progress">
+          <div class="progress-bar"></div>
+        </div>
       </div>
     </nav>
 
@@ -336,6 +339,19 @@
       // 3. 스크롤양도 구할 수 있군
 
       // 심심하면 숙제. 스크롤 하면 진척 상황도를 맨위에 보여주는 거 만들어보기(늘었다 줄었다)
+      window.addEventListener("scroll", () => {
+        const scrollTop =
+          document.documentElement.scrollTop || document.body.scrollTop;
+        const scrollHeight =
+          document.documentElement.scrollHeight || document.body.scrollHeight;
+        const scrollPercentage =
+          (scrollTop / (scrollHeight - window.innerHeight)) * 100;
+
+        console.log(scrollTop, scrollHeight, scrollPercentage);
+
+        document.querySelector(".progress-bar").style.width =
+          scrollPercentage + "%";
+      });
     </script>
   </body>
 </html>

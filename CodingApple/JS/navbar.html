@@ -313,10 +313,29 @@
         var 높이 = document.querySelector(".lorem").clientHeight;
         console.log(스크롤양, 실제높이, 높이);
 
-        if (스크롤양 + 높이 == 실제높이) {
+        if (스크롤양 + 높이 > 실제높이 - 10) {
           alert("다 읽었습니다");
         }
       });
+
+      // scroll 다룰 때 주의 점
+      // 1. scroll 이벤트리스너 안의 코드는 1초에 60번이상 실행됨 -> 부담이 될 수 있으니 적게 사용해야함
+      // 2. 바닥 체크도 여러번 중복으로 해줄 듯(1초에 60번 실행되기때문) -> 예를 들어 alert창이 연속으로 뜰 수도 있음 -> 방지하는 방법 찾아보기!!!
+
+      // Q. 현재 페이지 끝까지 스크롤 체크는?
+      // <html> 찾아줌
+      document.querySelector("html").scrollHeight; // 현재 페이지 실제높이 => 페이지 로드완료시 실행해야 정확 => <body> 끝나기 전에 넣는게 굿
+      document.querySelector("html").clientHeight; // 페이지 보는 부분 높이
+      document.querySelector("html").scrollTop; // 현재 페이지 스크롤 양 (= window.scrollY 로 쓰면 됨)
+
+      document.querySelector("html") === document.documentElement; // 똑같은 말임
+
+      // 오늘의 교훈
+      // 1. 스크롤바 조작할 때마다 코드 실행이 가능하구나
+      // 2. 현재 보이는 <div> 박스의 실제높이/ 보이는 높이 구할수 있구나
+      // 3. 스크롤양도 구할 수 있군
+
+      // 심심하면 숙제. 스크롤 하면 진척 상황도를 맨위에 보여주는 거 만들어보기(늘었다 줄었다)
     </script>
   </body>
 </html>

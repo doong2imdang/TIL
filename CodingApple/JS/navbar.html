@@ -347,7 +347,12 @@
         const scrollPercentage =
           (scrollTop / (scrollHeight - window.innerHeight)) * 100;
 
-        console.log(scrollTop, scrollHeight, scrollPercentage);
+        console.log(
+          scrollTop,
+          scrollHeight,
+          scrollPercentage,
+          window.innerHeight
+        );
 
         document.querySelector(".progress-bar").style.width =
           scrollPercentage + "%";

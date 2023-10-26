@@ -1,0 +1,34 @@
+ul li {
+  list-style: none;
+}
+
+.mt-5,
+.tab-content {
+  padding: 0 20px;
+}
+
+.list {
+  display: flex;
+  padding: 0;
+}
+
+.tab-button {
+  padding: 10px 30px;
+  border-collapse: collapse;
+  border-bottom: 1px solid #ccc;
+}
+
+.orange {
+  border-top: 2px solid orange;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-bottom: none;
+}
+
+.tab-content {
+  display: none;
+}
+
+.show {
+  display: block;
+}

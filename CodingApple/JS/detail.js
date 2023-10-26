@@ -31,9 +31,60 @@ document.addEventListener("DOMContentLoaded", function () {
   tabButtons[0].click();
 });
 
+// 숙제. for 반복문으로 풀어보기
+// 응용. 탭이 4개, 5개로 늘어나도 잘 작동하는 코드?
+
 // jQuery //
 
-//     querySelectorAll('.tab-button')[0]과 비슷함
-// $(".tab-button")
-//   .eq(0)
-//   .on("click", function () {});
+// querySelectorAll('.tab-button')[0]과 비슷함
+
+// var 버튼 = $(".tab-button");
+// var 컨텐츠 = $(".tab-content");
+// 버튼.eq(0).on("click", function () {
+//   버튼.removeClass("orange");
+//   버튼.eq(0).addClass("orange");
+//   컨텐츠.removeClass("show");
+//   컨텐츠.eq(0).addClass("show");
+// });
+
+// 버튼.eq(1).on("click", function () {
+//   버튼.removeClass("orange");
+//   버튼.eq(1).addClass("orange");
+//   컨텐츠.removeClass("show");
+//   컨텐츠.eq(1).addClass("show");
+// });
+
+// 버튼.eq(2).on("click", function () {
+//   버튼.removeClass("orange");
+//   버튼.eq(2).addClass("orange");
+//   컨텐츠.removeClass("show");
+//   컨텐츠.eq(2).addClass("show");
+// });
+
+/// for 반복문 ///
+// for 문법은 코드 복붙보다는 반복실행이 맞음
+console.log("안녕");
+console.log("안녕");
+console.log("안녕");
+
+// ===
+//  시작은 i=0/3되면 끝내셈/복붙할때마다 i+1
+for (var i = 0; i < 3; i++) {
+  console.log("안녕");
+  // 변수 i      복붙여부
+  // 0             OK
+  // 1             OK
+  // 2             OK
+  // 3             X
+}
+
+// var 버튼 = $(".tab-button");
+// var 컨텐츠 = $(".tab-content");
+// for (let i = 0; i < 3; i++) {
+//   버튼.eq(i).on("click", function () {
+//     버튼.removeClass("orange");
+//     버튼.eq(i).addClass("orange");
+//     컨텐츠.removeClass("show");
+//     컨텐츠.eq(i).addClass("show");
+//   });
+// }

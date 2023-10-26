@@ -16,6 +16,7 @@ ul li {
   padding: 10px 30px;
   border-collapse: collapse;
   border-bottom: 1px solid #ccc;
+  cursor: pointer;
 }
 
 .orange {

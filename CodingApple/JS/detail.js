@@ -20,6 +20,7 @@ for (let i = 0; i < Buttons.length; i++) {
     Contents[i].classList.add("show");
   });
 }
+console.log(Buttons, Contents);
 
 // 응용. 탭이 4개, 5개로 늘어나도 잘 작동하는 코드?
 document.addEventListener("DOMContentLoaded", function () {

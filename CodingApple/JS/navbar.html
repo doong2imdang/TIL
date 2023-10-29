@@ -358,5 +358,51 @@
           scrollPercentage + "%";
       });
     </script>
+    <script>
+      /// 11. 이벤트 버블링과 이벤트관련 함수들 ///
+      // 검은배경 누르면 모달창 닫는 기능 만들기
+
+      // Q. 왜 안닫힘?
+      // - 모달창을 .style.display 조작으로 띄웠으면 닫을때도 .style.display 조작해야함
+      // - 모달창을 class 조작으로 띄웠으면 닫을때도 class 조작해야함
+      // + 조작할 html 하단에 js 작성해야 잘됨
+      document
+        .querySelector(".black-bg")
+        .addEventListener("click", function (e) {
+          /// 유용한 이벤트 관련 함수들 ///
+          e.target; // 유저가 실제로 누른거(이벤트가 발생한곳)
+          e.currentTarget; // 이벤트 리스너 달린곳 알려줌
+          this; // 이벤트 리스너 달린곳 알려줌
+          e.preventDefault(); // 이벤트 기본동작 막아줌(대체로 form에다 씀 => 이 코드 실행하면 submit 막아줌)
+          e.stopPropagation(); // 내 상위요소로 이벤트 버블링 막아줌
+
+          // 내가 실제로 누른게 까만배경일 경우에 모달창 닫아주세요~
+          if (e.target == document.querySelector(".black-bg")) {
+            document.querySelector(".black-bg").classList.remove("show-modal");
+          }
+
+          console.log(e.target);
+          console.log(document.querySelector(".black-bg"));
+        });
+      // Q. 다른거 눌러도 닫히는데요????
+      // 모든 브라우저는 이벤트 버블링이 일어남(이벤트가 상위 html로 퍼지는 현상)
+
+      // jQuery로 썼을 경우 document.querySelector() 결과랑 $()결과는 다르게 생김
+
+      // if(e.target == $('.black-bg')) {
+      //   document.querySelector('.black-bg').classList.remove('show-modal');
+      // }
+
+      // =>
+
+      // $(어쩌구).is($(어쩌구)) => jQuery는 이렇게 비교하는게 안전
+      // if($(e.target) == $('.black-bg')) {
+      //   document.querySelector('.black-bg').classList.remove('show-modal');
+      // }
+
+      /// 오늘 배운거 ///
+      // 1. 이벤트 버블링 항상일어남
+      // 2. 이벤트 관련 기능들 사용가능
+    </script>
   </body>
 </html>

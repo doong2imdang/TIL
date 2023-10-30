@@ -251,3 +251,22 @@ productElement.innerHTML = productContent.join(" / ");
 var car2 = { name: "소나타", price: 50000 };
 document.querySelector(".car-title").innerHTML = car2.name;
 document.querySelector(".car-price").innerHTML = car2.price;
+
+/// 2. 약간 복잡한 Array & Object 데이터 바인딩 ///
+
+// object 안에 아무거나 넣을 수 있음 => object, array 넣기도 가능
+// 복잡한 자료에서 원하는 데이터 꺼내기
+// 복잡하게 생긴 array, object 자료 다룰땐 출력해보고 시작기호도 확인하면 쉬움
+// client-side rendering 하는 중임
+
+// 데이터바인딩(html에 데이터 꽂기)
+// => 데이터바인딩 쉽게 해주는 jQuery, React, Vue ... 등의 라이브러리 많이 사용했음
+var car2 = { name: "소나타", price: [50000, 3000, 4000] };
+document.querySelector(".car-price").innerHTML = car2.price[1];
+
+/// 개발방식 ///
+// 1. server-side rendering : 서버에서 완성된 html 파일 보내기
+// - 서버가 html 다 만들어야해서 서버가 귀찮음
+
+// 2. client-side rendering : 빈 html 파일 + 데이터로 보내기(html완성은 JS가 하도록)
+// - 서버가 편함

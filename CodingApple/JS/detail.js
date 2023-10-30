@@ -237,3 +237,12 @@ console.log(car2.price);
 
 // 오늘의 숙제
 // 자바스크립트를 써서 car2에 있던 데이터들을 html에 꽂아서 보여주기
+var car2 = { name: "소나타", price: 50000 };
+let productElement = document.querySelector(".product");
+
+let productContent = productElement.innerHTML.split(" / ");
+
+productContent[0] = car2.name;
+productContent[1] = car2.price + "원";
+
+productElement.innerHTML = productContent.join(" / ");

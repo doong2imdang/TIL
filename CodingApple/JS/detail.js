@@ -105,3 +105,82 @@ for (var i = 0; i < 3; i++) {
 //     컨텐츠.eq(i).addClass("show");
 //   });
 // }
+
+// 12. 이벤트 버블링 응용과 dataset
+for (let i = 0; i < 3; i++) {
+  $(".tab-button")
+    .eq(i)
+    .on("click", function () {
+      탭열기();
+    });
+}
+
+// ===
+
+function 탭열기() {
+  $(".tab-button").removeClass("orange");
+  $(".tab-button").eq(i).addClass("orange");
+  $(".tab-button").removeClass("show");
+  $(".tab-button").eq(i).addClass("show");
+}
+
+// 이렇게 했을때 실행 안됨!!
+// => 축약할 코드에 변수가 있으면 변수를 파라미터로 바꿔줘야 합니다.
+
+for (let i = 0; i < 3; i++) {
+  $(".tab-button")
+    .eq(i)
+    .on("click", function () {
+      탭열기(i);
+    });
+}
+
+// ===
+
+function 탭열기(작명아무거나) {
+  $(".tab-button").removeClass("orange");
+  $(".tab-button").eq(작명아무거나).addClass("orange");
+  $(".tab-button").removeClass("show");
+  $(".tab-button").eq(작명아무거나).addClass("show");
+}
+// 이렇게 써줘야 한다~!!!
+// 실행은
+// 탭열기(0)실행하면 0번 탭 열릴듯
+
+/// 탭기능 다르게 만들기 -> 이벤트리스너 1개만 쓰기 ///
+// 까닭? 이벤트리스너 하나를 쓸때마다 RAM 용량을 쓰게된다.
+// 이벤트버블링을 알고있으면 이벤트리스너 많이 필요없음
+
+$(".list").click(function (e) {
+  // if(지금 누른게 버튼 0이면 ) {
+  //   탭열기(0)
+  // }
+  // ===
+  // 지금 누른게 버튼 0이면 탭열기(0)
+  if (e.target == document.querySelectorAll(".tab-button")[0]) {
+    탭열기(0);
+  }
+  // 지금 누른게 버튼 0이면 탭열기(1)
+  if (e.target == document.querySelectorAll(".tab-button")[1]) {
+    탭열기(1);
+  }
+  // 지금 누른게 버튼 0이면 탭열기(2)
+  if (e.target == document.querySelectorAll(".tab-button")[2]) {
+    탭열기(2);
+  }
+});
+
+/// 오늘의 문법 ///
+// (오늘의 상식) html 태그에 몰래 정보숨기기 가능
+// => data-자료이름="값"
+// 숨겼던 자료 출력은 셀렉터.dataset.자료이름 (예시. document.querySelector('.tab-button).dataset.id)
+
+$(".list").click(function (e) {
+  // 탭열기(지금누른버튼에 숨겨져있는 data-id); => 이러면 if 필요없을듯
+  탭열기(e.target.dataset.id); // 숫자로 변환해서 쓰면 더 정확할듯
+});
+
+/// 오늘 배운 것들 ///
+// 1. 함수로 축약하 때 변수있으면 파라미터로 바꿔보셈
+// 2. data-id 로 몰래 숨기기 가능
+// 3. 이벤트리스너 1개만 써도 개발가능할 수도 -> 이벤트버블링 이용해서

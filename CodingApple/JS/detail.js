@@ -246,3 +246,8 @@ productContent[0] = car2.name;
 productContent[1] = car2.price + "원";
 
 productElement.innerHTML = productContent.join(" / ");
+
+// 숙제 - 다른방법
+var car2 = { name: "소나타", price: 50000 };
+document.querySelector(".car-title").innerHTML = car2.name;
+document.querySelector(".car-price").innerHTML = car2.price;

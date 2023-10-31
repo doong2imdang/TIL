@@ -11,3 +11,19 @@ for (let i = 0; i < products.length; i++) {
 
   document.querySelectorAll(".card-price")[i].innerHTML = products[i].price;
 }
+
+// class 주지않고 하는 방법
+for (let i = 0; i < products.length; i++) {
+  document.querySelectorAll(".card-body h5")[i].innerHTML = products[i].title;
+
+  document.querySelectorAll(".card-body p")[i].innerHTML =
+    "가격 : " + products[i].price + "원";
+}
+
+// 문자 중간에 변수 쉽게넣기(같은결과)
+var a = "안녕";
+let a1 = "문자" + a + "문자";
+console.log(a1);
+
+let a2 = `문자${a}문자`;
+console.log(a2);

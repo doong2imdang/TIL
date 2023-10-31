@@ -6,3 +6,8 @@ var products = [
 
 // 오늘의 숙제
 // products 안에 있는 데이터를 카드 3개에 데이터바인딩해오십시오(반복문 등등 이용해서)
+for (let i = 0; i < products.length; i++) {
+  document.querySelectorAll(".card-title")[i].innerHTML = products[i].title;
+
+  document.querySelectorAll(".card-price")[i].innerHTML = products[i].price;
+}

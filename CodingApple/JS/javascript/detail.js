@@ -270,3 +270,56 @@ document.querySelector(".car-price").innerHTML = car2.price[1];
 
 // 2. client-side rendering : 빈 html 파일 + 데이터로 보내기(html완성은 JS가 하도록)
 // - 서버가 편함
+
+/// 4. Select 인풋 다루기 ///
+// <select> 사용법 (<input> 이거랑 똑같음)
+// Q. 왜 input 대신 select를 사용하나요? => A. input과 다르게 select는 사용자가 이상한거 입력 못함
+
+// 셔츠고르면 <select> 하나 더 보여주기(사이즈 선택: 95, 100, 105)
+if (document.querySelectorAll(".form-select")[0].value == "셔츠") {
+  document.querySelectorAll(".form-select")[1].classList.remove("form-hide");
+}
+
+console.log(document.querySelectorAll(".form-select")[0].value);
+// 이렇게만 하면 작동안됨 => <script> 안에 대충 적은 코드는 페이지 로드시 1회만 실행됨
+
+// eventListener change 달아주면 해결됨
+// change 자리에 input을 넣어주면 <input>의 값 변경할때 input 이벤트 발동
+// change, input 둘다 가능
+document
+  .querySelectorAll(".form-select")[0]
+  .addEventListener("change", function () {
+    if (document.querySelectorAll(".form-select")[0].value == "셔츠") {
+      document
+        .querySelectorAll(".form-select")[1]
+        .classList.remove("form-hide");
+    }
+  });
+
+// Q. 모자 선택하면 둘째 <select> 사라지게?
+
+// Q. 코드를 줄일 수 있는 부분?
+// e.currentTarget 또는 this로 바꾸면 좋을듯
+document
+  .querySelectorAll(".form-select")[0]
+  .addEventListener("change", function (e) {
+    let value = e.currentTarget.value;
+    if (value == "셔츠") {
+      document
+        .querySelectorAll(".form-select")[1]
+        .classList.remove("form-hide");
+    }
+  });
+
+// ===
+
+document
+  .querySelectorAll(".form-select")[0]
+  .addEventListener("change", function (e) {
+    let value = this.value;
+    if (value == "셔츠") {
+      document
+        .querySelectorAll(".form-select")[1]
+        .classList.remove("form-hide");
+    }
+  });

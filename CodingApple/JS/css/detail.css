@@ -3,6 +3,7 @@ ul li {
 }
 
 .mt-5,
+.my-5,
 .mt-3,
 .tab-content {
   padding: 0 20px;
@@ -33,4 +34,9 @@ ul li {
 
 .show {
   display: block;
+}
+
+/* 4. Select 인풋 다루기 */
+.form-hide {
+  display: none;
 }

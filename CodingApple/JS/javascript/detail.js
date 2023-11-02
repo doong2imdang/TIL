@@ -361,10 +361,12 @@ document.querySelector("#test").innerHTML = 템플릿;
 // .append()
 
 // Q. 바지 선택하면 28, 30 옵션 나오게?
+// Q. 바지 눌렀다가 셔츠 누르면 이상한데? 다시 95, 100, 105가 나오도록 고쳐보기
 document
   .querySelectorAll(".form-select")[0]
   .addEventListener("change", function () {
-    if (document.querySelectorAll(".form-select")[0].value == "바지") {
+    var value = this.value;
+    if (value == "바지") {
       var option3 = `
       <option>28</option>
       <option>30</option>
@@ -373,13 +375,89 @@ document
         .querySelectorAll(".form-select")[1]
         .classList.remove("form-hide");
       document.querySelectorAll(".form-select")[1].innerHTML = option3;
-    } else if (document.querySelectorAll(".form-select")[0].value == "셔츠") {
+    } else if (value == "셔츠") {
       document
         .querySelectorAll(".form-select")[1]
         .classList.remove("form-hide");
-    } else if (document.querySelectorAll(".form-select")[0].value == "모자") {
+    } else if (value == "모자") {
       document.querySelectorAll(".form-select")[1].classList.add("form-hide");
     }
   });
 
-// Q. 바지 눌렀다가 셔츠 누르면 이상한데? 다시 95, 100, 105가 나오도록 고쳐보기
+/// 6. Select 3 - forEach, for in 반복문 ///
+// 매일 사이즈 달라지면?
+// 서버에서 데이터가져와서 그거 개수만큼 <option> 만들면 될듯
+
+var pants = [28, 30, 32, 34];
+var shirts = [95, 100, 105];
+
+// 이 경우 arrow function안에서 this를 쓰면 바깥에 있던 this를 그대로 가져다씀
+// function 안에서 쓰면 this가 알맞게 재정의됨
+document
+  .querySelectorAll(".form-select")[0]
+  .addEventListener("change", function () {
+    var value = this.value;
+    if (value == "바지") {
+      document
+        .querySelectorAll(".form-select")[1]
+        .classList.remove("form-hide");
+      document.querySelectorAll(".form-select")[1].innerHTML = "";
+
+      // pants 데이터 갯수만큼 <option> 생성해주세요
+      // array에 붙일 수 있는 forEach 반복문
+      pants.forEach(function (size) {
+        var option = document.createElement("option");
+        option.textContent = size;
+        document.querySelectorAll(".form-select")[1].append(option);
+      });
+    } else if (value == "셔츠") {
+      // Q. 셔츠 선택 시 array 갯수에 맞게 <option> 생성하려면?
+      document;
+      document
+        .querySelectorAll(".form-select")[1]
+        .classList.remove("form-hide");
+      document.querySelectorAll(".form-select")[1].innerHTML = "";
+
+      shirts.forEach(function (size) {
+        var option = document.createElement("option");
+        option.textContent = size;
+        document.querySelectorAll(".form-select")[1].append(option);
+      });
+    } else if (value == "모자") {
+      document.querySelectorAll(".form-select")[1].classList.add("form-hide");
+    }
+  });
+
+// forEach(function(a, i) {})
+// forEach 안에 파라미터 2개 생성가능
+// - 첫째는 array안의 데이터
+// - 둘째는 0부터 1씩 증가하는 정수
+
+// object 자료 갯수 만큼 반복문 돌리려면?
+// => for in 문법
+var obj = { name: "kim", age: 20 };
+
+for (var key in obj) {
+  console.log(key);
+  console.log(obj[key]);
+  console.log(1);
+}
+
+// 반복문의 용도 //
+// 1. 코드 반복
+// 2. array, object 데이터 전부 꺼낼때
+
+// arrow function 사용가능
+// 예)
+shirts.forEach(function (size) {
+  var option = document.createElement("option");
+  option.textContent = size;
+  document.querySelectorAll(".form-select")[1].append(option);
+});
+// 같은 동작은 하지만 같은 문법은 아님
+// 차이점(주의): function 안에 this값을 쓸 경우 arrow function쓰면 함수 안의 this 뜻이 달라질 수 있음
+shirts.forEach((size) => {
+  var option = document.createElement("option");
+  option.textContent = size;
+  document.querySelectorAll(".form-select")[1].append(option);
+});

@@ -297,6 +297,13 @@ document
   });
 
 // Q. 모자 선택하면 둘째 <select> 사라지게?
+document
+  .querySelectorAll(".form-select")[0]
+  .addEventListener("change", function () {
+    if (document.querySelectorAll(".form-select")[0].value == "모자") {
+      document.querySelectorAll(".form-select")[1].classList.add("form-hide");
+    }
+  });
 
 // Q. 코드를 줄일 수 있는 부분?
 // e.currentTarget 또는 this로 바꾸면 좋을듯

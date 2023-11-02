@@ -330,3 +330,50 @@ document
         .classList.remove("form-hide");
     }
   });
+
+/// 5. Select2 - 자바스크립트로 html 생성하는 법 ///
+
+// 자바스크립트 html 생성법 1
+var a = document.createElement("p"); // p태그 생성 완-
+a.innerHTML = "안녕";
+document.querySelector("#test").appendChild(a);
+
+// 자바스크립트 html 생성법 2
+var 템플릿 = "<p>안녕</p>";
+//                           문자형 HTML 넣어주는 함수   안쪽맨밑
+document.querySelector("#test").insertAdjacentHTML("beforeend", 템플릿);
+// $('#test').append(템플릿)  // jQuery에서
+
+// if HTML 전체를 갈아치우고 싶다면?
+// 전에 배웠던 대로
+// innerHTML로 하면 됩니다~
+var 템플릿 = "<p>하이</p>";
+document.querySelector("#test").innerHTML = 템플릿;
+// $('#test).html(템플릿); // jQuery로 했을때
+
+// 정리 //
+// 생성법 1
+// .createElement()
+// 장점: 성능 더 빠름 (실은 별 차이 없음)
+
+// 생성법2
+// .insertAdjacentHTML()
+// .append()
+
+// Q. 바지 선택하면 28, 30 옵션 나오게?
+document
+  .querySelectorAll(".form-select")[0]
+  .addEventListener("change", function () {
+    if (document.querySelectorAll(".form-select")[0].value == "바지") {
+      var option3 = `
+      <option>28</option>
+      <option>30</option>
+      `;
+      document
+        .querySelectorAll(".form-select")[1]
+        .classList.remove("form-hide");
+      document.querySelectorAll(".form-select")[1].innerHTML = option3;
+    }
+  });
+
+// Q. 바지 눌렀다가 셔츠 누르면 이상한데? 다시 95, 100, 105가 나오도록 고쳐보기

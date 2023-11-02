@@ -373,6 +373,12 @@ document
         .querySelectorAll(".form-select")[1]
         .classList.remove("form-hide");
       document.querySelectorAll(".form-select")[1].innerHTML = option3;
+    } else if (document.querySelectorAll(".form-select")[0].value == "셔츠") {
+      document
+        .querySelectorAll(".form-select")[1]
+        .classList.remove("form-hide");
+    } else if (document.querySelectorAll(".form-select")[0].value == "모자") {
+      document.querySelectorAll(".form-select")[1].classList.add("form-hide");
     }
   });
 

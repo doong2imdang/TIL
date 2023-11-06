@@ -70,6 +70,7 @@ document.querySelector("#more").addEventListener("click", function () {
             .querySelector(".row")
             .insertAdjacentHTML("beforeend", 템플릿2);
         });
+        document.querySelector(".btn-danger").style.display = "none";
         count += 1;
         console.log(count);
       })
@@ -80,9 +81,9 @@ document.querySelector("#more").addEventListener("click", function () {
 });
 
 // https://codingapple1.github.io/js/more2.json(GET요청하면 7,8,9 번째 상품 줌)
-// 응용 1. 더보기 2회 누르면 7, 8, 9번째 상품 더 가져오기
+// 응용 1. 더보기 2회 누르면 7, 8, 9번째 상품 더 가져오기(완)
 
-// 응용 2. 더보기 2회 누르면 7, 8, 9 번째 상품 더 가져오기 & 버튼 안보이게
+// 응용 2. 더보기 2회 누르면 7, 8, 9 번째 상품 더 가져오기 & 버튼 안보이게(완)
 
 // 응용 3. 심심하면 유사한 코드 줄여보기 => 함수로 만들어보기
 // 함수화할때 변수있으면 파라미터로 바꾸는게 좋음

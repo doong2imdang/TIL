@@ -30,55 +30,55 @@ products.forEach((data) => {
 
 // Q. 더보기 버튼 누르면 상품 3개 가져와서 출력하기
 // https://codingapple1.github.io/js/more1.json(GET 요청하면 상품 3개 더줌 [{}, {}, {}])
-let count = 0;
-document.querySelector("#more").addEventListener("click", function () {
-  if (count === 0) {
-    fetch("https://codingapple1.github.io/js/more1.json")
-      .then((res) => res.json())
-      .then((data) => {
-        data.forEach((thing) => {
-          var 템플릿2 = `
-        <div class="col-sm-4">
-          <img src="https://via.placeholder.com/200" class="w-100" />
-          <h5>${thing.title}</h5>
-          <p>가격 : ${thing.price}원</p>
-        </div>
-        `;
-          document
-            .querySelector(".row")
-            .insertAdjacentHTML("beforeend", 템플릿2);
-        });
-        count += 1;
-        console.log(count);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  } else if (count === 1) {
-    fetch("https://codingapple1.github.io/js/more2.json")
-      .then((res) => res.json())
-      .then((data) => {
-        data.forEach((thing) => {
-          var 템플릿2 = `
-        <div class="col-sm-4">
-          <img src="https://via.placeholder.com/200" class="w-100" />
-          <h5>${thing.title}</h5>
-          <p>가격 : ${thing.price}원</p>
-        </div>
-        `;
-          document
-            .querySelector(".row")
-            .insertAdjacentHTML("beforeend", 템플릿2);
-        });
-        document.querySelector(".btn-danger").style.display = "none";
-        count += 1;
-        console.log(count);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }
-});
+// let count = 0;
+// document.querySelector("#more").addEventListener("click", function () {
+//   if (count === 0) {
+//     fetch("https://codingapple1.github.io/js/more1.json")
+//       .then((res) => res.json())
+//       .then((data) => {
+//         data.forEach((thing) => {
+//           var 템플릿2 = `
+//         <div class="col-sm-4">
+//           <img src="https://via.placeholder.com/200" class="w-100" />
+//           <h5>${thing.title}</h5>
+//           <p>가격 : ${thing.price}원</p>
+//         </div>
+//         `;
+//           document
+//             .querySelector(".row")
+//             .insertAdjacentHTML("beforeend", 템플릿2);
+//         });
+//         count += 1;
+//         console.log(count);
+//       })
+//       .catch((error) => {
+//         console.log(error);
+//       });
+//   } else if (count === 1) {
+//     fetch("https://codingapple1.github.io/js/more2.json")
+//       .then((res) => res.json())
+//       .then((data) => {
+//         data.forEach((thing) => {
+//           var 템플릿2 = `
+//         <div class="col-sm-4">
+//           <img src="https://via.placeholder.com/200" class="w-100" />
+//           <h5>${thing.title}</h5>
+//           <p>가격 : ${thing.price}원</p>
+//         </div>
+//         `;
+//           document
+//             .querySelector(".row")
+//             .insertAdjacentHTML("beforeend", 템플릿2);
+//         });
+//         document.querySelector(".btn-danger").style.display = "none";
+//         count += 1;
+//         console.log(count);
+//       })
+//       .catch((error) => {
+//         console.log(error);
+//       });
+//   }
+// });
 
 // https://codingapple1.github.io/js/more2.json(GET요청하면 7,8,9 번째 상품 줌)
 // 응용 1. 더보기 2회 누르면 7, 8, 9번째 상품 더 가져오기(완)
@@ -87,3 +87,37 @@ document.querySelector("#more").addEventListener("click", function () {
 
 // 응용 3. 심심하면 유사한 코드 줄여보기 => 함수로 만들어보기
 // 함수화할때 변수있으면 파라미터로 바꾸는게 좋음
+
+let count = 0;
+document.querySelector("#more").addEventListener("click", function () {
+  const url =
+    count === 0
+      ? "https://codingapple1.github.io/js/more1.json"
+      : "https://codingapple1.github.io/js/more2.json";
+
+  fetch(url)
+    .then((res) => res.json())
+    .then((data) => {
+      const row = document.querySelector(".row");
+
+      data.forEach((thing) => {
+        const 템플릿2 = `
+      <div class="col-sm-4">
+        <img src="https://via.placeholder.com/200" class="w-100" />
+        <h5>${thing.title}</h5>
+        <p>가격 : ${thing.price}원</p>
+      </div>
+      `;
+        row.insertAdjacentHTML("beforeend", 템플릿2);
+      });
+      count += 1;
+      console.log(count);
+
+      if (count === 2) {
+        document.querySelector(".btn-danger").style.display = "none";
+      }
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+});

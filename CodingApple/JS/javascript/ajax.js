@@ -238,6 +238,25 @@ var products = [
 ];
 
 // 숙제1. '상품명 다나가순 정렬' 버튼과 기능
+
+var 어레이 = ["가", "다", "나"];
+어레이.sort(function (a, b) {
+  // return 양수 -> a 우측으로 감
+  // return 음수 -> b 우측으로 감
+  //   a   b
+  // '가' '다' 일 경우 return 양수
+  // '다' '나' 일 경우 return 음수
+  // '가', '나' 일 경우 return 양수
+  if (a < b) {
+    return 1;
+  }
+  if (a > b) {
+    return -1;
+  } else {
+    return 0;
+  }
+});
+
 document.querySelector("#name").addEventListener("click", function () {
   products.sort(function (a, b) {
     if (a.title > b.title) {

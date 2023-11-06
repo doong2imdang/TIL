@@ -111,7 +111,7 @@ document.querySelector("#more").addEventListener("click", function () {
         row.insertAdjacentHTML("beforeend", 템플릿2);
       });
       count += 1;
-      console.log(count);
+      // console.log(count);
 
       if (count === 2) {
         document.querySelector(".btn-danger").style.display = "none";
@@ -132,13 +132,13 @@ var 어레이 = [7, 3, 5, 2, 40];
 var 어레이2 = ["a", "b", "c"];
 
 어레이.sort();
-console.log(어레이); // [2, 3, 40, 5, 7]
+// console.log(어레이); // [2, 3, 40, 5, 7]
 
 // 숫자 정렬은
 어레이.sort(function (a, b) {
   return a - b;
 });
-console.log(어레이); // [2, 3, 5, 7, 40]
+// console.log(어레이); // [2, 3, 5, 7, 40]
 
 // 동작원리????
 // 1. a, b 는 arrya 안의(에있던) 자료(들)임
@@ -149,11 +149,11 @@ console.log(어레이); // [2, 3, 5, 7, 40]
 어레이.sort(function (a, b) {
   return b - a;
 });
-console.log(어레이); // [40, 7, 5, 3, 2]
+// console.log(어레이); // [40, 7, 5, 3, 2]
 
 // 문자 가나다순 정렬은?
 어레이2.sort();
-console.log(어레이2); // ['a', 'b', 'c']
+// console.log(어레이2); // ['a', 'b', 'c']
 
 // 숙제. 문자 다나가순 정렬은?
 어레이2.sort(function (a, b) {
@@ -166,7 +166,7 @@ console.log(어레이2); // ['a', 'b', 'c']
     return 0;
   }
 });
-console.log(어레이2); // ['c', 'b', 'a']
+// console.log(어레이2); // ['c', 'b', 'a']
 
 // Q. 버튼 누르면 products 안의 데이터를 가격순 정렬?
 var products = [
@@ -180,7 +180,7 @@ document.querySelector("#price").addEventListener("click", function () {
     return a.price - b.price;
   });
 
-  console.log(products);
+  // console.log(products);
 });
 
 // Q. 버튼 눌러도 왜 html은 안바뀜?
@@ -215,7 +215,7 @@ var 새어레이 = 어레이.filter(function (a) {
   // return 조건식
   return a < 4;
 });
-console.log(새어레이); // [3, 2]
+// console.log(새어레이); // [3, 2]
 
 // array 자료 전부 변형하려면 .map() //
 // 달러표시 상품가격인데 전부 원화로 변경하려면?
@@ -225,7 +225,7 @@ var 어레이 = [7, 3, 5, 2, 40];
 var 새어레이 = 어레이.map(function (a) {
   return a * 4;
 });
-console.log(새어레이); // [28, 12, 20, 8, 160]
+// console.log(새어레이); // [28, 12, 20, 8, 160]
 
 // sort 와 filter 비교
 // .sort() 는 원본변형 O
@@ -265,3 +265,21 @@ document.querySelector("#name").addEventListener("click", function () {
 
 // 숙제2. '6만원 이하 상품만 보기' 버튼과 기능
 // products에서 6만원 이하만 남기면 될듯 그리고 그걸로 html 새로 생성
+document.querySelector("#underPrice").addEventListener("click", function () {
+  document.querySelector(".row").innerHTML = "";
+  let underPrice = products.filter(function (product) {
+    return product.price <= 60000;
+  });
+
+  underPrice.forEach((data) => {
+    var 템플릿4 = `
+    <div class="col-sm-4">
+      <img src="https://via.placeholder.com/200" class="w-100" />
+      <h5>${data.title}</h5>
+      <p>가격 : ${data.price}원</p>
+    </div>
+    `;
+    document.querySelector(".row").insertAdjacentHTML("beforeend", 템플릿4);
+  });
+  console.log(underPrice);
+});

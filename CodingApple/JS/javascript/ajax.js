@@ -30,24 +30,53 @@ products.forEach((data) => {
 
 // Q. 더보기 버튼 누르면 상품 3개 가져와서 출력하기
 // https://codingapple1.github.io/js/more1.json(GET 요청하면 상품 3개 더줌 [{}, {}, {}])
+let count = 0;
 document.querySelector("#more").addEventListener("click", function () {
-  fetch("https://codingapple1.github.io/js/more1.json")
-    .then((res) => res.json())
-    .then((data) => {
-      data.forEach((thing) => {
-        var 템플릿2 = `
+  if (count === 0) {
+    fetch("https://codingapple1.github.io/js/more1.json")
+      .then((res) => res.json())
+      .then((data) => {
+        data.forEach((thing) => {
+          var 템플릿2 = `
         <div class="col-sm-4">
           <img src="https://via.placeholder.com/200" class="w-100" />
           <h5>${thing.title}</h5>
           <p>가격 : ${thing.price}원</p>
         </div>
         `;
-        document.querySelector(".row").insertAdjacentHTML("beforeend", 템플릿2);
+          document
+            .querySelector(".row")
+            .insertAdjacentHTML("beforeend", 템플릿2);
+        });
+        count += 1;
+        console.log(count);
+      })
+      .catch((error) => {
+        console.log(error);
       });
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+  } else if (count === 1) {
+    fetch("https://codingapple1.github.io/js/more2.json")
+      .then((res) => res.json())
+      .then((data) => {
+        data.forEach((thing) => {
+          var 템플릿2 = `
+        <div class="col-sm-4">
+          <img src="https://via.placeholder.com/200" class="w-100" />
+          <h5>${thing.title}</h5>
+          <p>가격 : ${thing.price}원</p>
+        </div>
+        `;
+          document
+            .querySelector(".row")
+            .insertAdjacentHTML("beforeend", 템플릿2);
+        });
+        count += 1;
+        console.log(count);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
 });
 
 // https://codingapple1.github.io/js/more2.json(GET요청하면 7,8,9 번째 상품 줌)

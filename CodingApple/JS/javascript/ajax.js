@@ -238,6 +238,30 @@ var products = [
 ];
 
 // 숙제1. '상품명 다나가순 정렬' 버튼과 기능
+document.querySelector("#name").addEventListener("click", function () {
+  products.sort(function (a, b) {
+    if (a.title > b.title) {
+      return -1;
+    }
+    if (a.title < b.title) {
+      return 1;
+    } else {
+      return 0;
+    }
+  });
+  document.querySelector(".row").innerHTML = "";
+
+  products.forEach((data) => {
+    var 템플릿4 = `
+    <div class="col-sm-4">
+      <img src="https://via.placeholder.com/200" class="w-100" />
+      <h5>${data.title}</h5>
+      <p>가격 : ${data.price}원</p>
+    </div>
+    `;
+    document.querySelector(".row").insertAdjacentHTML("beforeend", 템플릿4);
+  });
+});
 
 // 숙제2. '6만원 이하 상품만 보기' 버튼과 기능
 // products에서 6만원 이하만 남기면 될듯 그리고 그걸로 html 새로 생성

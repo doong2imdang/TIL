@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>positionSticky</title>
+    <style>
+      .grey {
+        background: lightgrey;
+        height: 2000px;
+        margin-top: 500px;
+      }
+
+      .image {
+        float: right;
+        width: 400px;
+
+        /* fixed와 유사(but, 조건부로 fixed, 부모박스 넘어서면 해제) */
+        position: sticky;
+        top: 100px;
+      }
+
+      .text {
+        float: left;
+        width: 300px;
+      }
+    </style>
+  </head>
+  <body style="background: grey; height: 3000px">
+    <div class="grey">
+      <div class="image">
+        <img src="./image/meadows-8313453_1280.jpg" width="100%" />
+      </div>
+      <div class="text">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Exercitationem
+        eum maxime aliquid autem officia voluptatum quam quaerat corrupti,
+        obcaecati optio voluptates ullam omnis. Deserunt, alias. Dolore minus
+        est assumenda ex!
+      </div>
+      <div style="clear: both"></div>
+      <div class="text" style="margin-top: 300px">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Exercitationem
+        eum maxime aliquid autem officia voluptatum quam quaerat corrupti,
+        obcaecati optio voluptates ullam omnis. Deserunt, alias. Dolore minus
+        est assumenda ex!
+      </div>
+      <div style="clear: both"></div>
+      <div class="text" style="margin-top: 300px">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Exercitationem
+        eum maxime aliquid autem officia voluptatum quam quaerat corrupti,
+        obcaecati optio voluptates ullam omnis. Deserunt, alias. Dolore minus
+        est assumenda ex!
+      </div>
+    </div>
+  </body>
+</html>

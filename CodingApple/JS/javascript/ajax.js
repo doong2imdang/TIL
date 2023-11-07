@@ -16,6 +16,18 @@ var products = [
 //   document.querySelector(".row").insertAdjacentHTML("beforeend", 템플릿);
 // }
 
+var 변수 = 0; // 변수로 저장할 경우 페이지 새로고침시 다시 초기값으로 변함
+
+// 데이터를 반영구적으로 저장하는 방법
+// -> 브라우저안에 몰래 데이터 저장가능
+
+// 저장할 수 있는 다양한 방법이 있는데
+// 1. localStorage, 2. sessionStorage 는 이름(key):값(value) 형태로 저장가능 / 용량은 5MB / 문자, 숫자만 저장가능
+// localStorage는 사이트 재접속해도 유지 sessionStorage는 사이트나가면 자동삭제되는 차이점이 있음
+// 3. IndexedDB 는 구조화된 대용량데이터 저장시(문법 복잡)
+// 4. Cookies 는 보통 로그인 정보 저장시
+// 5. Cache Storage는 html css js 파일 저장하는 곳
+
 // forEach 사용하는 경우
 products.forEach((data) => {
   var 템플릿 = `
@@ -23,10 +35,54 @@ products.forEach((data) => {
     <img src="https://via.placeholder.com/200" class="w-100" />
       <h5>${data.title}</h5>
       <p>가격 : ${data.price}원</p>
+      <button class="buy">구매</button>
     </div>
   `;
   document.querySelector(".row").insertAdjacentHTML("beforeend", 템플릿);
 });
+
+/// 13. 장바구니 기능과 localStorage ///
+// 구매 버튼 누르면 장바구니에 상품명 추가?
+// -> 실제 서비스면 서버로 보냈을듯
+
+// 구매버튼을 누르면 localStorage에 상품명 저장해두자
+
+// 저장하려면
+localStorage.setItem("데이터이름", "저장할 값");
+localStorage.setItem("이름", "kim");
+
+// 출력하려면
+localStorage.getItem("이름"); // kim
+
+// 삭제하려면
+localStorage.removeItem("이름");
+
+// localStorage에 array, object 저장하려면
+// array/object -> JSON으로 바꾸면 저장가능
+// array/object -> JSON 은 JSON.stringify()
+// JSON -> array/object는 JSON.parse()
+localStorage.setItem("num", [1, 2, 3]); // num 1, 2, 3(array를 강제로 문자로 변환해줌)
+var arr = [1, 2, 3];
+var newArr = JSON.stringify(arr);
+
+localStorage.setItem("num", newArr);
+var 꺼낸거 = localStorage.getItem("num");
+JSON.parse(꺼낸거);
+console.log(꺼낸거); // array가 아니라 문자 [1, 2, 3]
+console.log(JSON.parse(꺼낸거)); // array
+
+// sessionStorage 사용법은 localStorage 부분을 sessionStorage라고만 바꾸면 똑같이 사용 가능
+
+// localStorage 데이터 수정?
+// 1. 자료꺼냄
+// 2. 꺼낸거 수정
+// 3. 다시 넣음
+
+// 숙제 1. 구매버튼 누르면 누른 상품명 localStorage에 저장하기(예. cart(key): value값에 array로 저장추천)
+// (팁1) 내 형제요소(sibling) 찾는 법 알아봐야
+// (팁2) localStorage가 비어있을때 / 뭐가 있을떄 저장방식이 뭔가 다를듯( 1. 구매버튼 누를때 cart 항목 없으면 array 추가해야함 / 2. cart 항목 있으면 array 수정해야함)
+
+// 숙제 2. cart.html 방문시 localStorage에 저장된 상품명들 다 보여주기
 
 // Q. 더보기 버튼 누르면 상품 3개 가져와서 출력하기
 // https://codingapple1.github.io/js/more1.json(GET 요청하면 상품 3개 더줌 [{}, {}, {}])

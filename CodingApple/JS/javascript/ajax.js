@@ -81,17 +81,46 @@ console.log(JSON.parse(꺼낸거)); // array
 // 숙제 1. 구매버튼 누르면 누른 상품명 localStorage에 저장하기(예. cart(key): value값에 array로 저장추천)
 // (팁1) 내 형제요소(sibling) 찾는 법 알아봐야
 // (팁2) localStorage가 비어있을때 / 뭐가 있을떄 저장방식이 뭔가 다를듯( 1. 구매버튼 누를때 cart 항목 없으면 array 추가해야함 / 2. cart 항목 있으면 array 수정해야함)
-document.querySelectorAll(".buy").forEach((buyButton, index) => {
-  buyButton.addEventListener("click", function () {
-    let selectedProduct = products[index];
-    let key = "상품명";
-    let cart = JSON.parse(localStorage.getItem(key)) || [];
-    cart.push(selectedProduct.title);
-    localStorage.setItem(key, JSON.stringify(cart));
+
+// 1. 구매버튼 누르면
+// 2. 지금누른 버튼 윗윗 글자를 가져와서
+// 3. localStorage에 [글자] 저장
+// document.querySelectorAll(".buy").forEach((buyButton, index) => {
+//   buyButton.addEventListener("click", function () {
+//     let selectedProduct = products[index];
+//     let key = "상품명";
+//     let cart = JSON.parse(localStorage.getItem(key)) || [];
+//     cart.push(selectedProduct.title);
+//     localStorage.setItem(key, JSON.stringify(cart));
+//   });
+// });
+
+// 강의 정답
+document.querySelectorAll(".buy").forEach((buyButton) => {
+  buyButton.addEventListener("click", function (e) {
+    var title =
+      e.target.previousElementSibling.previousElementSibling.textContent;
+
+    // 만약에 이미 cart 라는 항목이 있으면 수정하기~~ 근데 그게 아니면 cart 추가해주기
+    if (localStorage.getItem("cart") != null) {
+      // localStorage에 있던 array 1. 꺼내서 2. 자료 추가하고 3. 다시 넣기
+      // localStorage.getItem('cart') == localStorage.cart
+      var 꺼낸거 = JSON.parse(localStorage.cart);
+      꺼낸거.push(title);
+      localStorage.setItem("cart", JSON.stringify(꺼낸거));
+    } else {
+      localStorage.setItem("cart", JSON.stringify([title]));
+    }
   });
 });
 
-// 숙제 2. cart.html 방문시 localStorage에 저장된 상품명들 다 보여주기
+// 숙제 2. cart.html 방문시 localStorage에 저장된 상품명들 다 보여주기(완 - cart.html)
+
+// 응용. array안의 중복제거는?
+
+// 응용2. 아니면 상품수량도 저장?
+// 예시) value 값이 ["Blossom Dress 2개"] -> ["Blossom Dress 3개"] 이렇게
+// 예시) [{상품명: 'A', 수량 : 1}, {상품명: 'B', 수량 : 2} ...] 이런식으로 저장
 
 // Q. 더보기 버튼 누르면 상품 3개 가져와서 출력하기
 // https://codingapple1.github.io/js/more1.json(GET 요청하면 상품 3개 더줌 [{}, {}, {}])

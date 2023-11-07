@@ -10,15 +10,15 @@
     <div class="shoppingCart">장바구니페이지</div>
   </body>
   <script>
-    var 저장된거 = localStorage.getItem("상품명");
+    var 저장된거 = localStorage.getItem("cart");
     for (let i = 0; i < JSON.parse(저장된거).length; i++) {
       var 템플릿 = `
-      <p>${JSON.parse(localStorage.getItem("상품명"))[i]}</p>
+      <p>${JSON.parse(localStorage.getItem("cart"))[i]}</p>
       `;
       document
         .querySelector(".shoppingCart")
         .insertAdjacentHTML("beforeend", 템플릿);
     }
-    console.log(localStorage.getItem("상품명"));
+    console.log(localStorage.getItem("cart"));
   </script>
 </html>

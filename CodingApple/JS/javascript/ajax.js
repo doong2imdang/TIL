@@ -81,6 +81,15 @@ console.log(JSON.parse(꺼낸거)); // array
 // 숙제 1. 구매버튼 누르면 누른 상품명 localStorage에 저장하기(예. cart(key): value값에 array로 저장추천)
 // (팁1) 내 형제요소(sibling) 찾는 법 알아봐야
 // (팁2) localStorage가 비어있을때 / 뭐가 있을떄 저장방식이 뭔가 다를듯( 1. 구매버튼 누를때 cart 항목 없으면 array 추가해야함 / 2. cart 항목 있으면 array 수정해야함)
+document.querySelectorAll(".buy").forEach((buyButton, index) => {
+  buyButton.addEventListener("click", function () {
+    let selectedProduct = products[index];
+    let key = "상품명";
+    let cart = JSON.parse(localStorage.getItem(key)) || [];
+    cart.push(selectedProduct.title);
+    localStorage.setItem(key, JSON.stringify(cart));
+  });
+});
 
 // 숙제 2. cart.html 방문시 localStorage에 저장된 상품명들 다 보여주기
 

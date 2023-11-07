@@ -7,9 +7,18 @@
     <title>Cart</title>
   </head>
   <body>
-    <div>장바구니페이지</div>
-    <p>상품명1</p>
-    <p>상품명2</p>
-    <p>상품명3</p>
+    <div class="shoppingCart">장바구니페이지</div>
   </body>
+  <script>
+    var 저장된거 = localStorage.getItem("상품명");
+    for (let i = 0; i < JSON.parse(저장된거).length; i++) {
+      var 템플릿 = `
+      <p>${JSON.parse(localStorage.getItem("상품명"))[i]}</p>
+      `;
+      document
+        .querySelector(".shoppingCart")
+        .insertAdjacentHTML("beforeend", 템플릿);
+    }
+    console.log(localStorage.getItem("상품명"));
+  </script>
 </html>

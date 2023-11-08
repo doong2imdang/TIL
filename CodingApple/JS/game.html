@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="quiz">
+      <h4>물에 빠지면 누구먼저 구할 것임?</h4>
+      <button>와이프</button>
+      <button>부모님</button>
+      <button>키우던 개</button>
+    </div>
+
+    <script>
+      // 버튼 누르면 각각 다른 안내문 띄우기
+      document.querySelector("#quiz").addEventListener("click", function (e) {
+        // 누른게 와이프면 '와이프가 가장중요하군요~'
+        switch (e.target.innerHTML) {
+          case "와이프":
+            alert("와이프를 좋아하시네요");
+            break;
+          case "부모님":
+            alert("효자네요");
+            break;
+          case "키우던 개":
+            alert("사람보다 동물을 더 좋아하세");
+            break;
+        }
+      });
+    </script>
+
+    <script>
+      let 변수 = 2 + 5;
+      // 변수가 3이면 이거 실행해주세요~ 변수가 4이면 이거 실행해주세요 => if문 쓸 수 있지만 switch 써보기
+      // if는 다양한 조건식 가능
+      // switch는 변수 1개만 테스트 가능(대신 깔끔해보임 => 변수하나만 검사할때 간편하게 사용 가능)
+      switch (변수) {
+        case 3:
+          alert("변수가 3이네요");
+          break; // break는 탈출, 만약에 없다면 밑에 있는 코드도 다 실행해줄것임
+        case 4:
+          alert("변수가 4이네요");
+          break;
+        default:
+          alert("아무것도 해당안됨"); // else와 비슷한 default:
+      }
+    </script>
+  </body>
+</html>

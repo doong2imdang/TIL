@@ -117,29 +117,46 @@ console.log(JSON.parse(꺼낸거)); // array
 // 숙제 2. cart.html 방문시 localStorage에 저장된 상품명들 다 보여주기(완 - cart.html)
 
 // 응용. array안의 중복제거는?
+// document.querySelectorAll(".buy").forEach((buyButton) => {
+//   buyButton.addEventListener("click", function (e) {
+//     var title =
+//       e.target.previousElementSibling.previousElementSibling.textContent;
+
+//     // 만약에 value 값에 같은 값이 없을 경우에만 추가하기
+//     let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+//     if (!cartItems.includes(title)) {
+//       if (localStorage.getItem("cart") != null) {
+//         var 꺼낸거 = JSON.parse(localStorage.cart);
+//         꺼낸거.push(title);
+//         localStorage.setItem("cart", JSON.stringify(꺼낸거));
+//       } else {
+//         localStorage.setItem("cart", JSON.stringify([title]));
+//       }
+//     }
+//     console.log(!cartItems.includes(title));
+//   });
+// });
+
+// 응용2. 아니면 상품수량도 저장?
+// 예시) value 값이 ["Blossom Dress 2개"] -> ["Blossom Dress 3개"] 이렇게
+// 예시) [{상품명: 'A', 수량 : 1}, {상품명: 'B', 수량 : 2} ...] 이런식으로 저장
 document.querySelectorAll(".buy").forEach((buyButton) => {
   buyButton.addEventListener("click", function (e) {
     var title =
       e.target.previousElementSibling.previousElementSibling.textContent;
 
-    // 만약에 value 값에 같은 값이 없을 경우에만 추가하기
     let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
-    if (!cartItems.includes(title)) {
-      if (localStorage.getItem("cart") != null) {
-        var 꺼낸거 = JSON.parse(localStorage.cart);
-        꺼낸거.push(title);
-        localStorage.setItem("cart", JSON.stringify(꺼낸거));
-      } else {
-        localStorage.setItem("cart", JSON.stringify([title]));
-      }
+    let existingItem = cartItems.find((item) => item.상품명 === title);
+
+    if (existingItem) {
+      existingItem.수량++;
+    } else {
+      cartItems.push({ 상품명: title, 수량: 1 });
     }
-    console.log(!cartItems.includes(title));
+
+    localStorage.setItem("cart", JSON.stringify(cartItems));
   });
 });
-
-// 응용2. 아니면 상품수량도 저장?
-// 예시) value 값이 ["Blossom Dress 2개"] -> ["Blossom Dress 3개"] 이렇게
-// 예시) [{상품명: 'A', 수량 : 1}, {상품명: 'B', 수량 : 2} ...] 이런식으로 저장
 
 // Q. 더보기 버튼 누르면 상품 3개 가져와서 출력하기
 // https://codingapple1.github.io/js/more1.json(GET 요청하면 상품 3개 더줌 [{}, {}, {}])

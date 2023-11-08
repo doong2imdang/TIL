@@ -96,27 +96,46 @@ console.log(JSON.parse(꺼낸거)); // array
 // });
 
 // 강의 정답
+// document.querySelectorAll(".buy").forEach((buyButton) => {
+//   buyButton.addEventListener("click", function (e) {
+//     var title =
+//       e.target.previousElementSibling.previousElementSibling.textContent;
+
+//     // 만약에 이미 cart 라는 항목이 있으면 수정하기~~ 근데 그게 아니면 cart 추가해주기
+//     if (localStorage.getItem("cart") != null) {
+//       // localStorage에 있던 array 1. 꺼내서 2. 자료 추가하고 3. 다시 넣기
+//       // localStorage.getItem('cart') == localStorage.cart
+//       var 꺼낸거 = JSON.parse(localStorage.cart);
+//       꺼낸거.push(title);
+//       localStorage.setItem("cart", JSON.stringify(꺼낸거));
+//     } else {
+//       localStorage.setItem("cart", JSON.stringify([title]));
+//     }
+//   });
+// });
+
+// 숙제 2. cart.html 방문시 localStorage에 저장된 상품명들 다 보여주기(완 - cart.html)
+
+// 응용. array안의 중복제거는?
 document.querySelectorAll(".buy").forEach((buyButton) => {
   buyButton.addEventListener("click", function (e) {
     var title =
       e.target.previousElementSibling.previousElementSibling.textContent;
 
-    // 만약에 이미 cart 라는 항목이 있으면 수정하기~~ 근데 그게 아니면 cart 추가해주기
-    if (localStorage.getItem("cart") != null) {
-      // localStorage에 있던 array 1. 꺼내서 2. 자료 추가하고 3. 다시 넣기
-      // localStorage.getItem('cart') == localStorage.cart
-      var 꺼낸거 = JSON.parse(localStorage.cart);
-      꺼낸거.push(title);
-      localStorage.setItem("cart", JSON.stringify(꺼낸거));
-    } else {
-      localStorage.setItem("cart", JSON.stringify([title]));
+    // 만약에 value 값에 같은 값이 없을 경우에만 추가하기
+    let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+    if (!cartItems.includes(title)) {
+      if (localStorage.getItem("cart") != null) {
+        var 꺼낸거 = JSON.parse(localStorage.cart);
+        꺼낸거.push(title);
+        localStorage.setItem("cart", JSON.stringify(꺼낸거));
+      } else {
+        localStorage.setItem("cart", JSON.stringify([title]));
+      }
     }
+    console.log(!cartItems.includes(title));
   });
 });
-
-// 숙제 2. cart.html 방문시 localStorage에 저장된 상품명들 다 보여주기(완 - cart.html)
-
-// 응용. array안의 중복제거는?
 
 // 응용2. 아니면 상품수량도 저장?
 // 예시) value 값이 ["Blossom Dress 2개"] -> ["Blossom Dress 3개"] 이렇게

@@ -16,7 +16,7 @@ body {
   width: 300vw;
 
   /*2.버튼2누른후최종화면만들기*/
-  transition: all 1s;
+  /* transition: all 1s; */
 }
 
 .slide-box {

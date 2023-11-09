@@ -11,13 +11,17 @@
     <div style="overflow: hidden">
       <div class="slide-container">
         <div class="slide-box">
-          <img src="./image/meadows-8313453_1280.jpg" />
+          <!-- draggable:false : 이러면 드래그 & 이동 안됨 -->
+          <img src="./image/meadows-8313453_1280.jpg" draggable="false" />
         </div>
         <div class="slide-box">
-          <img src="./image/red-admiral-8314443_1280.jpg" />
+          <img src="./image/red-admiral-8314443_1280.jpg" draggable="false" />
         </div>
         <div class="slide-box">
-          <img src="./image/superb-fairywren-8311943_1280.jpg" />
+          <img
+            src="./image/superb-fairywren-8311943_1280.jpg"
+            draggable="false"
+          />
         </div>
       </div>
     </div>
@@ -27,6 +31,11 @@
     <button class="previous">이전</button>
     <button class="next">다음</button>
 
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
     <script>
       // 3. 버튼2 누르면 최종화면으로 변하게 해주세요
       document.querySelector(".slide-2").addEventListener("click", function () {
@@ -163,5 +172,6 @@
       // '문자' + 123 => '문자123'
       // '문자' + '문자'  => '문자문자'
     </script>
+    <script src="./javascript/swipe.js"></script>
   </body>
 </html>

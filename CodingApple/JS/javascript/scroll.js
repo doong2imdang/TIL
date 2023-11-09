@@ -14,6 +14,11 @@ $(window).scroll(function () {
   // b = 115/50;
   var y = (-1 / 500) * 높이 + 115 / 50;
   $(".card-box").eq(0).css("opacity", y);
+
+  // a = (-1/5000)
+  // b = 565/500
+  var z = (-1 / 5000) * 높이 + 565 / 500;
+  $(".card-box").eq(0).css("transform", `scale(${z})`);
 });
 
 // 숙제. 카드가 작아지는걸 구현(transform 속성(scale) 이용)

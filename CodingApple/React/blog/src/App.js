@@ -11,7 +11,11 @@ function App() {
   // let [a, b] = useState("남자 코트 추천");
   // a => state에 보관했던 자료 나옴
   // b => state 변경을 도와주는 함수
-  let [글제목, b] = useState(["남자코트 추천", "강남 우동맛집", "파이썬독학"]);
+  let [글제목, 글제목변경] = useState([
+    "남자코트 추천",
+    "강남 우동맛집",
+    "파이썬독학",
+  ]);
   // let [logo, setLogo] = useState("ReactBlog");
 
   // Q. 변수가 아니라 왜 state 써야함?
@@ -52,7 +56,14 @@ function App() {
           >
             👍
           </span>{" "}
-          {따봉}
+          {따봉}{" "}
+          <button
+            onClick={() => {
+              글제목변경(["여자코트 추천", "강남 우동맛집", "파이썬독학"]);
+            }}
+          >
+            글수정
+          </button>
         </h4>
         <p>2월 17일 발행</p>
       </div>

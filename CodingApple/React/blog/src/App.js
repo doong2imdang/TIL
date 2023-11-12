@@ -39,7 +39,9 @@ function App() {
   // 1. onClick 쓰는 법 => onClick={} 안엔 함수 넣어야함
   // 2. state 변경하는 법(항상 state 변경함수 쓰세요) => state변경함수(새로운 state)
 
-  // 숙제. 버튼 누르면 첫 글이 '여자코트 추천'으로 바뀌는 기능만들기
+  // 숙제. 버튼 누르면 첫 글이 '여자코트 추천'으로 바뀌는 기능만들기(완)
+
+  // 숙제2. 버튼 누르면 글제목 가나다순 정렬 기능 만들기
   return (
     <div className="App">
       <div className="black-nav">
@@ -56,10 +58,20 @@ function App() {
           >
             👍
           </span>{" "}
-          {따봉}{" "}
+          {따봉} <button>가나다순정렬</button>
           <button
             onClick={() => {
-              글제목변경(["여자코트 추천", "강남 우동맛집", "파이썬독학"]);
+              //          이 변수에 저장되어있던건 화살표밖에 없음(글제목으로만 되어있을때)
+              // let 글제목에 있던 화살표가 복사됨(copy에)
+              // 변수1 & 변수2 화살표가 같으면 변수1 == 변수2 비교해도 true 나옴
+              // console.log(copy == 글제목); (let copy = 글제목; 으로 할 경우)
+              // copy는 기존 state와 달라지지 않았다고 생각
+              // array, object는 reference data type이라서 그럼(더 찾아보기)
+              // 이렇게 하면 화살표가 바뀜
+              let copy = [...글제목];
+
+              copy[0] = "여자코트 추천";
+              글제목변경(copy);
             }}
           >
             글수정

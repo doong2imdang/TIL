@@ -27,7 +27,7 @@ function App() {
 
   // 숙제. 이렇게 만들어오세요. 근데 제목들을 state로 만들어오셈(완)
 
-  let [따봉, 따봉변경] = useState(0);
+  let [따봉, 따봉변경] = useState([0, 0, 0]);
   // 따봉변경 => state 변경용 함수임
 
   // onClick={안엔 함수이름을 넣어야함} => 함수 만드는 문법을 바로 넣어도 상관없음( () => {} or function() { })
@@ -52,7 +52,7 @@ function App() {
         {/* 로고 글자도 state로 넣으면 좋을듯? (쓸데없어보임=> 맨날 바뀌지 않기때문) */}
         <h4>ReactBlog</h4>
       </div>
-      <div className="list">
+      {/* <div className="list">
         <h4>
           {글제목[0]}{" "}
           <span
@@ -105,7 +105,7 @@ function App() {
           {글제목[2]}
         </h4>
         <p>2월 17일 발행</p>
-      </div>
+      </div> */}
 
       {
         // 삼항연산자(ternary operator)
@@ -113,6 +113,28 @@ function App() {
         modal ? <Modal /> : null // 기계
         // Q. 제목클릭시 모달창 띄우기? 클릭시 state만 조절하면 됩니다
       }
+
+      {/* a => array안에 있던 데이터랬음 */}
+      {/* i => 반복문이 돌때 마다 0부터 1씩 증가하는 정수 */}
+      {/* 숙제.따봉 갯수 개별로 기록하기 */}
+      {글제목.map(function (a, i) {
+        return (
+          <div className="list" key={i}>
+            <h4>
+              {글제목[i]}{" "}
+              <span
+                onClick={() => {
+                  따봉변경(따봉 + 1);
+                }}
+              >
+                👍
+              </span>{" "}
+              {따봉}
+            </h4>
+            <p>2월 17일 발행</p>
+          </div>
+        );
+      })}
     </div>
   );
 }

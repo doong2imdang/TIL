@@ -98,7 +98,7 @@ function App() {
       <div className="list">
         <h4
           onClick={() => {
-            setModal(true);
+            modal ? setModal(false) : setModal(true);
             // 제목 또 누르면 모달창 사라지게?
           }}
         >

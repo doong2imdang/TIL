@@ -58,7 +58,15 @@ function App() {
           >
             👍
           </span>{" "}
-          {따봉} <button>가나다순정렬</button>
+          {따봉}{" "}
+          <button
+            onClick={() => {
+              let copiedArray = [...글제목];
+              글제목변경(copiedArray.sort());
+            }}
+          >
+            가나다순정렬
+          </button>
           <button
             onClick={() => {
               //          이 변수에 저장되어있던건 화살표밖에 없음(글제목으로만 되어있을때)

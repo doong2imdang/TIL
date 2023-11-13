@@ -41,7 +41,11 @@ function App() {
 
   // 숙제. 버튼 누르면 첫 글이 '여자코트 추천'으로 바뀌는 기능만들기(완)
 
-  // 숙제2. 버튼 누르면 글제목 가나다순 정렬 기능 만들기
+  // 숙제2. 버튼 누르면 글제목 가나다순 정렬 기능 만들기(완)
+
+  // useState()안에 값의 형식은 자유(모달창상태 표현만 가능하면 됩니다)
+  let [modal, setModal] = useState(false); // 스위치
+
   return (
     <div className="App">
       <div className="black-nav">
@@ -92,11 +96,23 @@ function App() {
         <p>2월 17일 발행</p>
       </div>
       <div className="list">
-        <h4>{글제목[2]}</h4>
+        <h4
+          onClick={() => {
+            setModal(true);
+            // 제목 또 누르면 모달창 사라지게?
+          }}
+        >
+          {글제목[2]}
+        </h4>
         <p>2월 17일 발행</p>
       </div>
 
-      <Modal />
+      {
+        // 삼항연산자(ternary operator)
+        // 조건식 ? 참일때 실행할 코드 : 거짓일 때 실행할 코드
+        modal ? <Modal /> : null // 기계
+        // Q. 제목클릭시 모달창 띄우기? 클릭시 state만 조절하면 됩니다
+      }
     </div>
   );
 }

@@ -138,7 +138,9 @@ function App() {
       {
         // 삼항연산자(ternary operator)
         // 조건식 ? 참일때 실행할 코드 : 거짓일 때 실행할 코드
-        modal ? <Modal color="skyblue" 글제목={글제목} /> : null // 기계
+        modal ? (
+          <Modal color="skyblue" 글제목변경={글제목변경} 글제목={글제목} />
+        ) : null // 기계
         // Q. 제목클릭시 모달창 띄우기? 클릭시 state만 조절하면 됩니다
         // props로 일반문자도 전송가능
       }
@@ -153,10 +155,18 @@ function Modal(props) {
 
     // 숙제. 글수정 버튼을 누르면 첫 글제목이 '여자코트 추천'으로 바뀌어야함
     <div className="modal" style={{ background: props.color }}>
-      <h4>{props.글제목}</h4>
+      <h4>{props.글제목[0]}</h4>
       <p>날짜</p>
       <p>상세내용</p>
-      <button>글수정</button>
+      <button
+        onClick={() => {
+          let copy = [...props.글제목];
+          copy[0] = "여자코트 추천";
+          props.글제목변경(copy);
+        }}
+      >
+        글수정
+      </button>
     </div>
   );
 }

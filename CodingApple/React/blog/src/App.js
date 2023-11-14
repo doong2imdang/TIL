@@ -107,20 +107,17 @@ function App() {
         <p>2월 17일 발행</p>
       </div> */}
 
-      {
-        // 삼항연산자(ternary operator)
-        // 조건식 ? 참일때 실행할 코드 : 거짓일 때 실행할 코드
-        modal ? <Modal /> : null // 기계
-        // Q. 제목클릭시 모달창 띄우기? 클릭시 state만 조절하면 됩니다
-      }
-
       {/* a => array안에 있던 데이터랬음 */}
       {/* i => 반복문이 돌때 마다 0부터 1씩 증가하는 정수 */}
       {/* 숙제.따봉 갯수 개별로 기록하기 */}
       {글제목.map(function (a, i) {
         return (
           <div className="list" key={i}>
-            <h4>
+            <h4
+              onClick={() => {
+                modal ? setModal(false) : setModal(true);
+              }}
+            >
               {글제목[i]}{" "}
               <span
                 onClick={() => {
@@ -137,16 +134,29 @@ function App() {
           </div>
         );
       })}
+
+      {
+        // 삼항연산자(ternary operator)
+        // 조건식 ? 참일때 실행할 코드 : 거짓일 때 실행할 코드
+        modal ? <Modal color="skyblue" 글제목={글제목} /> : null // 기계
+        // Q. 제목클릭시 모달창 띄우기? 클릭시 state만 조절하면 됩니다
+        // props로 일반문자도 전송가능
+      }
     </div>
   );
 }
 
-function Modal() {
+function Modal(props) {
   return (
-    <div className="modal">
-      <h4>제목</h4>
+    // 파란배경 모달창이 필요하다 => 다양한 색의 모달창이 필요하다(모달이란 컴포넌트를 또 만드는게 아니라)
+    // => 파라미터문법은 다양한 기능을 하는 함수를 만들 떄 사용함(실은 props도 파라미터 문법일 뿐)
+
+    // 숙제. 글수정 버튼을 누르면 첫 글제목이 '여자코트 추천'으로 바뀌어야함
+    <div className="modal" style={{ background: props.color }}>
+      <h4>{props.글제목}</h4>
       <p>날짜</p>
       <p>상세내용</p>
+      <button>글수정</button>
     </div>
   );
 }

@@ -45,6 +45,7 @@ function App() {
 
   // useState()안에 값의 형식은 자유(모달창상태 표현만 가능하면 됩니다)
   let [modal, setModal] = useState(false); // 스위치
+  let [title, setTitle] = useState(0);
 
   return (
     <div className="App">
@@ -116,6 +117,7 @@ function App() {
             <h4
               onClick={() => {
                 modal ? setModal(false) : setModal(true);
+                setTitle(i);
               }}
             >
               {글제목[i]}{" "}
@@ -135,11 +137,38 @@ function App() {
         );
       })}
 
+      <button
+        onClick={() => {
+          setTitle(0);
+        }}
+      >
+        글제목0
+      </button>
+      <button
+        onClick={() => {
+          setTitle(1);
+        }}
+      >
+        글제목1
+      </button>
+      <button
+        onClick={() => {
+          setTitle(2);
+        }}
+      >
+        글제목2
+      </button>
+
       {
         // 삼항연산자(ternary operator)
         // 조건식 ? 참일때 실행할 코드 : 거짓일 때 실행할 코드
         modal ? (
-          <Modal color="skyblue" 글제목변경={글제목변경} 글제목={글제목} />
+          <Modal
+            color="skyblue"
+            글제목변경={글제목변경}
+            글제목={글제목}
+            title={title}
+          />
         ) : null // 기계
         // Q. 제목클릭시 모달창 띄우기? 클릭시 state만 조절하면 됩니다
         // props로 일반문자도 전송가능
@@ -149,13 +178,18 @@ function App() {
 }
 
 function Modal(props) {
+  let [title, setTitle] = useState(0); // state를 자식에 만들면 부모 -> 자식 전송할 필요 없을듯 but, state가 Modal, App에서 필요하면 상위컴포넌트(App)에 만들어놔야함
+  // (중요) state 만드는 곳은 state 사용하는 컴포넌트들 중 최상위 컴포넌트(생각 귀찮으면 그냥 App에서 만드셈)
+
   return (
     // 파란배경 모달창이 필요하다 => 다양한 색의 모달창이 필요하다(모달이란 컴포넌트를 또 만드는게 아니라)
     // => 파라미터문법은 다양한 기능을 하는 함수를 만들 떄 사용함(실은 props도 파라미터 문법일 뿐)
 
-    // 숙제. 글수정 버튼을 누르면 첫 글제목이 '여자코트 추천'으로 바뀌어야함
+    // 숙제. 글수정 버튼을 누르면 첫 글제목이 '여자코트 추천'으로 바뀌어야함(완)
+
+    // 지금 누른 글 제목이 모달창 안에 뜨게 하려면?(완)
     <div className="modal" style={{ background: props.color }}>
-      <h4>{props.글제목[0]}</h4>
+      <h4>{props.글제목[props.title]}</h4>
       <p>날짜</p>
       <p>상세내용</p>
       <button

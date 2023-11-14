@@ -46,6 +46,7 @@ function App() {
   // useState()안에 값의 형식은 자유(모달창상태 표현만 가능하면 됩니다)
   let [modal, setModal] = useState(false); // 스위치
   let [title, setTitle] = useState(0);
+  let [입력값, set입력값] = useState("");
 
   return (
     <div className="App">
@@ -122,7 +123,11 @@ function App() {
             >
               {글제목[i]}{" "}
               <span
-                onClick={() => {
+                onClick={(e) => {
+                  // Q. 왜 <span> 눌러도 모달창 뜸?
+                  // 클릭이벤트는 상위 html로 퍼짐(이벤트 버블링)
+                  // 상위 html로 퍼지는 이벤트버블링 막고싶으면 e.stopPropagation()
+                  e.stopPropagation();
                   const new따봉 = [...따봉];
                   new따봉[i] += 1;
                   따봉변경(new따봉);
@@ -137,7 +142,7 @@ function App() {
         );
       })}
 
-      <button
+      {/* <button
         onClick={() => {
           setTitle(0);
         }}
@@ -157,7 +162,33 @@ function App() {
         }}
       >
         글제목2
-      </button>
+      </button> */}
+
+      {/* 이벤트핸들러 매우 많음(필요하면 검색해서 씁시다) => onClick={}/ onChange={}/ onInput={}/onMouseOver={}/ onScroll={} ... */}
+      {/* <input>에 뭔가 입력시 코드 실행하고 싶으면 onChange/onInput */}
+
+      {/* <input>에 입력한 값 가져오는 법 onChange={(e) => {e.target.value}}*/}
+      {/* 여기서 e는 지금 발생하는 이벤트에 관련한 여러 기능이 담겨있음 */}
+      {/* e.target.value 는 이벤트 발생한 html 태그에 입력한 값 */}
+
+      {/* <input>에 입력한 값 저장하려면 보통 변수/state에 저장해둠 */}
+      <input
+        onChange={(e) => {
+          // console.log(e.target.value);
+          set입력값(e.target.value); // 이거 완료되기전에
+          console.log(입력값); // 다음줄 실행해줌
+          // 내가 입력한 값은 123 인데 12로 나옴 => (정보) state 변경함수는 늦게 처리됨 => 전문용어로 비동기처리
+        }}
+      />
+      {/* <select></select>
+      <textarea></textarea> */}
+
+      {/* 오늘의 숙제 1. 버튼 누르면 input에 입력한 값을 상단에 글 하나로 추가되는 기능 만들기 */}
+
+      {/* 오늘의 숙제 2. 글마다 우측에 삭제 버튼 & 기능 만들기 */}
+
+      {/* 힌트 1. html 직접 하나 만들 필요없음 state 조작하면 됩니다.(글제목) */}
+      {/* 힌트 2. array에 자료 추가하는 법은 구글에 */}
 
       {
         // 삼항연산자(ternary operator)

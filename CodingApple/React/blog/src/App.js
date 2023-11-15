@@ -2,6 +2,7 @@
 // Lint 끄는 기능임
 
 import "./App.css";
+import React from "react";
 import { useState } from "react";
 
 function App() {
@@ -178,6 +179,8 @@ function App() {
       >
         게시
       </button>
+      <Modal2 />
+
       {/* <select></select>
       <textarea></textarea> */}
 
@@ -232,6 +235,38 @@ function Modal(props) {
       </button>
     </div>
   );
+}
+/// 참고 ///
+// function 문법 말고도 class 문법으로도 컴포넌트 생성가능
+// class 문법으로 컴포넌트 만들려면
+// class란 변수, 함수 보관함임
+class Modal2 extends React.Component {
+  // constructor, super, render 채워넣어야함(그냥 템플릿이라고 생각하면 됨)
+  constructor(props) {
+    // class 컴포넌트에서 props는
+    super(props);
+    // class컴포넌트에서 state 만들려면
+    this.state = {
+      name: "kim",
+      age: 20,
+    };
+  }
+  render() {
+    return (
+      <div>
+        안녕{this.state.age}
+        {/* class컴포넌트에서 state 수정은 */}
+        <button
+          onClick={() => {
+            // 기존state에 변경사항만 붙여줌
+            this.setState({ age: 21 });
+          }}
+        >
+          버튼
+        </button>
+      </div>
+    );
+  }
 }
 
 export default App;

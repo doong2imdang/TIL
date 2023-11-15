@@ -138,31 +138,12 @@ function App() {
               {따봉[i]}
             </h4>
             <p>2월 17일 발행</p>
+            <button onClick={() => {}} style={{ marginBottom: "10px" }}>
+              삭제
+            </button>
           </div>
         );
       })}
-
-      {/* <button
-        onClick={() => {
-          setTitle(0);
-        }}
-      >
-        글제목0
-      </button>
-      <button
-        onClick={() => {
-          setTitle(1);
-        }}
-      >
-        글제목1
-      </button>
-      <button
-        onClick={() => {
-          setTitle(2);
-        }}
-      >
-        글제목2
-      </button> */}
 
       {/* 이벤트핸들러 매우 많음(필요하면 검색해서 씁시다) => onClick={}/ onChange={}/ onInput={}/onMouseOver={}/ onScroll={} ... */}
       {/* <input>에 뭔가 입력시 코드 실행하고 싶으면 onChange/onInput */}
@@ -180,6 +161,15 @@ function App() {
           // 내가 입력한 값은 123 인데 12로 나옴 => (정보) state 변경함수는 늦게 처리됨 => 전문용어로 비동기처리
         }}
       />
+      <button
+        onClick={() => {
+          let 글제목추가 = [...글제목];
+          글제목추가.unshift(입력값);
+          글제목변경(글제목추가);
+        }}
+      >
+        게시
+      </button>
       {/* <select></select>
       <textarea></textarea> */}
 
@@ -209,7 +199,7 @@ function App() {
 }
 
 function Modal(props) {
-  let [title, setTitle] = useState(0); // state를 자식에 만들면 부모 -> 자식 전송할 필요 없을듯 but, state가 Modal, App에서 필요하면 상위컴포넌트(App)에 만들어놔야함
+  // let [title, setTitle] = useState(0); // state를 자식에 만들면 부모 -> 자식 전송할 필요 없을듯 but, state가 Modal, App에서 필요하면 상위컴포넌트(App)에 만들어놔야함
   // (중요) state 만드는 곳은 state 사용하는 컴포넌트들 중 최상위 컴포넌트(생각 귀찮으면 그냥 App에서 만드셈)
 
   return (

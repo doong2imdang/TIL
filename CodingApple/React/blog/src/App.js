@@ -138,7 +138,15 @@ function App() {
               {따봉[i]}
             </h4>
             <p>2월 17일 발행</p>
-            <button onClick={() => {}} style={{ marginBottom: "10px" }}>
+            <button
+              onClick={() => {
+                // splice(0, 1) splice(1, 1) splice(2, 1)
+                let copy = [...글제목];
+                copy.splice(i, 1);
+                글제목변경(copy);
+              }}
+              style={{ marginBottom: "10px" }}
+            >
               삭제
             </button>
           </div>

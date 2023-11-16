@@ -1,3 +1,11 @@
+.main-bg {
+  height: 300px;
+  /* css파일에선 그냥 ./이미지경로 */
+  /* background-image: url("./img/bg.jpg"); */
+  background-size: cover;
+  background-position: top;
+}
+
 .App {
   text-align: center;
 }

@@ -1,11 +1,18 @@
 import "./App.css";
 import { Navbar, Container, Nav } from "react-bootstrap";
 import bg from "./img/bg.jpg";
+import 작명 from "./data.js";
+
+// 다른 파일에 있던 자료 가져오려면 import/export 문법 씁니다.
 
 function App() {
+  // 아무튼 서버에서 가져온거라고 침
+  // let [shoes] = useState();
+
   return (
     <div className="App">
       <Navbar bg="light" variant="light">
+        {작명}
         <Container>
           <Navbar.Brand href="#home">ShoesShop</Navbar.Brand>
           <Nav className="me-auto">

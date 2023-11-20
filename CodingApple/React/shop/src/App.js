@@ -1,18 +1,20 @@
+import { useState } from "react";
 import "./App.css";
 import { Navbar, Container, Nav } from "react-bootstrap";
 import bg from "./img/bg.jpg";
-import 작명 from "./data.js";
+// import { a, b } from "./data.js";
+import data from "./data.js";
 
 // 다른 파일에 있던 자료 가져오려면 import/export 문법 씁니다.
 
 function App() {
   // 아무튼 서버에서 가져온거라고 침
-  // let [shoes] = useState();
+  let [shoes] = useState(data);
 
   return (
     <div className="App">
       <Navbar bg="light" variant="light">
-        {작명}
+        {/* {a} */}
         <Container>
           <Navbar.Brand href="#home">ShoesShop</Navbar.Brand>
           <Nav className="me-auto">
@@ -35,24 +37,24 @@ function App() {
               src="https://codingapple1.github.io/shop/shoes1.jpg"
               width="80%"
             />
-            <h4>상품명</h4>
-            <p>상품설명</p>
+            <h4>{shoes[0].title}</h4>
+            <p>{shoes[0].content}</p>
           </div>
           <div className="col-md-4">
             <img
               src="https://codingapple1.github.io/shop/shoes2.jpg"
               width="80%"
             />
-            <h4>상품명</h4>
-            <p>상품설명</p>
+            <h4>{shoes[1].title}</h4>
+            <p>{shoes[1].content}</p>
           </div>
           <div className="col-md-4">
             <img
               src="https://codingapple1.github.io/shop/shoes3.jpg"
               width="80%"
             />
-            <h4>상품명</h4>
-            <p>상품설명</p>
+            <h4>{shoes[2].title}</h4>
+            <p>{shoes[2].content}</p>
           </div>
         </div>
       </div>
@@ -67,6 +69,10 @@ function App() {
 // but 주의점!! 나중에 발행할 때 codingapple.com에 발행시 별 문제 없음 => codingapple.com/어쩌구/ 에 발행시 문제 생김
 // 그래서 권장 public 폴더 이미지 쓰는 권장방식
 // <img src={process.env.PUBLIC_URL + '/img/logo.png'} />
+
+// 숙제1. 상품목록 컴포넌트화
+// 숙제2.상품명 데이터바인딩도 잘 해오기
+// 숙제3.반복적인 부분은 map 반복문 써보기
 
 export default App;
 

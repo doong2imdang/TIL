@@ -31,31 +31,9 @@ function App() {
       </div>
       <div className="container">
         <div className="row">
-          <div className="col-md-4">
-            {/* 외부에 호스팅해둔 이미지라면 이미지 절대주소만 넣으면 됩니다 */}
-            <img
-              src="https://codingapple1.github.io/shop/shoes1.jpg"
-              width="80%"
-            />
-            <h4>{shoes[0].title}</h4>
-            <p>{shoes[0].content}</p>
-          </div>
-          <div className="col-md-4">
-            <img
-              src="https://codingapple1.github.io/shop/shoes2.jpg"
-              width="80%"
-            />
-            <h4>{shoes[1].title}</h4>
-            <p>{shoes[1].content}</p>
-          </div>
-          <div className="col-md-4">
-            <img
-              src="https://codingapple1.github.io/shop/shoes3.jpg"
-              width="80%"
-            />
-            <h4>{shoes[2].title}</h4>
-            <p>{shoes[2].content}</p>
-          </div>
+          <Product />
+          <Product />
+          <Product />
         </div>
       </div>
     </div>
@@ -75,4 +53,14 @@ function App() {
 // 숙제3.반복적인 부분은 map 반복문 써보기
 
 export default App;
+
+function Product(props) {
+  return (
+    <div className="col-md-4">
+      <img src="https://codingapple1.github.io/shop/shoes1.jpg" width="80%" />
+      <h4>{props.shoes[0].title}</h4>
+      <p>{props.shoes[0].content}</p>
+    </div>
+  );
+}
 

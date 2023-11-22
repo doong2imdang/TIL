@@ -46,7 +46,7 @@ function App() {
 // <img src={process.env.PUBLIC_URL + '/img/logo.png'} />
 
 // 숙제1. 상품목록 컴포넌트화
-// 숙제2.상품명 데이터바인딩도 잘 해오기
+// 숙제2. 상품명 데이터바인딩도 잘 해오기
 // 숙제3.반복적인 부분은 map 반복문 써보기
 
 export default App;
@@ -54,7 +54,6 @@ export default App;
 function Product1() {
   // 아무튼 서버에서 가져온거라고 침
   let [shoes] = useState(data);
-  console.log(shoes);
 
   return (
     <div className="col-md-4">
@@ -68,7 +67,6 @@ function Product1() {
 function Product2() {
   // 아무튼 서버에서 가져온거라고 침
   let [shoes] = useState(data);
-  console.log(shoes);
 
   return (
     <div className="col-md-4">
@@ -82,7 +80,6 @@ function Product2() {
 function Product3() {
   // 아무튼 서버에서 가져온거라고 침
   let [shoes] = useState(data);
-  console.log(shoes);
 
   return (
     <div className="col-md-4">

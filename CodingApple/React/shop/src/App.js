@@ -8,9 +8,6 @@ import data from "./data.js";
 // 다른 파일에 있던 자료 가져오려면 import/export 문법 씁니다.
 
 function App() {
-  // 아무튼 서버에서 가져온거라고 침
-  let [shoes] = useState(data);
-
   return (
     <div className="App">
       <Navbar bg="light" variant="light">
@@ -31,9 +28,9 @@ function App() {
       </div>
       <div className="container">
         <div className="row">
-          <Product />
-          <Product />
-          <Product />
+          <Product1 />
+          <Product2 />
+          <Product3 />
         </div>
       </div>
     </div>
@@ -54,12 +51,44 @@ function App() {
 
 export default App;
 
-function Product(props) {
+function Product1() {
+  // 아무튼 서버에서 가져온거라고 침
+  let [shoes] = useState(data);
+  console.log(shoes);
+
   return (
     <div className="col-md-4">
       <img src="https://codingapple1.github.io/shop/shoes1.jpg" width="80%" />
-      <h4>{props.shoes[0].title}</h4>
-      <p>{props.shoes[0].content}</p>
+      <h4>{shoes[0].title}</h4>
+      <p>{shoes[0].content}</p>
+    </div>
+  );
+}
+
+function Product2() {
+  // 아무튼 서버에서 가져온거라고 침
+  let [shoes] = useState(data);
+  console.log(shoes);
+
+  return (
+    <div className="col-md-4">
+      <img src="https://codingapple1.github.io/shop/shoes2.jpg" width="80%" />
+      <h4>{shoes[1].title}</h4>
+      <p>{shoes[1].content}</p>
+    </div>
+  );
+}
+
+function Product3() {
+  // 아무튼 서버에서 가져온거라고 침
+  let [shoes] = useState(data);
+  console.log(shoes);
+
+  return (
+    <div className="col-md-4">
+      <img src="https://codingapple1.github.io/shop/shoes3.jpg" width="80%" />
+      <h4>{shoes[2].title}</h4>
+      <p>{shoes[2].content}</p>
     </div>
   );
 }

@@ -8,6 +8,7 @@ import data from "./data.js";
 // 다른 파일에 있던 자료 가져오려면 import/export 문법 씁니다.
 
 function App() {
+  let [shoes] = useState(data);
   return (
     <div className="App">
       <Navbar bg="light" variant="light">
@@ -28,9 +29,9 @@ function App() {
       </div>
       <div className="container">
         <div className="row">
-          {data.map((shoe, index) => (
-            <Product key={index} shoe={shoe} />
-          ))}
+          {shoes.map((a, i) => {
+            return <Card shoes={shoes[i]} i={i}></Card>;
+          })}
         </div>
       </div>
     </div>
@@ -51,15 +52,18 @@ function App() {
 
 export default App;
 
-function Product({ shoe }) {
+// <Product> 쓸 때마다 살짝 다른 내용 보여주고 싶으면 props 잘 쓰십쇼
+function Card(props) {
   return (
     <div className="col-md-4">
       <img
-        src={`https://codingapple1.github.io/shop/shoes${shoe.id + 1}.jpg`}
+        src={
+          "https://codingapple1.github.io/shop/shoes" + (props.i + 1) + ".jpg"
+        }
         width="80%"
       />
-      <h4>{shoe.title}</h4>
-      <p>{shoe.content}</p>
+      <h4>{props.shoes.title}</h4>
+      <p>{props.shoes.content}</p>
     </div>
   );
 }

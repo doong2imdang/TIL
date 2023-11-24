@@ -4,7 +4,7 @@ import { Navbar, Container, Nav } from "react-bootstrap";
 import bg from "./img/bg.jpg";
 // import { a, b } from "./data.js";
 import data from "./data.js";
-
+import { Routes, Route, Link } from "react-router-dom";
 // 다른 파일에 있던 자료 가져오려면 import/export 문법 씁니다.
 
 function App() {
@@ -21,19 +21,41 @@ function App() {
           </Nav>
         </Container>
       </Navbar>
+      {/* 페이지 이동버튼은 */}
+      <Link to="/">홈</Link>
+      <Link to="/detail">상세페이지</Link>
+
+      {/* Q. 상품목록은 메인페이지에만 보여주고 싶은데? */}
+      <Routes>
+        {/* 메인페이지 */}
+        <Route
+          path="/"
+          element={
+            <>
+              <div
+                className="main-bg"
+                style={{ backgroundImage: "url(" + bg + ")" }}
+              >
+                {/* 상품 레이아웃 3개 만들기(Bootstrap으로 빠르게 할것임) => 조금 더 용량절약 가능(편의상 오리지널 Bootstrap 코드 이용했음) */}
+              </div>
+              <div className="container">
+                <div className="row">
+                  {shoes.map((a, i) => {
+                    return <Card shoes={shoes[i]} i={i}></Card>;
+                  })}
+                </div>
+              </div>
+            </>
+          }
+        />
+        {/* /detail로 접속하면 상세페이지 보여주고 싶다 */}
+        <Route path="/detail" element={<div>상세페이지임</div>} />
+        {/* /about으로 접속하면 또 다른 페이지 보여주고싶다 */}
+        {/* <Route path="/about" element={<div>어바웃페이지임</div>} /> */}
+      </Routes>
 
       {/* 대문 사진 넣기 */}
       {/* html애서 src폴더의 이미지를 넣을 땐 => import 작명 from '이미지경로'(상단에) 그리고 필요한 곳에 작명한거 쓰기 */}
-      <div className="main-bg" style={{ backgroundImage: "url(" + bg + ")" }}>
-        {/* 상품 레이아웃 3개 만들기(Bootstrap으로 빠르게 할것임) => 조금 더 용량절약 가능(편의상 오리지널 Bootstrap 코드 이용했음) */}
-      </div>
-      <div className="container">
-        <div className="row">
-          {shoes.map((a, i) => {
-            return <Card shoes={shoes[i]} i={i}></Card>;
-          })}
-        </div>
-      </div>
     </div>
   );
 }
@@ -49,6 +71,8 @@ function App() {
 // 숙제1. 상품목록 컴포넌트화
 // 숙제2. 상품명 데이터바인딩도 잘 해오기
 // 숙제3.반복적인 부분은 map 반복문 써보기
+
+// 숙제1. 상세페이지 컴포넌트로 만들기(디자인은 강의하단)
 
 export default App;
 

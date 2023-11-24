@@ -4,12 +4,14 @@ import { Navbar, Container, Nav } from "react-bootstrap";
 import bg from "./img/bg.jpg";
 // import { a, b } from "./data.js";
 import data from "./data.js";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, Link, useNavigate, Outlet } from "react-router-dom";
 // 다른 파일에 있던 자료 가져오려면 import/export 문법 씁니다.
-import Detail from "./Detail.js";
+import Detail from "./routes/Detail.js";
 
 function App() {
   let [shoes] = useState(data);
+  let navigate = useNavigate();
+
   return (
     <div className="App">
       <Navbar bg="light" variant="light">
@@ -17,14 +19,28 @@ function App() {
         <Container>
           <Navbar.Brand href="#home">ShoesShop</Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#features">Cart</Nav.Link>
+            <Nav.Link
+              onClick={() => {
+                navigate("/");
+              }}
+              href="#home"
+            >
+              Home
+            </Nav.Link>
+            <Nav.Link
+              onClick={() => {
+                navigate("/detail");
+              }}
+              href="#features"
+            >
+              Detail
+            </Nav.Link>
           </Nav>
         </Container>
       </Navbar>
       {/* 페이지 이동버튼은 */}
-      <Link to="/">홈</Link>
-      <Link to="/detail">상세페이지</Link>
+      {/* <Link to="/">홈</Link>
+      <Link to="/detail">상세페이지</Link> */}
 
       {/* Q. 상품목록은 메인페이지에만 보여주고 싶은데? */}
       <Routes>
@@ -51,8 +67,19 @@ function App() {
         />
         {/* /detail로 접속하면 상세페이지 보여주고 싶다 */}
         <Route path="/detail" element={<Detail />} />
-        {/* /about으로 접속하면 또 다른 페이지 보여주고싶다 */}
-        {/* <Route path="/about" element={<div>어바웃페이지임</div>} /> */}
+
+        {/* Nested Routes */}
+        {/* /about/member 페이지도 만들고
+            /about/location 페이지도 만들고  */}
+        <Route path="/about" element={<About />}>
+          <Route path="member" element={<div>멤버임</div>} />
+          <Route path="location" element={<div>위치정보임</div>} />
+        </Route>
+        {/* <Route path="/about/member" element={<About />} />
+        <Route path="/about/location" element={<About />} /> */}
+
+        {/* 404 페이지는 */}
+        <Route path="*" element={<div>없는페이지요</div>} />
       </Routes>
 
       {/* 대문 사진 넣기 */}
@@ -89,6 +116,16 @@ function Card(props) {
       />
       <h4>{props.shoes.title}</h4>
       <p>{props.shoes.content}</p>
+    </div>
+  );
+}
+
+function About() {
+  return (
+    <div>
+      <h4>회사정보임</h4>
+      {/* 어디보여줄지 정하려면 <Outlet> */}
+      <Outlet></Outlet>
     </div>
   );
 }

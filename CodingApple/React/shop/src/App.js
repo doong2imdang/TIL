@@ -6,6 +6,7 @@ import bg from "./img/bg.jpg";
 import data from "./data.js";
 import { Routes, Route, Link } from "react-router-dom";
 // 다른 파일에 있던 자료 가져오려면 import/export 문법 씁니다.
+import Detail from "./Detail.js";
 
 function App() {
   let [shoes] = useState(data);
@@ -49,7 +50,7 @@ function App() {
           }
         />
         {/* /detail로 접속하면 상세페이지 보여주고 싶다 */}
-        <Route path="/detail" element={<div>상세페이지임</div>} />
+        <Route path="/detail" element={<Detail />} />
         {/* /about으로 접속하면 또 다른 페이지 보여주고싶다 */}
         {/* <Route path="/about" element={<div>어바웃페이지임</div>} /> */}
       </Routes>

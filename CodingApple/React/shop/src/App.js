@@ -7,6 +7,7 @@ import data from "./data.js";
 import { Routes, Route, Link, useNavigate, Outlet } from "react-router-dom";
 // 다른 파일에 있던 자료 가져오려면 import/export 문법 씁니다.
 import Detail from "./routes/Detail.js";
+import Event from "./routes/Event.js";
 
 function App() {
   let [shoes] = useState(data);
@@ -77,6 +78,11 @@ function App() {
         </Route>
         {/* <Route path="/about/member" element={<About />} />
         <Route path="/about/location" element={<About />} /> */}
+
+        <Route path="/event" element={<Event />}>
+          <Route path="one" element={<div>첫 주문시 양배추즙 서비스</div>} />
+          <Route path="two" element={<div>생일기념 쿠폰받기</div>} />
+        </Route>
 
         {/* 404 페이지는 */}
         <Route path="*" element={<div>없는페이지요</div>} />

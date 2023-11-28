@@ -67,7 +67,16 @@ function App() {
           }
         />
         {/* /detail로 접속하면 상세페이지 보여주고 싶다 */}
-        <Route path="/detail" element={<Detail />} />
+        {/* (참고) URL 파라미터 만들때 
+            - 여러개 가능 */}
+        <Route path="/detail/:id" element={<Detail shoes={shoes} />} />
+
+        {/* 상세페이지 100개 필요하면? url파라미터 문법 사용하기 */}
+        {/* 페이지 여러개 만들고 싶으면 :URL파라미터 써도 됩니다. */}
+
+        {/* Q. 페이지는 여러개인데 보이는 내용은 똑같은데요
+          A. - 각각 다른 컴포넌트(페이지)를 100만개 만들던가
+             - 하나의 컴포넌트로 각각 다른 내용을 보여주던가 => props활용하면 컴포넌트 1개로 각각 다른 내용 가능 */}
 
         {/* Nested Routes */}
         {/* /about/member 페이지도 만들고

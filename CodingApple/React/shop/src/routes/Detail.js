@@ -14,13 +14,14 @@ export default function Detail(props) {
 
   // 오늘의 응용 1. /detail/0 접속 시 0번째 상품말고 상품 id가 0인걸 보여주면 좋을듯(data.js에서 id 가져오면 될듯) => 왜냐? 만약에 home에서 가나다 순으로 정렬이 되면 Grey Yordan이 0번째가 되어버려서 순서가 꼬일 수 있음
   let { id } = useParams();
-  console.log(id);
+  // console.log(id);
+
   return (
     <div className="container">
       <div className="row">
         <div className="col-md-6">
           <img
-            src="https://codingapple1.github.io/shop/shoes1.jpg"
+            src={`https://codingapple1.github.io/shop/shoes${id}.jpg`}
             width="100%"
           />
         </div>

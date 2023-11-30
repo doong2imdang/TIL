@@ -32,7 +32,6 @@ function App() {
               onClick={() => {
                 navigate("/detail");
               }}
-              href="#features"
             >
               Detail
             </Nav.Link>

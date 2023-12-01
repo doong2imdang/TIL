@@ -3,9 +3,23 @@ import { useParams } from "react-router-dom";
 import styled from "styled-components";
 
 export default function Detail(props) {
-  // 컴포넌트에 갈고리 다는 법
+  /// useEffect 정리시간 ///
+  useEffect(() => {}); // 1. 재렌더링마다 코드 실행하고 싶으면
+  useEffect(() => {}, []); // 2. mount 시 1회 코드실행하고 싶으면
+  useEffect(() => {
+    return () => {
+      // 3. unmount시 1회 코드 실행하고 싶으면
+    };
+  }, []);
 
-  // 오늘의 숙제. Detail 페이지 방문 후 2초 지나면 <div> 숨기기
+  // 4. useEffect 실행 전에 뭔가 실행하려면 언제나 return () => {}
+  // 5. 특정 state 변경시에만 실행하려면 [state명] <= defendency
+
+  // 오늘의 숙제. <input>에 숫자말고 다른거 입력하면 그러지 말라고 안내메시지 띄우기(경고: 숫자만 입력하세요 => 굳이 useEffect 사용해보기)
+
+  /// 컴포넌트에 갈고리 다는 법 ///
+
+  // 오늘의 숙제. Detail 페이지 방문 후 2초 지나면 <div> 숨기기(완)
 
   let [alert, setAlert] = useState(true);
   // (동적 UI 만들기)
@@ -16,11 +30,27 @@ export default function Detail(props) {
     // mount, update 시 여기 코드 실행됨
     // 두번 출력되는 이유는 디버깅을 위해서 그렇게 동작함(실제 사이트에서는 한번 동작하게 될거임) => 없애고 싶으면 index.js에 가서 <React.StrictMode> 없애거나 그러셈
     // console.log("안녕");
-    setTimeout(() => {
+    let a = setTimeout(() => {
       // 실행할 코드
       setAlert(false);
     }, 2000);
-  }, []);
+    console.log(2);
+
+    // 옵션 => useEffect 동작 전에 실행되는 return () => {}
+    // 별명 : clean up function
+    // 기존 코드 치우는 거 여기에 많이 작성함
+    // (참고) clean up function은 mount시 실행안됨 / unmount시 실행됨
+    // 예) 대충 서버로 데이터 요청하는 코드(2초 소요) 그 사이에 계속 요청이 생길 수있어 버그가 생겨버릴 위험이 있으니 return 함수 안에 기존 데이터 요청은 제거해주세요~ 라는 코드 작성하는 것
+    return () => {
+      // 코드~~~
+      // Q. 그래서 타이머 제거는 어떻게 함?
+      console.log(1); // 얘가 console.log(2)보다 먼저 출력됨
+      clearTimeout(a); // 타이머 제거해주는 함수임
+    };
+  });
+  // useEffect 실행조건 넣을 수 있는 곳은 []
+  // [defendency] 안에 예를 들어 count라고 되어있으면 count가 변할때마다 실행해줌
+  // [] => defendency가 없다면 mount에만 실행됨(update될때 실행안함) => 컴포넌트 mount시 1회만 실행하고 싶으면 이렇게
 
   // Q. useEffect 바깥에 넣어도 똑같은데? -> 들킴
   /// useEffect 쓰는 이유 ///

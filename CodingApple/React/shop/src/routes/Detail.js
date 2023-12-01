@@ -52,9 +52,9 @@ let YellowBtn = styled.button`
 `;
 
 // (참고2) 기존 스타일 복사 가능
-let newBtn = styled.button(YellowBtn)`
-  /* 또 스타일링 가능 */
-`;
+// let newBtn = styled.button(YellowBtn)`
+//   /* 또 스타일링 가능 */
+// `;
 
 // Q. 오렌지색 버튼이 필요하면? - props 문법 쓰면 됩니다.
 // props로 컴포넌트 재활용 가능

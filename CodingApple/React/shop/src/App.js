@@ -120,8 +120,17 @@ export default App;
 
 // <Product> 쓸 때마다 살짝 다른 내용 보여주고 싶으면 props 잘 쓰십쇼
 function Card(props) {
+  let navigate = useNavigate();
+
+  let handleClick = () => {
+    navigate(`/detail/${props.shoes.id}`);
+  };
   return (
-    <div className="col-md-4">
+    <div
+      className="col-md-4"
+      onClick={handleClick}
+      style={{ cursor: "pointer" }}
+    >
       <img
         src={
           "https://codingapple1.github.io/shop/shoes" + (props.i + 1) + ".jpg"

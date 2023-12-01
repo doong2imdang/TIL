@@ -7,15 +7,20 @@ export default function Detail(props) {
 
   // 오늘의 숙제. Detail 페이지 방문 후 2초 지나면 <div> 숨기기
 
+  let [alert, setAlert] = useState(true);
+  // (동적 UI 만들기)
+  // - UI 상태 저장할 state 만들고
+  // - state에 따라서 UI가 어떻게 보일지 작성
+
   useEffect(() => {
     // mount, update 시 여기 코드 실행됨
     // 두번 출력되는 이유는 디버깅을 위해서 그렇게 동작함(실제 사이트에서는 한번 동작하게 될거임) => 없애고 싶으면 index.js에 가서 <React.StrictMode> 없애거나 그러셈
     // console.log("안녕");
-  });
-
-  setTimeout(() => {
-    // 실행할 코드
-  }, 2000);
+    setTimeout(() => {
+      // 실행할 코드
+      setAlert(false);
+    }, 2000);
+  }, []);
 
   // Q. useEffect 바깥에 넣어도 똑같은데? -> 들킴
   /// useEffect 쓰는 이유 ///
@@ -50,7 +55,10 @@ export default function Detail(props) {
 
   return (
     <div className="container">
-      <div className="alert alert-warning">2초이내 구매시 할인</div>
+      {alert === true ? (
+        <div className="alert alert-warning">2초이내 구매시 할인</div>
+      ) : null}
+
       {count}
       <button
         onClick={() => {

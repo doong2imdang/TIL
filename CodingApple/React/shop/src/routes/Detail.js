@@ -1,8 +1,36 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 
 export default function Detail(props) {
+  // 컴포넌트에 갈고리 다는 법
+
+  // 오늘의 숙제. Detail 페이지 방문 후 2초 지나면 <div> 숨기기
+
+  useEffect(() => {
+    // mount, update 시 여기 코드 실행됨
+    // 두번 출력되는 이유는 디버깅을 위해서 그렇게 동작함(실제 사이트에서는 한번 동작하게 될거임) => 없애고 싶으면 index.js에 가서 <React.StrictMode> 없애거나 그러셈
+    // console.log("안녕");
+  });
+
+  setTimeout(() => {
+    // 실행할 코드
+  }, 2000);
+
+  // Q. useEffect 바깥에 넣어도 똑같은데? -> 들킴
+  /// useEffect 쓰는 이유 ///
+
+  // useEffect 안에 있는 코드는 html 렌더링 후에 동작합니다. => 좀더 html를 먼저 보여줘 사용자에게 빠른 느낌을 줄 수있음
+  // useEffect 안에 적는 코드들은 - 어려운 연산 / - 서버에서 데이터 가져오는 작업 / - 타이머 장착하는 거
+
+  // Q. 왜 이름이 Effect 어쩌구임?
+  // Side Effect : 함수의 핵심기능과 상관없는 부가기능 => 그거에서 따온 함수명임
+  // useEffect(() => {
+  //  Side Effect 코드들 보관함임
+  // })
+
+  let [count, setCount] = useState(0);
+
   // Q. Detail안에 shoes라는 state 더 만들면 편할듯?
   // let [shoes] = useState();
   // but, 수정사항이 생기면 두곳을 수정해야하기때문에 보통 이렇게 쓰지 않는다.
@@ -22,8 +50,15 @@ export default function Detail(props) {
 
   return (
     <div className="container">
-      <YellowBtn bg="blue">버튼</YellowBtn>
-      <YellowBtn bg="orange">버튼</YellowBtn>
+      <div className="alert alert-warning">2초이내 구매시 할인</div>
+      {count}
+      <button
+        onClick={() => {
+          setCount(count + 1);
+        }}
+      >
+        버튼
+      </button>
       <div className="row">
         <div className="col-md-6">
           <img
@@ -44,12 +79,12 @@ export default function Detail(props) {
   );
 }
 
-let YellowBtn = styled.button`
-  background: ${(props) => props.bg};
-  color: ${(props) => (props.bg === "blue" ? "white" : "black")};
-  /* (참고1) 당연히 간단한 프로그래밍 가능 */
-  padding: 10px;
-`;
+// let YellowBtn = styled.button`
+//   background: ${(props) => props.bg};
+//   color: ${(props) => (props.bg === "blue" ? "white" : "black")};
+//   /* (참고1) 당연히 간단한 프로그래밍 가능 */
+//   padding: 10px;
+// `;
 
 // (참고2) 기존 스타일 복사 가능
 // let newBtn = styled.button(YellowBtn)`

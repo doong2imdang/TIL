@@ -17,6 +17,21 @@ export default function Detail(props) {
 
   // 오늘의 숙제. <input>에 숫자말고 다른거 입력하면 그러지 말라고 안내메시지 띄우기(경고: 숫자만 입력하세요 => 굳이 useEffect 사용해보기)
 
+  let [inputValue, setInputValue] = useState("");
+  let [warningMessage, setWarningMessage] = useState("");
+
+  useEffect(() => {
+    if (/^\d*$/.test(inputValue)) {
+      setWarningMessage("");
+    } else {
+      setWarningMessage("경고: 숫자만 입력하세요");
+    }
+  }, [inputValue]);
+
+  let handleInputChange = (e) => {
+    setInputValue(e.target.value);
+  };
+
   /// 컴포넌트에 갈고리 다는 법 ///
 
   // 오늘의 숙제. Detail 페이지 방문 후 2초 지나면 <div> 숨기기(완)
@@ -107,6 +122,18 @@ export default function Detail(props) {
           />
         </div>
         <div className="col-md-t mt-4">
+          <div>
+            <label>
+              입력:
+              <input
+                type="text"
+                value={inputValue}
+                onChange={handleInputChange}
+                placeHolder="숫자만 입력하세요"
+              />
+            </label>
+            <div style={{ color: "red" }}>{warningMessage}</div>
+          </div>
           <h4 className="pt-5">{찾은상품.title}</h4>
           <p>{찾은상품.content}</p>
           <p>{찾은상품.price}원</p>

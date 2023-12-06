@@ -8,6 +8,7 @@ import { Routes, Route, Link, useNavigate, Outlet } from "react-router-dom";
 // 다른 파일에 있던 자료 가져오려면 import/export 문법 씁니다.
 import Detail from "./routes/Detail.js";
 import Event from "./routes/Event.js";
+import axios from "axios";
 
 function App() {
   let [shoes] = useState(data);
@@ -62,6 +63,20 @@ function App() {
                   })}
                 </div>
               </div>
+              <button
+                onClick={() => {
+                  axios
+                    .get("https://codingapple1.github.io/shop/data2.json")
+                    .then((결과) => {
+                      console.log(결과.data);
+                    })
+                    .catch(() => {
+                      console.log("실패함ㅅㄱ");
+                    });
+                }}
+              >
+                버튼
+              </button>
             </>
           }
         />
@@ -115,19 +130,6 @@ function App() {
 // 숙제3.반복적인 부분은 map 반복문 써보기
 
 // 숙제1. 상세페이지 컴포넌트로 만들기(디자인은 강의하단)
-
-// 서버: 부탁하면 진짜로 들어주는 프로그램
-// => Youtube 서버: 동영상 요청하면 진짜 보내주는 프로그램
-// => 네이버 웹툰 서버: 웹툰 요청하면 진짜 보내주는 프로그램
-
-// 서버개발시 짜는 코드 : "누가 A 요청하면 A 보내주세요~"
-
-// 서버야 웹툰 줘 =============> 서버(1. 방법(GET/POST) 2. 어떤 자료(URL)) 적어보내라~
-// -GET요청 : 데이터 가져올 때
-// -POST요처: 데이터 서버로 보낼 떄
-
-// -URL은 서버 만든 사람에게 물어보면 됩니다
-// => 서버개발 시 짜는 코드 : "누가 comic.naver.com으로 요청하면 웹툰 보내주세요~"
 
 export default App;
 

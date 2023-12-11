@@ -13,20 +13,37 @@ import axios from "axios";
 function App() {
   let [shoes, setShoes] = useState(data);
   let navigate = useNavigate();
+  let [count, setCount] = useState(0);
 
   const fetchData = () => {
     // 로딩 중 UI 띄우기
-    axios
-      .get("https://codingapple1.github.io/shop/data2.json")
-      .then((결과) => {
-        const newData = 결과.data;
-        setShoes([...shoes, ...newData]);
-        // 로딩 중 UI 숨기기
-      })
-      .catch(() => {
-        console.log("Failed to fecth data");
-        // 로딩 중 UI 숨기기
-      });
+
+    if (count === 0) {
+      setCount(2);
+      axios
+        .get("https://codingapple1.github.io/shop/data2.json")
+        .then((결과) => {
+          const newData = 결과.data;
+          setShoes([...shoes, ...newData]);
+          // 로딩 중 UI 숨기기
+        })
+        .catch(() => {
+          console.log("Failed to fecth data");
+          // 로딩 중 UI 숨기기
+        });
+    } else {
+      axios
+        .get("https://codingapple1.github.io/shop/data3.json")
+        .then((결과) => {
+          const newData = 결과.data;
+          setShoes([...shoes, ...newData]);
+          // 로딩 중 UI 숨기기
+        })
+        .catch(() => {
+          console.log("Failed to fecth data");
+          // 로딩 중 UI 숨기기
+        });
+    }
   };
 
   return (

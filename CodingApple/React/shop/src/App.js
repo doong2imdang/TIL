@@ -19,7 +19,7 @@ function App() {
     // 로딩 중 UI 띄우기
 
     if (count === 0) {
-      setCount(2);
+      setCount(count + 1);
       axios
         .get("https://codingapple1.github.io/shop/data2.json")
         .then((결과) => {
@@ -31,7 +31,8 @@ function App() {
           console.log("Failed to fecth data");
           // 로딩 중 UI 숨기기
         });
-    } else {
+    } else if (count === 1) {
+      setCount(count + 1);
       axios
         .get("https://codingapple1.github.io/shop/data3.json")
         .then((결과) => {
@@ -43,6 +44,8 @@ function App() {
           console.log("Failed to fecth data");
           // 로딩 중 UI 숨기기
         });
+    } else if (count === 2) {
+      alert("더이상 상품이 없어요");
     }
   };
 
@@ -187,7 +190,7 @@ function About() {
   );
 }
 
-// 응용 1. 버튼 2회 누를 때는 7, 8, 9번 상품 가져오려면?
+// 응용 1. 버튼 2회 누를 때는 7, 8, 9번 상품 가져오려면? (완)
 // => https://codingapple1.github.io/shop/data3.json 으로 요청하면 데이터 3개가 더 옴
 // => 버튼 누른 횟수저장해두면 좋을 듯
 

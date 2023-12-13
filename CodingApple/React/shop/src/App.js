@@ -44,8 +44,6 @@ function App() {
           console.log("Failed to fecth data");
           // 로딩 중 UI 숨기기
         });
-    } else if (count === 2) {
-      alert("더이상 상품이 없어요");
     }
   };
 
@@ -98,7 +96,7 @@ function App() {
                   })}
                 </div>
               </div>
-              <button onClick={fetchData}>더보기</button>
+              {count <= 1 ? <button onClick={fetchData}>더보기</button> : ""}
             </>
           }
         />

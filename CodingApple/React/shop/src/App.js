@@ -8,15 +8,18 @@ import { Routes, Route, Link, useNavigate, Outlet } from "react-router-dom";
 // 다른 파일에 있던 자료 가져오려면 import/export 문법 씁니다.
 import Detail from "./routes/Detail.js";
 import Event from "./routes/Event.js";
+import Loading from "./routes/Loading.js";
 import axios from "axios";
 
 function App() {
   let [shoes, setShoes] = useState(data);
   let navigate = useNavigate();
   let [count, setCount] = useState(0);
+  let [loading, setLoading] = useState(false);
 
   const fetchData = () => {
     // 로딩 중 UI 띄우기
+    setLoading(true);
 
     if (count === 0) {
       setCount(count + 1);
@@ -30,6 +33,9 @@ function App() {
         .catch(() => {
           console.log("Failed to fecth data");
           // 로딩 중 UI 숨기기
+        })
+        .finally(() => {
+          setLoading(false);
         });
     } else if (count === 1) {
       setCount(count + 1);
@@ -43,6 +49,9 @@ function App() {
         .catch(() => {
           console.log("Failed to fecth data");
           // 로딩 중 UI 숨기기
+        })
+        .finally(() => {
+          setLoading(false);
         });
     }
   };
@@ -96,6 +105,7 @@ function App() {
                   })}
                 </div>
               </div>
+              {loading && <Loading />}
               {count <= 1 ? <button onClick={fetchData}>더보기</button> : ""}
             </>
           }
@@ -193,6 +203,6 @@ function About() {
 // => 버튼 누른 횟수저장해두면 좋을 듯
 
 // 응용 2. 버튼 3회 누를 때는 상품 더 없다고 알려주기
-// => 없애거나 누를 경우 더이상 상품이 없어요 라는 경고창 띄우기 => 조건문
+// => 없애거나(완) 누를 경우 더이상 상품이 없어요 라는 경고창 띄우기(완) => 조건문
 
 // 응용 3. 버튼 누르면 '로딩중입니다' 글자 띄우기

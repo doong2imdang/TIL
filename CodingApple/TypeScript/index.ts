@@ -34,7 +34,19 @@
 // let john: Member = [123, true];
 
 // object에 타입 지정해야할 속성이 너무 많으면 //
-type Member = {
-  [key: string]: string; // 글자로 된 모든 object 속성의 타입은 :string
-};
-let john: Member = { name: "kim", age: "123" };
+// type Member = {
+//   [key: string]: string; // 글자로 된 모든 object 속성의 타입은 :string
+// };
+// let john: Member = { name: "kim", age: "123" };
+
+// class 타입 지정 가능 //
+class User {
+  name: string;
+  constructor(name: string) {
+    this.name = name;
+  }
+}
+
+// TypeScript에서 지켜야할 코딩 룰도 있고
+// 타입 문법 외의 기능도 많음
+// 다음 강의 : 변수

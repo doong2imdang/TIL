@@ -40,3 +40,9 @@ var 마이훼이보릿 = {
     곡: "Golden Hour",
     가수: "Ateez",
 };
+// Q3. 다음과 같이 생긴 자료의 타입 지정을 해보도록 합시다.
+var project = {
+    member: ["kim", "park"],
+    days: 30,
+    started: true,
+};

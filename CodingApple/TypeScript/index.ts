@@ -1,100 +1,61 @@
-// Type이 아직 하나로 확정되지 않았을 경우 Type Narrowing 써야합니다. //
+// type alias(별칭 => 변수) 만드는 법 //
 
-// 대표적인 Narrowing 방버븐 typeof 연산자
-// (union type등 떄문에) 어떤 변수가 타입이 아직 불확실하면
-// === 어떤 변수가 타입이 아직 불확실하면 if문 등으로 Narrowing 해줘야 조작가능
-// (주의) if문 썼으면 끝까지 써야 안전 else, else if 안쓰면 에러로 잡아줄 수도
+// type 변수 작명 관습
+// - 시작은 영어대문자 국룰
+// - 뒤에 Type 붙여주기(선택)
 
-// 예시1
-function 내함수(x: number | string) {
-  if (typeof x === "string") {
-    return x + "1";
-  } else {
-    return x + 1;
-  }
-}
+type AnimalType = string | number | undefined;
+let 동물: AnimalType = "kim";
 
-내함수(123);
+type AnimalsType = { name: string; age: number };
+let 동물s: AnimalsType = { name: "kim", age: 20 };
 
-// 예시2 -> x 타입이 number | string (union type)
-function 내함수2(x: number | string) {
-  let array: number[] = [];
-  if (typeof x === "number") {
-    array[0] = x;
-  }
-}
+// const 변수 잠깐 설명시간
+const 출생지역 = "seoul";
+// 출생지역 = 'busan'; // 에러
 
-내함수2(123);
+const 출생지역s = { region: "seoul" };
+출생지역s.region = "busan";
+// const 는 재할당을 금지하는 키워드지 안에 있는 object 수정을 금지하는 것은 아님
+// => const 변수는 등호로 재할당만 막는 역할임
+// => const로 담은 object 수정은 자유롭게 가능
 
-// Narrowing으로 판정해주는 문법들
-// - typeof 변수
-// - 속성명 in 오브젝트자료
-// - 인스턴스 instanceof 부모
-// -> 그냥 현재 변수의 타입이 뭔지 특정지을 수 있기만 하면 다 인정해줌
+// typescript 쓰면 object 자료 수정도 막을 수 있음(readonly) //
+type Girlfriend = {
+  readonly name: string;
+};
+const 여친: Girlfriend = {
+  name: "엠버",
+};
 
-// assertion 문법(타입 덮어쓰기) //
+// 여친.name = "유라"; // readonly를 붙이면 에러가 생김 => 실수로 수정하면 에러내줌
+// => readonly 쓰면 object 자료 수정도 막을 수 있음
+// (주의) 타입스크립트 에러는 에디터 & 터미널에서만 존재함
+// 실제 변환된 js 파일은 에러없음
 
-// 예시 1
-function 내함수3(x: number | string) {
-  let array: number[] = [];
-  array[0] = x as number; // as 왼쪽에 있는 변수를 number로 덮어 씌어주세요
-}
+// object 속성 안에도 ? 사용가능
+type Girlfriends = {
+  name?: string; // name 속성은 선택 사항임(? -> string | undefined 가 들어올 수 있음)
+};
+const 여친s: Girlfriends = {
+  name: "엠버",
+};
 
-내함수3(123);
+// type 변수 당연히 union type으로 extend(합치기) 가능 //
+// 나중에 interface 키워드 배울 때 다시 다룰 듯
+type Name = string;
+type Age = number;
+type Person = Name | Age;
 
-// 남용하지 않기 위한 assertion 문법의 용도
-// 1. Narrowing 할 때 씁니다.
-let 이름: string = "kim";
-// 이름 as number;  -> 타입을 a 에서 b로 변경 x
+// & 연산자로 object 타입 합치기 //
+type PositionX = { x: number };
+type PositionY = { y: number };
+// {x : number, y : number} => 이걸 만들고 싶어~~
 
-// 2. 무슨 타입이 들어올지 100% 확실할 때 쓰셈 (그래서 굳이 쓸 이유가?)
-// => 그냥 if문 쓰셈
-function 내함수4(x: number | string) {
-  let array: number[] = [];
-  array[0] = x as number; // as 왼쪽에 있는 변수를 number로 덮어 씌어주세요
-}
-내함수4("123"); // 문자 넣어도 아무일 없음 -> assertion 해놓으면 이런 버그 캐치 못함
+type NewType = PositionX & PositionY; // => {x : number, y : number} 만들어짐
 
-// 3. 남이 짠 코드 수정할때... 왜 타입에러가 나는지 모르겠을때... 디버깅용..
+let position: NewType = { x: 10, y: 20 }; // 에러 안나는거 보니 잘 되는군
 
-// 예전 as 문법은 (참고)
-// let 이름들 :string = 'kim';
-// <number>이름;
-
-// as 문법이 유용한 경우: 강의하단 참고
-
-// 코드 짜다가 콘솔창에 변수 출력해보고 싶으면 html 파일에 ts -> js 변환된 파일 넣으셈
-
-// (숙제 1) 숫자 여러개를 array자료에 저장해놨는데 가끔 '4', '5' 이런식의 문자타입의 숫자가 발견되고 있습니다. 이걸 클리닝해주는 함수가 필요합니다. 클리닝함수(['1', '2', '3']) 이렇게 숫자와 문자가 섞인 array를 입력하면 [1, 2, 3] 이렇게 숫자로 깔끔하게 변환되어나오는 클리닝함수를 만들어오고 타입지정까지 확실히 해보십시오.
-function 클리닝(x: (number | string)[]) {
-  let 클리닝완료: number[] = [];
-
-  x.forEach((e) => {
-    if (typeof e === "string") {
-      클리닝완료.push(parseInt(e));
-    } else {
-      클리닝완료.push(e);
-    }
-  });
-  return 클리닝완료;
-}
-
-console.log(클리닝([123, "3"]));
-
-// (숙제 2) 다음과 같은 함수를 만들어보십시오.
-let 철수쌤 = { subject: "math" };
-let 영희쌤 = { subject: ["science", "english"] };
-let 민수쌤 = { subject: ["science", "art", "korean"] };
-// 지금 여러 변수에 선생님이 가르치고 있는 과목이 저장되어 있습니다. 과목 1개만 가르치는 쌤들은 문자 하나로 과목이 저장이 되었고, 과목 2개 이상 가르치는 쌤들은 array자료로 과목들이 저장되어 있습니다.
-// '철수쌤' 같은 object 자료를 파라미터로 집어넣으면 그 선생님이 가르치고 있는 과목 중 맨 뒤의 1개를 return 해주는 함수를 만들어봅시다. 그리고 타입지정도 엄격하게 해보도록 합시다.
-function 과목(x: { subject: string | string[] }) {
-  if (typeof x.subject === "string") {
-    return x.subject;
-  } else if (Array.isArray(x.subject)) {
-    return x.subject[x.subject.length - 1];
-  } else {
-    return "없어유";
-  }
-}
-
-console.log(과목({ subject: ["english", "art"] }));
+// (참고) 같은 이름의 type 변수 재정의 불가능 //
+type 어쩌구 = { x: number };
+// type 어쩌구 = number; => 에러생김

@@ -59,3 +59,19 @@ let position: NewType = { x: 10, y: 20 }; // 에러 안나는거 보니 잘 되�
 // (참고) 같은 이름의 type 변수 재정의 불가능 //
 type 어쩌구 = { x: number };
 // type 어쩌구 = number; => 에러생김
+
+// (숙제 1) object 타입을 정의한 type alias 두개를 & 기호로 합칠 때 중복된 속성이 있으면 어떻게 될까요?
+type OneType = { x: number; y: string };
+type TwoType = { x: number };
+type OnePlusTwo = OneType & TwoType;
+
+let substitute: OnePlusTwo = { x: 10, y: "10" }; // 오류 없음
+// 'x' 속성이 두 타입 모두에서 'number' 타입으로 일치하기 때문에 에러없이 수행할 수 있음
+
+type ThreeType = { x: number; y: string };
+type FourType = { x: string };
+type ThreePlusFour = ThreeType & FourType;
+
+// let substitution: ThreePlusFour = { x: 10, y: "10" };  // 오류 발생
+// 하지만 'x' 속성이 다른 타입이었다면, 예를 들어 'string'이었다면 위와 같은 오류가 발생합니다. => 이 경우 타입스크립트는 'x' 속성이 'number'와 'string' 타입을 동시에 만족할 수 없기때문에 오류를 발생시킵니다.
+// 따라서 두 타입을 '&' 기호로 합칠 때, 중복된 속성의 타입이 동일하면 문제가 없으며, 타입이 다르면 타입스크립트에서 오류가 발생하게 됩니다.

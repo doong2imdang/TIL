@@ -75,3 +75,21 @@ type ThreePlusFour = ThreeType & FourType;
 // let substitution: ThreePlusFour = { x: 10, y: "10" };  // 오류 발생
 // 하지만 'x' 속성이 다른 타입이었다면, 예를 들어 'string'이었다면 위와 같은 오류가 발생합니다. => 이 경우 타입스크립트는 'x' 속성이 'number'와 'string' 타입을 동시에 만족할 수 없기때문에 오류를 발생시킵니다.
 // 따라서 두 타입을 '&' 기호로 합칠 때, 중복된 속성의 타입이 동일하면 문제가 없으며, 타입이 다르면 타입스크립트에서 오류가 발생하게 됩니다.
+
+// (숙제 2) 다음 조건을 만족하는 타입을 만들어봅시다.
+// 1. 이 타입은 object 자료형이어야합니다.
+// 2. 이 타입은 color라는 속성을 가질 수 있으며 항상 문자가 들어와야합니다.
+// 3. 이 타입은 size 라는 속성이 있어야하며 항상 숫자가 들어와야합니다.
+// 4. 이 타입은 position이라는 변경불가능한 속성이 있어야하며 항상 숫자가 담긴 array 자료가 들어와야 합니다.
+// type alias로 만들어보셈.
+type ColorType = { color: string };
+type SizeType = { size: number };
+type PositionType = { readonly position: number[] };
+
+type CustomType = ColorType & SizeType & PositionType;
+
+const example1: CustomType = {
+  color: "green",
+  size: 20,
+  position: [90, 100, 105],
+};

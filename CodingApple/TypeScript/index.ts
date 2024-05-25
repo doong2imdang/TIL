@@ -22,8 +22,13 @@
 // 영어 대문자로 보통 작명함 -> 그래야 일반변수랑 차별화해서 관리할 수 있기때문
 
 // 함수에 타입 지정 가능 //
-function 함수(x: number): number {
-  return x * 2;
-}
+// function 함수(x: number): number {
+//   return x * 2;
+// }
 // 함수('123'); -> 에러
 // 이 함수는 파라미터로 number, return 값으로 number
+
+// array에 쓸 수 있는 tuple 타입 //
+type Member = [number, boolean];
+// 무조건 첫 째는 number , 둘 째는 boolean
+let john: Member = [123, true];

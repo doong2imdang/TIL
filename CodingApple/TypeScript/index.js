@@ -7,6 +7,8 @@
 // let 이름: string[] = ["kim", "park"];
 // "이 변수엔 string 담긴 array만 들어올 수 있습니다."
 // object 타입 지정 //
-var 이름 = { name: "kim" };
+// let 이름: { name?: string } = { name: "kim" };
 // 여기서 ?는 'name 속성은 옵션이에얌'
 // let 이름: { name?: string } = { }; 일때 에러가 나지 않도록 하는 것임
+// 다양한 타입이 들어올 수 있게 하려면 Union type ( | ) //
+var 이름 = 123;

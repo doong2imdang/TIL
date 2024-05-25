@@ -14,4 +14,9 @@
 // let 이름: { name?: string } = { }; 일때 에러가 나지 않도록 하는 것임
 
 // 다양한 타입이 들어올 수 있게 하려면 Union type ( | ) //
-let 이름: string[] | number = 123;
+// let 이름: string[] | number = 123;
+
+// 타입은 변수에 담아쓸 수 있음 Type alias //
+type Name = string | number;
+let 이름: Name = 123;
+// 영어 대문자로 보통 작명함 -> 그래야 일반변수랑 차별화해서 관리할 수 있기때문

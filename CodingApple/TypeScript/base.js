@@ -25,9 +25,12 @@
 // 6. tsconfig.json 생성 후 내용 작성 (하단)
 // {
 //   "compilerOptions": {
-//     "target": "ES5",
-//     "module": "CommonJS"
+//     "target": "es5",
+//     "module": "commonjs"
 //   }
 // }
 
-// 터미널 켜서 tsc-w 입력해두면 자동변환됨
+// 터미널 켜서 tsc -w 입력해두면 자동변환됨
+// 파일 사용시 당연히 변환된 js 파일쓰셈
+
+// tsconfig.json은 ts -> js 컴파일 시 옵션설정 가능

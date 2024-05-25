@@ -17,6 +17,13 @@
 // let 이름: string[] | number = 123;
 
 // 타입은 변수에 담아쓸 수 있음 Type alias //
-type Name = string | number;
-let 이름: Name = 123;
+// type Name = string | number;
+// let 이름: Name = 123;
 // 영어 대문자로 보통 작명함 -> 그래야 일반변수랑 차별화해서 관리할 수 있기때문
+
+// 함수에 타입 지정 가능 //
+function 함수(x: number): number {
+  return x * 2;
+}
+// 함수('123'); -> 에러
+// 이 함수는 파라미터로 number, return 값으로 number

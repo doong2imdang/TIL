@@ -29,6 +29,12 @@
 // 이 함수는 파라미터로 number, return 값으로 number
 
 // array에 쓸 수 있는 tuple 타입 //
-type Member = [number, boolean];
+// type Member = [number, boolean];
 // 무조건 첫 째는 number , 둘 째는 boolean
-let john: Member = [123, true];
+// let john: Member = [123, true];
+
+// object에 타입 지정해야할 속성이 너무 많으면 //
+type Member = {
+  [key: string]: string; // 글자로 된 모든 object 속성의 타입은 :string
+};
+let john: Member = { name: "kim", age: "123" };

@@ -19,3 +19,8 @@ var example1 = {
     size: 20,
     position: [90, 100, 105],
 };
+var person1 = {
+    name: "kim",
+    phone: 123123123,
+    email: "abc@naver.com",
+};

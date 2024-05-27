@@ -41,3 +41,9 @@ let 회원일까 = [1, 2, 3];
 let myName: string = "doong";
 let myAge: number = 27;
 let placeOfBirth: string = "Ansan";
+
+// Q2. 여러분이 가장 좋아하는 곡과 가수이름을 변수에 object 자료형으로 담아보십시오.
+let 마이훼이보릿: { 곡: string; 가수: string } = {
+  곡: "Golden Hour",
+  가수: "Ateez",
+};

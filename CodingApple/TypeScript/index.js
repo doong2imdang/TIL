@@ -35,3 +35,8 @@ var 회원일까 = [1, 2, 3];
 var myName = "doong";
 var myAge = 27;
 var placeOfBirth = "Ansan";
+// Q2. 여러분이 가장 좋아하는 곡과 가수이름을 변수에 object 자료형으로 담아보십시오.
+var 마이훼이보릿 = {
+    곡: "Golden Hour",
+    가수: "Ateez",
+};

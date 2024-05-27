@@ -1,43 +1,33 @@
-// 간단한 변수 타입 지정 가능 //
-// let 이름: string = "kim";
-// 이름 = 123; -> 'number'형식은 'string'형식에 할당할 수 없습니다 에러
-// "이 변수엔 string(문자) type만 들어올 수 있습니다"
-// string, number, boolean, null, undefined, bigint, [], {}, 등...
-// array 타입 지정 //
-// let 이름: string[] = ["kim", "park"];
-// "이 변수엔 string 담긴 array만 들어올 수 있습니다."
-// object 타입 지정 //
-// let 이름: { name?: string } = { name: "kim" };
-// 여기서 ?는 'name 속성은 옵션이에얌'
-// let 이름: { name?: string } = { }; 일때 에러가 나지 않도록 하는 것임
-// 다양한 타입이 들어올 수 있게 하려면 Union type ( | ) //
-// let 이름: string[] | number = 123;
-// 타입은 변수에 담아쓸 수 있음 Type alias //
-// type Name = string | number;
-// let 이름: Name = 123;
-// 영어 대문자로 보통 작명함 -> 그래야 일반변수랑 차별화해서 관리할 수 있기때문
-// 함수에 타입 지정 가능 //
-// function 함수(x: number): number {
-//   return x * 2;
-// }
-// 함수('123'); -> 에러
-// 이 함수는 파라미터로 number, return 값으로 number
-// array에 쓸 수 있는 tuple 타입 //
-// type Member = [number, boolean];
-// 무조건 첫 째는 number , 둘 째는 boolean
-// let john: Member = [123, true];
-// object에 타입 지정해야할 속성이 너무 많으면 //
-// type Member = {
-//   [key: string]: string; // 글자로 된 모든 object 속성의 타입은 :string
-// };
-// let john: Member = { name: "kim", age: "123" };
-// class 타입 지정 가능 //
-var User = /** @class */ (function () {
-    function User(name) {
-        this.name = name;
-    }
-    return User;
-}());
-// TypeScript에서 지켜야할 코딩 룰도 있고
-// 타입 문법 외의 기능도 많음
-// 다음 강의 : 변수
+// 변수만들기 //
+// 변수에 타입 지정 가능 -> 변수명 :타입명 = 변수에 실드 씌우는 것임
+// 타입에는 string, number, boolean, null, undefined ...
+var 이름 = "kim";
+// 이름 = 123; (장점: 타입이 실수로 변경될 때 에러내줌)
+var 나이 = 50;
+var 결혼했니 = true; // boolean은 true/false 자료를 뜻함
+var 결혼결혼 = null; // undefined, null 타입도 있습니다.
+var 미혼미혼 = undefined;
+// 변수 하나에 여러자료 집어넣고 싶으면 array 자료형 쓰면 됩니다.
+// array 자료에 타입 지정 가능
+var 회원들 = ["kim", "park"]; // -> 문자만 담긴 array만 가능
+// Q. 저는 array에 숫자랑 문자 동시에 넣고 싶은데요?
+// A. 나중에 알아봅시다. Union type을 쓰면 됩니다.
+// 변수 하나에 여러자료 집어넣고 싶으면 object 자료형 써도 가능
+// object 자료에도 타입 지정 가능
+var 회원s = {
+    member1: "kim",
+    member2: "park",
+}; // -> 이 변수엔 object만 들어올 수 있음
+// 오늘의 pro tip
+// 타입스크립트 갓 배운 사람 특징_온갖 곳에 다 타입지정 해놓음
+// 타입 지정 원래 자동으로 됩니다. -> 타입 지정 문법 생략 가능
+var 회원들들 = "park";
+var 회원임 = 123;
+var 회원일까 = [1, 2, 3];
+// JS 문법 그대로 TS에서 사용 가능
+// 저번에 셋팅해놓은 곳에 코드 짤 것임
+// - nodeJS 최신버전 설치
+// - 터미널에 npm install -g typescript
+// - tsconfig.json 만들고
+// - 어쩌구.ts 파일에 코딩 시작
+// - 터미널에 tsc -w 헤둔 채로

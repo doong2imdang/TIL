@@ -51,3 +51,10 @@ let 춘추: unknown = 1;
 // - 타입스크립트는 엄격한거 좋아한댔음
 // 숫자타입이여야 숫자처럼 연산해주죠
 // 나중에 Narrowing / Assertion 배워서 엄격하게 코드짜면 됩니다.
+
+// (숙제 1) 다음 변수 4개에 타입을 지정해봅시다.
+// (조건) age 변수엔 undefined 말고 숫자도 들어올 수 있습니다.
+let user: string = "kim";
+let age: undefined | number = undefined;
+let married: boolean = false;
+let 철수: (string | number | undefined | boolean)[] = [user, age, married];

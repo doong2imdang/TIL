@@ -31,3 +31,7 @@ var 회원일까 = [1, 2, 3];
 // - tsconfig.json 만들고
 // - 어쩌구.ts 파일에 코딩 시작
 // - 터미널에 tsc -w 헤둔 채로
+// Q1. 여려분의 이름, 나이, 출생지역을 변수로 각각 저장해봅시다.
+var myName = "doong";
+var myAge = 27;
+var placeOfBirth = "Ansan";

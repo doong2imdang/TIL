@@ -61,3 +61,16 @@ function 인사(x) {
         console.log("이름이 없습니다.");
     }
 }
+// (숙제 2) 함수에 숫자 또는 문자를 집어넣으면 자릿수를 세어 출력해주는 함수를 만들어보십시오.
+function 자릿수(x) {
+    return x.toString().length;
+}
+// 구글에 물어보니 문자에 .length 붙이면 자릿수 세어준다고 하네요. 근데 숫자는 .length를 붙여줄 수 없으니까 우선 문자로 변환했다고 합니다. 변환하는 함수도 역시 구글에 물어보니 .toString() 쓰면 된다고 하는군요. 물론 더 정확하게 하려면 만약에 x가 숫자일 경우 이렇게 문자일 경우 이렇게 코드를 짜는게 좋습니다.
+function 자릿수2(x) {
+    if (typeof x === "number") {
+        return x.toString().length;
+    }
+    else {
+        return x.length;
+    }
+}

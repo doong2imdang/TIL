@@ -24,3 +24,9 @@ var person1 = {
     phone: 123123123,
     email: "abc@naver.com",
 };
+var person2 = {
+    name: "lee",
+    phone: 123123123,
+    email: "example@naver.com",
+    minorstatus: true,
+};

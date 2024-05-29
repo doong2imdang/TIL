@@ -105,3 +105,16 @@ const person1: InfoType = {
   phone: 123123123,
   email: "abc@naver.com",
 };
+
+// (숙제 4) 다음을 만족하는 type alias를 만들어보십시오.
+// 1. 숙제2와 똑같은데 이번엔 이름, 전화번호, 이메일, 미성년자여부 속성을 옳은 타입인지 검사하는 type alias를 만들어봅시다.
+// 2. 미성년자 여부 속성은 true/false만 들어올 수 있습니다.
+// 3. 멋있게 숙제 3에서 만들어둔 type alias를 재활용해봅시다.
+type MinorstatusType = { minorstatus: boolean };
+type PersonInfo = InfoType & MinorstatusType;
+const person2 = {
+  name: "lee",
+  phone: 123123123,
+  email: "example@naver.com",
+  minorstatus: true,
+};

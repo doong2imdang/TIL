@@ -36,6 +36,32 @@ let 회원정보: 회원정보Type = {
 // - changeName이라는 속성은 함수여야하고, 아무것도 return 하면 안됩니다.
 // - type 키워드를 쓰든 말든 알아서 합시다.
 
+// (숙제 2) 다음 함수2개를 만들어보고 타입까지 정의해보십시오.
+// - cutZero()라는 함수를 만듭시다. 이 함수는 문자를 하나 입력하면 맨 앞에 '0' 문자가 있으면 제거하고 문자 type 으로 return 해줍니다.
+// - removeDash()라는 함수를 만듭시다. 이 함수는 문자를 하나 입력하면 대시기호 '-'가 있으면 전부 제거해주고 그걸 숫자 type으로 return 해줍니다.
+// - 함수에 타입지정시 type alias 를 꼭 써보도록 합시다.
+type cutZeroType = (a: string) => string;
+let cutZero: cutZeroType = function (a) {
+  if (a.slice(0, 1) === "0") {
+    return a.slice(1, a.length);
+  } else {
+    return a;
+  }
+};
+
+cutZero("1335");
+
+type removeDashType = (a: string) => number;
+
+let removeDash: removeDashType = function (a) {
+  if (a.search("-") !== -1) {
+    return Number(a.replace(/-/g, ""));
+  } else {
+    return Number(a);
+  }
+};
+removeDash("23-35");
+
 // 숙제를 위한 잠깐 콜백함수 개념 설명 //
 function 함수1(a) {
   a();

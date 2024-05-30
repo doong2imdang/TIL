@@ -17,10 +17,24 @@ var 회원정보 = {
     changeName: function () { },
 };
 회원정보.plusOne(1); // 이렇게 하면 함수안에 있는 코드 실행됨
-//(숙제 1) 위 코드에서 회원정보라는 변수에 타입지정 알아서 해보십시오.
-// - plusOne 이라는 속성은 함수여야하고, 숫자를 넣어서 숫자를 뱉는 함수여야 합니다.
-// - changeName이라는 속성은 함수여야하고, 아무것도 return 하면 안됩니다.
-// - type 키워드를 쓰든 말든 알아서 합시다.
+var cutZero = function (a) {
+    if (a.slice(0, 1) === "0") {
+        return a.slice(1, a.length);
+    }
+    else {
+        return a;
+    }
+};
+cutZero("1335");
+var removeDash = function (a) {
+    if (a.search("-") !== -1) {
+        return Number(a.replace(/-/g, ""));
+    }
+    else {
+        return Number(a);
+    }
+};
+removeDash("23-35");
 // 숙제를 위한 잠깐 콜백함수 개념 설명 //
 function 함수1(a) {
     a();

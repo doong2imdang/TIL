@@ -14,6 +14,13 @@ export default function List() {
           <div className="food" key={index}>
             <img src={`/food${index}.png`} className="food-img" />
             <h4>{item} $40</h4>
+            <button
+              onClick={() => {
+                수량변경(수량 - 1);
+              }}
+            >
+              -
+            </button>
             <span> {수량} </span>
             <button
               onClick={() => {

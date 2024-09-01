@@ -1,8 +1,10 @@
 import { age, name } from "./data";
+import Greeting from "./data";
 
 export default function Cart() {
   return (
     <div>
+      <Greeting />
       <h4 className="title">Cart</h4>
       <div className="cart-item">
         <p>상품명 {age}</p>

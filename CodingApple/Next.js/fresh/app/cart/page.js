@@ -10,6 +10,8 @@ export default function Cart() {
       <CartItem item={장바구니[1]} />
       <Banner content="롯데카드" />
       <Banner content="현대카드" />
+      <Button color="blue" />
+      <Button color="red" />
     </div>
   );
 }
@@ -25,5 +27,13 @@ function CartItem(props) {
       <p>$40</p>
       <p>1개</p>
     </div>
+  );
+}
+
+function Button(props) {
+  return (
+    <button style={{ background: props.color }} type="button">
+      버튼임
+    </button>
   );
 }

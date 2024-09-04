@@ -12,7 +12,7 @@ export default async function List() {
         return (
           <div className="list-item" key={i}>
             <h4>{a.title}</h4>
-            <p>{a.content}</p>
+            <p>1월 1일</p>
           </div>
         );
       })}

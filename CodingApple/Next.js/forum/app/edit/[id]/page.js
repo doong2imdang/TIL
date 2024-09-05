@@ -9,20 +9,22 @@ export default async function Edit(props) {
     .collection("post")
     .findOne({ _id: new ObjectId(props.params.id) });
 
-  // await db.collection('post').updateOne({수정할 게시물 정보}, {$set :{title : '바보', content : '바보2'}})
-  console.log(result);
-
   return (
     <div className="p-20">
       <h4>수정페이지</h4>
-      <form action="/api/post/new" method="POST">
+      <form action="/api/post/edit" method="POST">
         <input name="title" placeholder="글제목" defaultValue={result.title} />
         <input
           name="content"
           placeholder="글내용"
           defaultValue={result.content}
         />
-        <button type="submit">버튼</button>
+        <input
+          name="_id"
+          defaultValue={result._id.toString()}
+          style={{ display: "none" }}
+        />
+        <button type="submit">전송</button>
       </form>
     </div>
   );

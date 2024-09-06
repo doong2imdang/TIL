@@ -1,5 +1,4 @@
 import { connectDB } from "@/util/database";
-// import DetailLink from "./DetailLink";
 import ListItem from "./ListItem";
 
 export default async function List() {
@@ -9,7 +8,7 @@ export default async function List() {
 
   return (
     <div className="list-bg">
-      <ListItem result={result} />
+      <ListItem result={JSON.stringify(result)} />
     </div>
   );
 }

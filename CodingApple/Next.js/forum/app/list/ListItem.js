@@ -38,10 +38,11 @@ export default function ListItem({ result }) {
                 //     // 인터넷문제로 실패시 실행할 코드
                 //     console.log(error);
                 //   });
+
                 // query string
                 // fetch("/api/test?name=kim&age=20");
 
-                fetch("/api/abc/kim");
+                fetch(`/api/post/delete?_id=${a._id}`);
               }}
             >
               🗑️

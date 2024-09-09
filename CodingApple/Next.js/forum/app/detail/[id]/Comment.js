@@ -1,9 +1,14 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Comment({ result }) {
   let [comment, setComment] = useState("");
+
+  // useEffect(() => {
+  //   fetch()
+  // }, [])
+
   console.log(result);
   return (
     <div>
@@ -16,15 +21,12 @@ export default function Comment({ result }) {
       <button
         onClick={() => {
           console.log(comment);
-          fetch("/api/comment", {
+          fetch("/api/comment/new", {
             method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
+
             body: JSON.stringify({
-              content: comment,
-              author: result.author,
-              parent: result._id,
+              comment: comment,
+              _id: result._id,
             }),
           });
         }}

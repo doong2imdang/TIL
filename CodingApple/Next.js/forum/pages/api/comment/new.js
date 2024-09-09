@@ -9,7 +9,7 @@ export default async function handler(요청, 응답) {
   if (요청.method === "POST") {
     요청.body = JSON.parse(요청.body);
     let 저장할거 = {
-      cotent: 요청.body.comment,
+      content: 요청.body.comment,
       parent: new ObjectId(요청.body._id),
       author: session.user.email,
     };

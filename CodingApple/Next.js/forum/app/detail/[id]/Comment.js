@@ -3,16 +3,24 @@
 import { useEffect, useState } from "react";
 
 export default function Comment({ result }) {
-  let [comment, setComment] = useState("");
+  const [comment, setComment] = useState("");
+  const [data, setData] = useState([]);
 
-  // useEffect(() => {
-  //   fetch()
-  // }, [])
+  useEffect(() => {
+    fetch(`/api/comment/list?id=${result._id}`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setData(data);
+      });
+  }, []);
 
-  console.log(result);
   return (
     <div>
-      <div>댓글목록 보여줄 부분</div>
+      <hr></hr>
+      {data.length > 0
+        ? data.map((a, i) => <p key={i}>{a.content}</p>)
+        : "로딩중"}
       <input
         onChange={(e) => {
           setComment(e.target.value);

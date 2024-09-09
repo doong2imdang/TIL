@@ -23,7 +23,7 @@ export default async function handler(요청, 응답) {
 
   try {
     const hash = await bcrypt.hash(password, 10);
-    const userData = { name, email, password: hash };
+    const userData = { name, email, password: hash, role: "normal" };
 
     await db.collection("user_cred").insertOne(userData);
     return 응답.status(200).json({ message: "가입성공" });

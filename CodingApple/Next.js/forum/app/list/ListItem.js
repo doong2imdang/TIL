@@ -16,34 +16,28 @@ export default function ListItem({ result }) {
             <Link href={"/edit/" + a["_id"]}>✏️</Link>
 
             <span
-              onClick={(e) => {
-                // fetch("/api/post/delete", {
-                //   method: "DELETE",
-                //   body: a._id,
-                // })
-                //   .then((response) => {
-                //     if (response.status == 200) {
-                //       return response.json();
-                //     } else {
-                //       // 서버가 에러코드 전송 시 실행할 코드
-                //     }
-                //   })
-                //   .then((result) => {
-                //     // 성공시 실행할 코드
-                //     e.target.parentElement.style.opacity = 0;
-                //     setTimeout(() => {
-                //       e.target.parentElement.style.display = "none";
-                //     }, 1000);
-                //   })
-                //   .catch((error) => {
-                //     // 인터넷문제로 실패시 실행할 코드
-                //     console.log(error);
-                //   });
-                // query string
-                // fetch("/api/test?name=kim&age=20");
-                // fetch(`/api/post/delete?_id=${a._id}`);
+              onClick={async (e) => {
+                try {
+                  const response = await fetch(
+                    `/api/post/delete?author=${a.author}`,
+                    {
+                      method: "DELETE",
+                    }
+                  );
 
-                fetch(`api/abc/${a.author}`);
+                  if (response.status === 200) {
+                    e.target.parentElement.style.opacity = 0;
+                    setTimeout(() => {
+                      e.target.parentElement.style.display = "none";
+                    }, 1000);
+                  } else {
+                    console.error("서버 에러:", await response.text());
+                  }
+                } catch (error) {
+                  console.error("네트워크 오류:", error);
+                }
+
+                // fetch(`api/abc/${a.author}`);
               }}
             >
               🗑️

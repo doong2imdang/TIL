@@ -1,4 +1,12 @@
 export default function Write() {
+  // if(유저세션출력해서 아무것도 없으면)  {
+  //   return (
+  //     <div>
+  //       로그인하세요
+  //     </div>
+  //   )
+  // }
+
   return (
     <div className="p-20">
       <h4>글작성</h4>

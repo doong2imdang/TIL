@@ -4,6 +4,7 @@ import Link from "next/link";
 // import DetailLink from "./DetailLink";
 
 export default function ListItem({ result }) {
+  console.log(result);
   return (
     <div>
       {JSON.parse(result).map((a, i) => {
@@ -42,7 +43,7 @@ export default function ListItem({ result }) {
                 // fetch("/api/test?name=kim&age=20");
                 // fetch(`/api/post/delete?_id=${a._id}`);
 
-                fetch(`api/abc/${a._id}`);
+                fetch(`api/abc/${a.author}`);
               }}
             >
               🗑️

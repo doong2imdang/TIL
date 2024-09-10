@@ -19,8 +19,13 @@ export default function Comment({ result }) {
     <div>
       <hr></hr>
       {data.length > 0
-        ? data.map((a, i) => <p key={i}>{a.content}</p>)
-        : "로딩중"}
+        ? data.map((a, i) => (
+            <p key={i}>
+              <span>{a.name} </span>
+              {a.content}
+            </p>
+          ))
+        : "댓글없음"}
       <input
         onChange={(e) => {
           setComment(e.target.value);

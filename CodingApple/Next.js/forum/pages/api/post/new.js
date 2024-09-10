@@ -8,6 +8,7 @@ export default async function handler(요청, 응답) {
 
   if (session) {
     요청.body.author = session.user.email;
+    요청.body.name = session.user.name;
   }
   console.log(요청.body);
   if (요청.method == "POST") {

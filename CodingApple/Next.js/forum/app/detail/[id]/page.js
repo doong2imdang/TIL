@@ -8,7 +8,8 @@ export default async function Detail(props) {
   let result = await db
     .collection("post")
     .findOne({ _id: new ObjectId(props.params.id) });
-  console.log(props.params.id, result);
+  // console.log(props.params.id);
+  // console.log(result);
 
   result._id = result._id.toString();
 

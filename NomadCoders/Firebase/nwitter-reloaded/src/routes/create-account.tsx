@@ -11,6 +11,7 @@ import {
   Form,
   Wrapper,
 } from "../components/auth-components";
+import GithubButton from "../components/github-btn";
 
 // const errors = {
 //   "auth/email-already-in-use": "이미 존재하는 이메일입니다.",
@@ -100,6 +101,7 @@ export default function CreateAccount() {
       <Switcher>
         이미 계정이 있으신가요? <Link to="/login">로그인 &rarr;</Link>
       </Switcher>
+      <GithubButton />
     </Wrapper>
   );
 }

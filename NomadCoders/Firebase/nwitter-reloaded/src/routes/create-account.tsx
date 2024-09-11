@@ -1,48 +1,20 @@
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import React, { useState } from "react";
-import styled from "styled-components";
 import { auth } from "../firebase";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { FirebaseError } from "firebase/app";
+import {
+  Error,
+  Input,
+  Switcher,
+  Title,
+  Form,
+  Wrapper,
+} from "../components/auth-components";
 
-const Wrapper = styled.div`
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 420px;
-  padding: 50px 0;
-`;
-
-const Title = styled.h1`
-  font-size: 42px;
-`;
-
-const Form = styled.form`
-  margin-top: 50px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  width: 100%;
-`;
-
-const Input = styled.input`
-  padding: 10px 20px;
-  border-radius: 50px;
-  border: none;
-  width: 100%;
-  font-size: 16px;
-  &[type="submit"] {
-    cursor: pointer;
-    &:hover {
-      opacity: 0.8;
-    }
-  }
-`;
-
-const Error = styled.span`
-  font-weight: 600;
-  color: tomato;
-`;
+// const errors = {
+//   "auth/email-already-in-use": "이미 존재하는 이메일입니다.",
+// };
 
 export default function CreateAccount() {
   const navigate = useNavigate();
@@ -67,6 +39,7 @@ export default function CreateAccount() {
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setError("");
     if (isLoading || name === "" || email === "" || password === "") return;
     try {
       setLoading(true);
@@ -79,7 +52,10 @@ export default function CreateAccount() {
       await updateProfile(credentials.user, { displayName: name });
       navigate("/");
     } catch (e) {
-      // setError
+      if (e instanceof FirebaseError) {
+        setError(e.message);
+        console.log(e.code, e.message);
+      }
     } finally {
       setLoading(false);
     }
@@ -121,6 +97,9 @@ export default function CreateAccount() {
         />
       </Form>
       {error !== "" ? <Error>{error}</Error> : null}
+      <Switcher>
+        이미 계정이 있으신가요? <Link to="/login">로그인 &rarr;</Link>
+      </Switcher>
     </Wrapper>
   );
 }

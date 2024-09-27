@@ -1,4 +1,8 @@
-var 장바구니 = [
-    { product: "청소기", price: 7000, card: false },
-    { product: "삼다수", price: 800, card: true },
-];
+var 오브젝트 = {
+    plus: function (a, b) {
+        return a + b;
+    },
+    minus: function (a, b) {
+        return a - b;
+    },
+};

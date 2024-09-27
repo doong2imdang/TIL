@@ -1,16 +1,14 @@
-interface ShoppingCart {
-  product: string;
-  price: number;
-}
-// interface ShoppingCart {
-//   card: boolean;
-// }
-
-interface NewShoppingCart extends ShoppingCart {
-  card: boolean;
+interface MathObj {
+  plus: (a: number, b: number) => number;
+  minus: (a: number, b: number) => number;
 }
 
-let 장바구니: NewShoppingCart[] = [
-  { product: "청소기", price: 7000, card: false },
-  { product: "삼다수", price: 800, card: true },
-];
+let 오브젝트: MathObj = {
+  plus(a, b) {
+    return a + b;
+  },
+
+  minus(a, b) {
+    return a - b;
+  },
+};

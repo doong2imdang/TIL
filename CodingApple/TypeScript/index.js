@@ -1,16 +1,40 @@
-var User = /** @class */ (function () {
-    function User() {
+// class Square {
+//   width: number;
+//   height: number;
+//   color: string;
+//   constructor(a: number, b: number, c: string) {
+//     this.width = a;
+//     this.height = b;
+//     this.color = c;
+//   }
+//   draw() {
+//     const container = document.querySelector(".container");
+//     const newDiv = document.createElement("div");
+//     newDiv.style.width = `${this.width}px`;
+//     newDiv.style.height = `${this.height}px`;
+//     newDiv.style.backgroundColor = this.color;
+//     container?.appendChild(newDiv);
+//   }
+// }
+var Square = /** @class */ (function () {
+    function Square(width, height, color) {
+        this.width = width;
+        this.height = height;
+        this.color = color;
     }
-    User.addOne = function (a) {
-        return (User.x += a);
+    Square.prototype.draw = function () {
+        var a = Math.random();
+        var square = "<div style=\"position:relative; \n      top:".concat(a * 400, "px; \n      left:").concat(a * 400, "px; \n      width:").concat(this.width, "px; \n      height : ").concat(this.height, "px; \n      background:").concat(this.color, "\"></div>");
+        document.body.insertAdjacentHTML("beforeend", square);
     };
-    User.printX = function () {
-        console.log(User.x);
-    };
-    User.x = 10;
-    User.y = 20;
-    return User;
+    return Square;
 }());
-console.log(User.addOne(3)); //이렇게 하면 x가 3 더해져야함
-console.log(User.addOne(4)); //이렇게 하면 x가 4 더해져야함
-User.printX(); //이렇게 하면 콘솔창에 x값이 출력되어야함
+var 네모 = new Square(30, 30, "red");
+네모.draw();
+네모.draw();
+네모.draw();
+네모.draw();
+네모.draw();
+네모.draw();
+네모.draw();
+네모.draw();

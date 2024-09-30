@@ -1,16 +1,49 @@
-class User {
-  private static x = 10;
-  public static y = 20;
+// class Square {
+//   width: number;
+//   height: number;
+//   color: string;
 
-  static addOne(a: number) {
-    return (User.x += a);
-  }
+//   constructor(a: number, b: number, c: string) {
+//     this.width = a;
+//     this.height = b;
+//     this.color = c;
+//   }
 
-  static printX() {
-    console.log(User.x);
+//   draw() {
+//     const container = document.querySelector(".container");
+//     const newDiv = document.createElement("div");
+//     newDiv.style.width = `${this.width}px`;
+//     newDiv.style.height = `${this.height}px`;
+//     newDiv.style.backgroundColor = this.color;
+
+//     container?.appendChild(newDiv);
+//   }
+// }
+
+class Square {
+  constructor(
+    public width: number,
+    public height: number,
+    public color: string
+  ) {}
+  draw() {
+    let a = Math.random();
+    let square = `<div style="position:relative; 
+      top:${a * 400}px; 
+      left:${a * 400}px; 
+      width:${this.width}px; 
+      height : ${this.height}px; 
+      background:${this.color}"></div>`;
+    document.body.insertAdjacentHTML("beforeend", square);
   }
 }
 
-console.log(User.addOne(3)); //이렇게 하면 x가 3 더해져야함
-console.log(User.addOne(4)); //이렇게 하면 x가 4 더해져야함
-User.printX(); //이렇게 하면 콘솔창에 x값이 출력되어야함
+let 네모 = new Square(30, 30, "red");
+네모.draw();
+네모.draw();
+네모.draw();
+네모.draw();
+네모.draw();
+네모.draw();
+네모.draw();
+네모.draw();

@@ -1,6 +1,13 @@
-function 내함수(x: number | string) {
+function 함수(a: (number | string)[]) {
   let array: number[] = [];
-  array[0] = x as number;
+  a.forEach((e) => {
+    if (typeof e === "string") {
+      array.push(parseInt(e));
+    } else {
+      array.push(e);
+    }
+  });
+  return array;
 }
 
-내함수(123);
+console.log(함수(["1", 2, "3"]));

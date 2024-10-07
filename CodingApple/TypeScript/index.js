@@ -1,5 +1,13 @@
-function 내함수(x) {
+function 함수(a) {
     var array = [];
-    array[0] = x;
+    a.forEach(function (e) {
+        if (typeof e === "string") {
+            array.push(parseInt(e));
+        }
+        else {
+            array.push(e);
+        }
+    });
+    return array;
 }
-내함수(123);
+console.log(함수(["1", 2, "3"]));

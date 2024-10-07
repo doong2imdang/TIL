@@ -1,9 +1,5 @@
-function 함수(name?: string) {
-  if (name) {
-    console.log("안녕하세요" + name);
-  } else {
-    console.log("이름이 없습니다.");
-  }
+function 함수(x: number | string): number {
+  return x.toString().length;
 }
 
-함수("어쩌구");
+함수(12348);

@@ -1,4 +1,5 @@
-var myShape = {
-    size: 10,
-    position: [10, 20],
+var 회원가입정보 = {
+    name: "kim",
+    phone: 123,
+    email: "a123@asdf.com",
 };

@@ -1,1 +1,3 @@
-var 회원들 = { member1: "kim", member2: "park" };
+var 이름 = "둥";
+var 나이 = 1;
+var 출생지역 = "Ansan";

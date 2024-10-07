@@ -1,6 +1,10 @@
-type PositionX = { x: number };
-type PositionY = { y: number };
+type Shape = {
+  color?: string;
+  size: number;
+  readonly position: number[];
+};
 
-type NewType = PositionX & PositionY;
-
-let position: NewType = { x: 10, y: 20 };
+let myShape: Shape = {
+  size: 10,
+  position: [10, 20],
+};

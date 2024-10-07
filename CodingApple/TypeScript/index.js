@@ -1,1 +1,4 @@
-var position = { x: 10, y: 20 };
+var myShape = {
+    size: 10,
+    position: [10, 20],
+};

@@ -1,1 +1,5 @@
-let 훼이보릿: { [key: string]: string } = { name: "PL", song: "Malibu" };
+let project: { member: string[]; days: number; started: boolean } = {
+  member: ["kim", "park"],
+  days: 30,
+  started: true,
+};

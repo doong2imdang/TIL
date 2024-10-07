@@ -1,1 +1,5 @@
-var 훼이보릿 = { name: "PL", song: "Malibu" };
+var project = {
+    member: ["kim", "park"],
+    days: 30,
+    started: true,
+};

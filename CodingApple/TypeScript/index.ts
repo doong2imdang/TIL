@@ -1,18 +1,9 @@
-type User = {
-  name: string;
-  phone: number;
-  email: string;
-};
-
-type Status = {
-  status: boolean;
-};
-
-type UserInfo = User & Status;
-
-let 회원가입정보: UserInfo = {
+var 자료 = {
   name: "kim",
-  phone: 123,
-  email: "a123@asdf.com",
-  status: true,
-};
+} as const;
+
+자료.name; // kim
+
+function 내함수(a: "kim") {}
+
+내함수(자료.name);

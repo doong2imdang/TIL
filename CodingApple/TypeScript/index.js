@@ -1,6 +1,6 @@
-var 회원가입정보 = {
+var 자료 = {
     name: "kim",
-    phone: 123,
-    email: "a123@asdf.com",
-    status: true,
 };
+자료.name; // kim
+function 내함수(a) { }
+내함수(자료.name);

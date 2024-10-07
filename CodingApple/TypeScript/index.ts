@@ -1,3 +1,1 @@
-let 이름: string = "둥";
-let 나이: number = 1;
-let 출생지역: string = "Ansan";
+let 훼이보릿: { [key: string]: string } = { name: "PL", song: "Malibu" };

@@ -1,6 +1,1 @@
-class User {
-  name: string;
-  constructor(name: string) {
-    this.name = name;
-  }
-}
+let 회원들: { [key: string]: string } = { member1: "kim", member2: "park" };

@@ -1,4 +1,9 @@
-function 함수(x) {
-    return x.toString().length;
+function 함수(월소득, 집보유여부, 매력) {
+    var 월소득점수 = 월소득;
+    var 집보유점수 = 집보유여부 ? 500 : 0;
+    var 매력점수 = 매력 === "상" ? 100 : 0;
+    if (월소득점수 + 집보유점수 + 매력점수 >= 600) {
+        return "결혼가능";
+    }
 }
-함수(12348);
+console.log(함수(700, false, "중"));

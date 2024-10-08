@@ -1,11 +1,9 @@
-interface Product {
-  brand: string;
-  serialNumber: number;
-  model: string[];
+interface ShoppingCart {
+  product: string;
+  price: number;
 }
 
-let 상품: Product = {
-  brand: "Samsung",
-  serialNumber: 1360,
-  model: ["TV", "phone"],
-};
+let 장바구니: ShoppingCart[] = [
+  { product: "청소기", price: 7000 },
+  { product: "삼다수", price: 800 },
+];

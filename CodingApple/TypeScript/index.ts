@@ -1,19 +1,11 @@
-type Animal = { name: string };
-type Cat = { age: number } & Animal;
-
-interface Student {
-  name: string;
+interface Product {
+  brand: string;
+  serialNumber: number;
+  model: string[];
 }
 
-interface Teacher extends Student {
-  age: number;
-}
-
-let 학생: Student = {
-  name: "kim",
-};
-
-let 선생: Teacher = {
-  name: "kim",
-  age: 20,
+let 상품: Product = {
+  brand: "Samsung",
+  serialNumber: 1360,
+  model: ["TV", "phone"],
 };

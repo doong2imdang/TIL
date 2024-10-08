@@ -1,7 +1,5 @@
-var 학생 = {
-    name: "kim",
-};
-var 선생 = {
-    name: "kim",
-    age: 20,
+var 상품 = {
+    brand: "Samsung",
+    serialNumber: 1360,
+    model: ["TV", "phone"],
 };

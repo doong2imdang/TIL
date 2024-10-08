@@ -1,15 +1,16 @@
-class Person {
-  name: string;
-  constructor(a: string) {
-    this.name = a;
+class Car {
+  model: string;
+  price: number;
+  constructor(a: string, b: number) {
+    this.model = a;
+    this.price = b;
   }
 
-  함수(a: string) {
-    console.log("안녕" + a);
+  tax(): number {
+    return this.price * 0.1;
   }
 }
 
-let 사람1 = new Person("kim");
-let 사람2 = new Person("park");
-
-console.log(사람1.함수("어쩌구"));
+let car1 = new Car("소나타", 3000);
+console.log(car1); //콘솔창 출력결과는 { model : '소나타', price : 3000 }
+console.log(car1.tax()); //콘솔창 출력결과는 300

@@ -1,12 +1,13 @@
-var Person = /** @class */ (function () {
-    function Person(a) {
-        this.name = a;
+var Car = /** @class */ (function () {
+    function Car(a, b) {
+        this.model = a;
+        this.price = b;
     }
-    Person.prototype.함수 = function (a) {
-        console.log("안녕" + a);
+    Car.prototype.tax = function () {
+        return this.price * 0.1;
     };
-    return Person;
+    return Car;
 }());
-var 사람1 = new Person("kim");
-var 사람2 = new Person("park");
-console.log(사람1.함수("어쩌구"));
+var car1 = new Car("소나타", 3000);
+console.log(car1); //콘솔창 출력결과는 { model : '소나타', price : 3000 }
+console.log(car1.tax()); //콘솔창 출력결과는 300

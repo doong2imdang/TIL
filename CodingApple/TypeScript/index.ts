@@ -1,9 +1,9 @@
-var 자료 = {
+let 회원정보 = {
   name: "kim",
-} as const;
+  plusOne(a: number): number {
+    return a + 1;
+  },
+  changeName: () => {},
+};
 
-자료.name; // kim
-
-function 내함수(a: "kim") {}
-
-내함수(자료.name);
+회원정보.plusOne(2);

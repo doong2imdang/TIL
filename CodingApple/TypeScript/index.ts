@@ -1,20 +1,23 @@
-type Member = {
-  name: string;
-  age: number;
-  plusOne: (x: number) => number;
-  changeName: () => void;
+type CutZero = (x: string) => string;
+
+const cutZero: CutZero = function (x) {
+  if (x.slice(0, 1) === "0") {
+    return x.slice(1, x.length);
+  } else {
+    return x;
+  }
 };
 
-let 회원정보: Member = {
-  name: "kim",
-  age: 30,
-  plusOne(x) {
-    return x + 1;
-  },
-  changeName: () => {
-    console.log("안녕");
-  },
+console.log(cutZero("123456"));
+
+type RemoveDash = (x: string) => number;
+
+const removeDash: RemoveDash = function (x) {
+  if (x.indexOf("-") !== -1) {
+    return parseInt(x.replace(/-/g, ""));
+  } else {
+    return parseInt(x);
+  }
 };
 
-회원정보.plusOne(1);
-회원정보.changeName();
+console.log(removeDash("12--23"));

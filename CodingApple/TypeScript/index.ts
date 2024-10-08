@@ -1,33 +1,12 @@
-type CutZero = (x: string) => string;
+let 제목 = document.querySelector("#title");
+if (제목?.innerHTML != undefined) {
+  제목.innerHTML = "반가워요";
+}
 
-const cutZero: CutZero = function (x) {
-  if (x.slice(0, 1) === "0") {
-    return x.slice(1, x.length);
-  } else {
-    return x;
-  }
-};
+let 링크 = document.querySelector(".link");
+if (링크 instanceof HTMLAnchorElement) {
+  링크.href = "https://kakao.com";
+}
 
-console.log(cutZero("123456"));
-
-type RemoveDash = (x: string) => number;
-
-const removeDash: RemoveDash = function (x) {
-  if (x.indexOf("-") !== -1) {
-    return parseInt(x.replace(/-/g, ""));
-  } else {
-    return parseInt(x);
-  }
-};
-
-console.log(removeDash("12--23"));
-
-type MakeFunction = (x: string, y: CutZero, z: RemoveDash) => void;
-
-const 만들함수: MakeFunction = function (x, func1, func2) {
-  let result = func1(x);
-  let result2 = func2(result);
-  console.log(result2);
-};
-
-만들함수("010-1111-2222", cutZero, removeDash);
+let 버튼 = document.querySelector("#button");
+버튼?.addEventListener("click", function () {});

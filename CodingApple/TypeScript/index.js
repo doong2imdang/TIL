@@ -16,3 +16,9 @@ var removeDash = function (x) {
     }
 };
 console.log(removeDash("12--23"));
+var 만들함수 = function (x, func1, func2) {
+    var result = func1(x);
+    var result2 = func2(result);
+    console.log(result2);
+};
+만들함수("010-1111-2222", cutZero, removeDash);

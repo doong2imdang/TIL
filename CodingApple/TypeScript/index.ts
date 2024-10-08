@@ -21,3 +21,13 @@ const removeDash: RemoveDash = function (x) {
 };
 
 console.log(removeDash("12--23"));
+
+type MakeFunction = (x: string, y: CutZero, z: RemoveDash) => void;
+
+const 만들함수: MakeFunction = function (x, func1, func2) {
+  let result = func1(x);
+  let result2 = func2(result);
+  console.log(result2);
+};
+
+만들함수("010-1111-2222", cutZero, removeDash);

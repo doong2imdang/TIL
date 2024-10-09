@@ -1,5 +1,13 @@
-function 함수(_a) {
-    var degree = _a[0], kind = _a[1], domestic = _a[2];
-    console.log(degree, kind, domestic);
+function 함수(animal) {
+    if ("swim" in animal) {
+        animal.swim;
+    }
 }
-함수([40, "wine", false]);
+function 함수2(x) {
+    if (x.wheel === "4개") {
+        console.log("x는 Car타입에요");
+    }
+    else {
+        console.log("x는 Bike 타입이에요");
+    }
+}

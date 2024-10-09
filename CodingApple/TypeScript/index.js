@@ -1,13 +1,11 @@
-function 함수(animal) {
-    if ("swim" in animal) {
-        animal.swim;
-    }
-}
-function 함수2(x) {
-    if (x.wheel === "4개") {
-        console.log("x는 Car타입에요");
+function 함수(parameter) {
+    if (typeof parameter == "string") {
+        console.log(parameter);
     }
     else {
-        console.log("x는 Bike 타입이에요");
+        console.log(parameter);
     }
 }
+var 함수2 = function () {
+    throw new Error();
+};

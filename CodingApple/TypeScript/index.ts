@@ -1,7 +1,5 @@
-type Info = { user: string; comment: number[]; admin: boolean };
-
-function 함수({ user, comment, admin }: Info): void {
-  console.log(user, comment, admin);
+function 함수([degree, kind, domestic]: (number | string | boolean)[]) {
+  console.log(degree, kind, domestic);
 }
 
-함수({ user: "kim", comment: [3, 5, 4], admin: false });
+함수([40, "wine", false]);

@@ -1,3 +1,5 @@
-/// <reference path="./a.ts" />
-var dog1 = "bark";
-var dog2 = { name: "paw" };
+function 함수(x) {
+    return x.length;
+}
+var a = 함수(["100"]);
+console.log(a);

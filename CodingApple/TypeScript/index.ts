@@ -1,4 +1,11 @@
-/// <reference path="./a.ts" />
+interface LengthCheck {
+  length: number;
+}
 
-let dog1: GoodDog.Dog = "bark";
-let dog2: BadDog.Dog = { name: "paw" };
+function 함수<MyType extends LengthCheck>(x: MyType) {
+  return x.length;
+}
+
+let a = 함수<string[]>(["100"]);
+
+console.log(a);

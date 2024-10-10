@@ -3,6 +3,15 @@ function 함수() {
     for (var _i = 0; _i < arguments.length; _i++) {
         x[_i] = arguments[_i];
     }
-    console.log(x);
+    var result = [[], []];
+    x.forEach(function (e) {
+        if (typeof e === "string") {
+            result[0].push(e);
+        }
+        else {
+            result[1].push(e);
+        }
+    });
+    return result;
 }
-함수("동서녹차", true, "맛잇다", 2000, "1");
+console.log(함수("b", 5, 6, 8, "a"));

@@ -1,5 +1,15 @@
-function 함수(...x: [string, boolean, ...(number | string)[]]) {
-  console.log(x);
+function 함수(...x: (string | number)[]) {
+  let result: [string[], number[]] = [[], []];
+
+  x.forEach((e) => {
+    if (typeof e === "string") {
+      result[0].push(e);
+    } else {
+      result[1].push(e);
+    }
+  });
+
+  return result;
 }
 
-함수("동서녹차", true, "맛잇다", 2000, "1");
+console.log(함수("b", 5, 6, 8, "a"));

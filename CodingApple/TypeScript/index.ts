@@ -1,8 +1,14 @@
-class Person<T> {
-  name;
-  constructor(a: T) {
-    this.name = a;
-  }
+let 멍멍: [string, boolean?, number?] = ["dog"];
+
+// function 함수(...x: [number, string]) {
+//   console.log(x);
+// }
+
+function 함수(a: number, b: string) {
+  console.log([a, b]);
 }
-let a = new Person<string>("어쩌구");
-a.name;
+
+함수(111, "222");
+
+let arr = [1, 2, 3];
+let arr2: [number, number, ...number[]] = [4, 5, ...arr];

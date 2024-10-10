@@ -1,2 +1,11 @@
-import { 이름, 나이 } from "./a";
-console.log(이름, 나이);
+import { Car, Bike } from "./a";
+
+let car: Car = {
+  wheel: 5,
+  model: "sonata",
+};
+
+let bike: Bike = {
+  wheel: 2,
+  model: "sonata",
+};

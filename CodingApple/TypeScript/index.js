@@ -1,1 +1,10 @@
-var arr = ["꼬북칩", 1800, true];
+var arr = [
+    "동서녹차",
+    4000,
+    true,
+    false,
+    true,
+    true,
+    false,
+    true,
+];

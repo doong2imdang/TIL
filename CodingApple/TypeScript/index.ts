@@ -1,14 +1,8 @@
-interface Animal {
-  name: string;
-  age: number;
+class Person<T> {
+  name;
+  constructor(a: T) {
+    this.name = a;
+  }
 }
-
-let data = '{"name" : "dog", "age" : 1 }';
-
-function 함수<T>(x: string): T {
-  return JSON.parse(x);
-}
-
-let result = 함수<Animal>(data);
-
-console.log(result);
+let a = new Person<string>("어쩌구");
+a.name;

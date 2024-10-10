@@ -1,6 +1,8 @@
-var data = '{"name" : "dog", "age" : 1 }';
-function 함수(x) {
-    return JSON.parse(x);
-}
-var result = 함수(data);
-console.log(result);
+var Person = /** @class */ (function () {
+    function Person(a) {
+        this.name = a;
+    }
+    return Person;
+}());
+var a = new Person("어쩌구");
+a.name;

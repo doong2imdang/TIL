@@ -1,10 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var car = {
-    wheel: 5,
-    model: "sonata",
+var 함수 = function (a) {
+    console.log(a);
 };
-var bike = {
-    wheel: 2,
-    model: "sonata",
-};
+함수({ abc: "안뇽" });

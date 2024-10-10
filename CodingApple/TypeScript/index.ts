@@ -1,11 +1,7 @@
-import { Car, Bike } from "./a";
+import { ObjFunction } from "./a";
 
-let car: Car = {
-  wheel: 5,
-  model: "sonata",
+let 함수: ObjFunction = function (a) {
+  console.log(a);
 };
 
-let bike: Bike = {
-  wheel: 2,
-  model: "sonata",
-};
+함수({ abc: "안뇽" });

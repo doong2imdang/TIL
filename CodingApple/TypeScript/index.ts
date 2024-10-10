@@ -1,8 +1,14 @@
-function 함수<T extends string | string[]>(x: T) {
-  return x.length;
+interface Animal {
+  name: string;
+  age: number;
 }
 
-let a = 함수<string>("hello");
-let b = 함수<string[]>(["kim", "park"]);
+let data = '{"name" : "dog", "age" : 1 }';
 
-console.log(a, b);
+function 함수<T>(x: string): T {
+  return JSON.parse(x);
+}
+
+let result = 함수<Animal>(data);
+
+console.log(result);

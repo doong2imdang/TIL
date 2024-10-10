@@ -1,7 +1,4 @@
-import { ObjFunction } from "./a";
+/// <reference path="./a.ts" />
 
-let 함수: ObjFunction = function (a) {
-  console.log(a);
-};
-
-함수({ abc: "안뇽" });
+let dog1: GoodDog.Dog = "bark";
+let dog2: BadDog.Dog = { name: "paw" };

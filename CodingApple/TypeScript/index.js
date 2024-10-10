@@ -1,6 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var 함수 = function (a) {
-    console.log(a);
-};
-함수({ abc: "안뇽" });
+/// <reference path="./a.ts" />
+var dog1 = "bark";
+var dog2 = { name: "paw" };

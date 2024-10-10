@@ -1,1 +1,8 @@
-export type ObjFunction = (a: object) => void;
+namespace GoodDog {
+  export type Dog = string;
+}
+namespace BadDog {
+  export interface Dog {
+    name: string;
+  }
+}

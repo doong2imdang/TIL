@@ -1,10 +1,5 @@
-let arr: [string, number, ...boolean[]] = [
-  "동서녹차",
-  4000,
-  true,
-  false,
-  true,
-  true,
-  false,
-  true,
-];
+function 함수(...x: [string, boolean, ...(number | string)[]]) {
+  console.log(x);
+}
+
+함수("동서녹차", true, "맛잇다", 2000, "1");
